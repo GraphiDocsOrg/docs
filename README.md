@@ -1,27 +1,19 @@
 # Static page generator for documenting GraphQL Schema
 
-[![Build Status](https://travis-ci.org/2fd/graphdoc.svg?branch=master)](https://travis-ci.org/2fd/graphdoc)
-![npm (scoped)](https://img.shields.io/npm/v/@2fd/graphdoc.svg?style=flat-square)
-![GitHub tag](https://img.shields.io/github/tag/2fd/graphdoc.svg?style=flat-square)
+[![Build Status](https://travis-ci.org/graphidocs/docs.svg?branch=master)](https://travis-ci.org/2fd/graphdoc)
+![npm (scoped)](https://img.shields.io/npm/v/@graphidocs/docs.svg?style=flat-square)
+![GitHub tag](https://img.shields.io/github/tag/graphidocs/docs.svg?style=flat-square)
 
-* [demos](#demos)
 * [install](#install)
 * [use](#use)
 * [plugin](#plugin)
 * [template](#template)
 * [contributors](#contributors)
 
-## Demos
-
-* Facebook Test [Star Wars](https://2fd.github.io/graphdoc/star-wars)
-* [Github V4 API](https://2fd.github.io/graphdoc/github)
-* [Shopify API](https://2fd.github.io/graphdoc/shopify/)
-* [Pokemon GraphQL](https://2fd.github.io/graphdoc/pokemon)
-
 ## Install
 
 ```bash
-    npm install -g @2fd/graphdoc
+    npm install -g @graphidocs/docs
 ```
 
 ## Use
@@ -44,7 +36,7 @@
     > graphdoc -s ./schema.js -o ./doc/schema
 ```
 
-> [`./schema.graphql`](https://github.com/2fd/graphdoc/blob/master/test/starwars.graphql) must be able to be interpreted with [graphql-js/utilities#buildSchema](http://graphql.org/graphql-js/utilities/#buildschema)
+> [`./schema.graphql`](https://github.com/graphidocs/docs/blob/master/test/starwars.graphql) must be able to be interpreted with [graphql-js/utilities#buildSchema](http://graphql.org/graphql-js/utilities/#buildschema)
 
 
 ### Generate documentation from json file
@@ -53,7 +45,7 @@
     > graphdoc -s ./schema.json -o ./doc/schema
 ```
 
-> `./schema.json` contains the result of [GraphQL introspection query](https://github.com/2fd/graphdoc/blob/gh-pages/introspection.graphql)
+> `./schema.json` contains the result of [GraphQL introspection query](https://github.com/graphidocs/docs/blob/gh-pages/introspection.graphql)
 
 ### Puts the options in your `package.json`
 
@@ -111,7 +103,7 @@ And execute
 In graphdoc a plugin is simply an object that controls the content that is displayed
 on every page of your document.
 
-This object should only implement the [`PluginInterface`](https://github.com/2fd/graphdoc/blob/master/lib/interface.d.ts#L12-L117).
+This object should only implement the [`PluginInterface`](https://github.com/graphidocs/docs/blob/master/lib/interface.d.ts#L12-L117).
 
 ### Make a Plugin
 
@@ -121,7 +113,7 @@ or a `constructor` and export it as `default`
 If you export your plugin as a constructor, when going to be initialized,
 will receive three parameters
 
-* `schema`: The full the result of [GraphQL instrospection query](https://github.com/2fd/graphdoc/blob/gh-pages/introspection.graphql)
+* `schema`: The full the result of [GraphQL instrospection query](https://github.com/graphidocs/docs/blob/gh-pages/introspection.graphql)
 * `projectPackage`: The content of `package.json` of current project (or the content of file defined with `--config` flag).
 * `graphdocPackag`: The content of `package.json` of graphdoc.
 
@@ -217,6 +209,4 @@ You can use the plugins in 2 ways.
 
 ## Contributors
 
-- [<img src="https://avatars2.githubusercontent.com/u/1301838?v=4" width="40"> bitliner](https://github.com/bitliner)
-- [<img src="https://avatars0.githubusercontent.com/u/605742?v=4" width="40"> kbariotis](https://github.com/kbariotis)
-- [<img src="https://avatars1.githubusercontent.com/u/2903325?v=4" width="40"> dnalborczyk](https://github.com/dnalborczyk)
+- [<img src="https://avatars2.githubusercontent.com/u/325473?v=4" width="40"> mitchellsimoens](https://github.com/mitchellsimoens)
