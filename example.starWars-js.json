@@ -1,9 +1,9 @@
 {
-  "name": "@2fd/graphdoc",
+  "name": "@graphidocs/graphidocs",
   "version": "1.2.0",
   "description": "Static page generator for documenting GraphQL Schema",
-  "homepage": "https://github.com/2fd/graphdoc#readme",
-  "graphdoc": {
+  "homepage": "https://github.com/GraphiDocsOrg/docs#readme",
+  "graphidocs": {
     "ga": "UA-54154153-2",
     "schemaFile": "./test/starWars.js",
     "output": "./gh-pages/star-wars",

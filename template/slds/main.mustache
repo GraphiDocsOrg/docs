@@ -6,13 +6,13 @@
             <span class="slds-text-title--caps">Types<span>
         </button>
         </div>
-        {{#projectPackage.graphdoc.graphiql}}
+        {{#projectPackage.graphidocs.graphiql}}
         <div class="slds-col--bump-left">
-        <a class="slds-button js-toggle-navigation" target="_blank" href="{{projectPackage.graphdoc.graphiql}}">
+        <a class="slds-button js-toggle-navigation" target="_blank" href="{{projectPackage.graphidocs.graphiql}}">
             <span class="slds-text-title--caps">GraphiQL<span>
             <i class="material-icons slds-button__icon slds-button__icon--rigth">open_in_new</i>
         </a>
-        {{/projectPackage.graphdoc.graphiql}}
+        {{/projectPackage.graphidocs.graphiql}}
         </div>
     </div>
 {{!
@@ -38,7 +38,7 @@
 {{#documents}}
 <section>
     <div class="container">
-        <h2 id="{{#slug}}{{title}}{{/slug}}" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+        <h2 id="{{#slug}}{{title}}{{/slug}}" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
             <a href="#{{#slug}}{{title}}{{/slug}}">
                 <i class="material-icons">link</i>
             </a>
@@ -48,12 +48,12 @@
     </div>
 </section>
 {{/documents}}
-{{#graphdocPackage}}
+{{#graphidocsackage}}
 <footer>
 <div class="container slds-p-around--large">
     <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="{{{graphdocPackage.homepage}}}" target="_blank">graphdoc {{graphdocPackage.version}}</a>
+        Generated with <a href="{{{graphidocsPackage.homepage}}}" target="_blank">graphidocs {{graphidocsPackage.version}}</a>
     </p>
 </div>
 </footer>
-{{/graphdocPackage}}
+{{/graphidocsPackage}}

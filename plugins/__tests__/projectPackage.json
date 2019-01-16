@@ -3,7 +3,7 @@
   "version": "x.x.x",
   "description": "Example project",
   "author": "Fede Ramirez <i@2fd.me>",
-  "graphdoc": {
+  "graphidocs": {
     "baseUrl": "/",
     "force": true,
     "verbose": true

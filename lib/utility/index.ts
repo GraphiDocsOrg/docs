@@ -1,35 +1,35 @@
 export {
-    HTML,
-    split
+  HTML,
+  split
 } from './html';
 
 export {
-    NavigationItem,
-    NavigationSection,
-    DocumentSection,
-    Plugin,
-    sortTypes
+  NavigationItem,
+  NavigationSection,
+  DocumentSection,
+  Plugin,
+  sortTypes
 } from './plugin';
 
 export {
-    query,
-    getTypeOf,
-    getFilenameOf,
-    ENUM,
-    INPUT_OBJECT,
-    INTERFACE,
-    LIST,
-    NON_NULL,
-    OBJECT,
-    SCALAR,
-    UNION
+  query,
+  getTypeOf,
+  getFilenameOf,
+  ENUM,
+  INPUT_OBJECT,
+  INTERFACE,
+  LIST,
+  NON_NULL,
+  OBJECT,
+  SCALAR,
+  UNION
 } from './introspection';
 
 export {
-    Output
+  Output
 } from './output';
 
 
 export {
-    createData
+  createData
 } from './template';
