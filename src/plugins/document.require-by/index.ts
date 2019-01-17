@@ -17,9 +17,6 @@ import {
   SchemaType,
 } from '../../lib/interface';
 
-// Fix signature
-const stript: typeof striptags.default = striptags as any;
-
 export default class RequireByPlugin extends Plugin implements PluginInterface {
   requireBy: Map<string, SchemaType[]>;
 
@@ -101,7 +98,7 @@ export default class RequireByPlugin extends Plugin implements PluginInterface {
   getDescription(type: SchemaType): string {
     return '<li>' +
       '<a href="' + this.url(type) + '" title="' +
-      type.name + ' - ' + stript(type.description).replace(/"/gi, '&quot;') +
+      type.name + ' - ' + striptags(type.description).replace(/"/gi, '&quot;') +
       '">' +
       type.name + '<em>' + type.description + '</em>' +
       '</a>' +

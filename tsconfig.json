@@ -6,10 +6,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "module": "commonjs",
-    "types": [
-      "node",
-      "jest"
-    ],
     "strictNullChecks": true,
     "sourceMap": false,
 
@@ -17,6 +13,7 @@
     "rootDir": "src",
     "declaration": true,
     "inlineSourceMap": true,
+    "skipLibCheck": true,
 
     "strict": true /* Enable all strict type-checking options. */,
 
@@ -43,11 +40,18 @@
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     "lib": ["es2017"],
-    "typeRoots": ["node_modules/@types", "lib/types"]
+    "types": ["node", "jest"],
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
+  "include": [
+    "./src/**/*"
+  ],
   "exclude": [
     "node_modules",
+    "dist",
     "gh-pages",
-    "templates"
+    "templates",
+    "**/*.spec.ts",
+    "**/__tests__"
   ]
 }

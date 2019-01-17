@@ -1,15 +1,14 @@
 language: node_js
 node_js:
-  - "7"
-  - "6"
-  - "5"
-  - "4"
+  - "8"
+  - "9"
+  - "10"
+  - "11"
 cache:
   directories:
     - "node_modules"
 install:
   - npm install
-  - npm run compile
   - npm install -g jest
 before_script:
   - npm prune --production
@@ -19,3 +18,6 @@ before_script:
   - npm run doc.starwars-js
   - npm run doc.starwars
   - npm run doc.scaphold
+script:
+  - npm run compile
+  - npm test

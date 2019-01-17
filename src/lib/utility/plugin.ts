@@ -85,7 +85,7 @@ export abstract class Plugin implements PluginInterface, PluginImplementedInterf
 
   directiveMap: { [name: string]: Directive } = {};
 
-  getNavigations(_buildForType?: string): NavigationSection[] {
+  getNavigations(_buildForType?: string): NavigationSection[] | Promise<NavigationSectionInterface[]> {
     return [];
   }
 

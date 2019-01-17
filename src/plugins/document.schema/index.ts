@@ -28,7 +28,7 @@ const MAX_CODE_LEN = 80;
 // const MAX_COMMENT_LEN = 80;
 
 export default class SchemaPlugin extends Plugin implements PluginInterface {
-  private html: HTML;
+  private html!: HTML;
 
   getHeaders(): string[] {
     return [

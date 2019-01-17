@@ -2,6 +2,7 @@
 logs
 *.log
 *.lock
+!yarn.lock
 npm-debug.log*
 
 # Runtime data
