@@ -39,11 +39,6 @@ jspm_packages
 .node_repl_history
 
 .vscode
-*.js
-!template/**/*.js
-!plugins/**/assets/*.js
-!bin/**/*.js
-*.js.map
 gh-pages
-dist/*
-/.idea
+dist
+.idea
