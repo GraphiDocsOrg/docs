@@ -103,14 +103,14 @@ export abstract class Plugin implements PluginInterface, PluginImplementedInterf
       : [];
 
     this.document.directives = this.document.directives
-        ? this.document.directives.sort((a, b) => a.name.localeCompare(b.name))
+        ? this.document.directives.sort((a: any, b: any) => a.name.localeCompare(b.name))
         : [];
 
-    this.document.types.forEach((type) => {
+    this.document.types.forEach((type: any): void => {
       this.typeMap[type.name] = type;
     });
 
-    this.document.directives.forEach((directive) => {
+    this.document.directives.forEach((directive: any): void => {
       this.directiveMap[directive.name] = directive;
     });
 

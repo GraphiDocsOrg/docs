@@ -5,8 +5,8 @@ export default class NavigationScalars extends Plugin implements PluginInterface
 
   getTypes(buildForType?: string): NavigationItemInterface[] {
     return this.document.types
-      .filter(type => type.kind === SCALAR)
-      .map(type => new NavigationItem(
+      .filter((type: any): boolean => type.kind === SCALAR)
+      .map((type: any) => new NavigationItem(
         type.name,
         this.url(type),
         type.name === buildForType

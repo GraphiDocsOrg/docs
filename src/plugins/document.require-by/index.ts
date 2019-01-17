@@ -64,16 +64,16 @@ export default class RequireByPlugin extends Plugin implements PluginInterface {
     let deps: string[] = [];
 
     if (Array.isArray(type.interfaces) && type.interfaces.length > 0) {
-      type.interfaces.forEach(i => deps.push(i.name));
+      type.interfaces.forEach((i: any) => deps.push(i.name));
     }
 
     if (Array.isArray(type.fields) && type.fields.length > 0) {
       type.fields
-        .forEach(field => {
+        .forEach((field: any): void => {
           deps.push(getTypeOf(field.type).name);
 
           if (Array.isArray(field.args) && field.args.length > 0) {
-            field.args.forEach(arg => {
+            field.args.forEach((arg: any) => {
               deps.push(getTypeOf(arg.type).name);
             });
           }
@@ -81,13 +81,13 @@ export default class RequireByPlugin extends Plugin implements PluginInterface {
     }
 
     if (Array.isArray(type.inputFields) && type.inputFields.length > 0) {
-      type.inputFields.forEach(field => {
+      type.inputFields.forEach((field: any): void => {
         deps.push(getTypeOf(field.type).name);
       });
     }
 
     if (type.kind !== INTERFACE && Array.isArray(type.possibleTypes) && type.possibleTypes.length > 0) {
-      type.possibleTypes.forEach(t => {
+      type.possibleTypes.forEach((t: any): void => {
         deps.push(getTypeOf(t).name);
       });
     }

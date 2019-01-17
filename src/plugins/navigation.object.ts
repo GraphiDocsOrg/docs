@@ -4,7 +4,7 @@ import { PluginInterface, NavigationItemInterface } from '../lib/interface';
 export default class NavigationObjects extends Plugin implements PluginInterface {
   getTypes(buildForType?: string): NavigationItemInterface[] {
     const objects = this.document.types
-      .filter(type => {
+      .filter((type: any): boolean => {
         return type.kind === OBJECT &&
           (!this.queryType || this.queryType.name !== type.name) &&
           (!this.mutationType || this.mutationType.name !== type.name) &&
@@ -12,7 +12,7 @@ export default class NavigationObjects extends Plugin implements PluginInterface
       });
 
     return objects
-      .map(type => new NavigationItem(
+      .map((type: any) => new NavigationItem(
         type.name,
         this.url(type),
         type.name === buildForType

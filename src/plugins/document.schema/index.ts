@@ -66,7 +66,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
 
     const directive = this.document
       .directives
-      .find((directive) => directive.name === (buildForType as string));
+      .find((directive: any): boolean => directive.name === (buildForType as string));
 
     if (directive) {
       return this.directive(directive);
@@ -74,7 +74,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
 
     const type = this.document
       .types
-      .find((type) => type.name === (buildForType as string));
+      .find((type: any): boolean => type.name === (buildForType as string));
 
     if (type) {
       switch (type.kind) {
@@ -113,7 +113,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
 
     return '(' +
       fieldOrDirectives.args
-      .map((arg) => this.argument(arg))
+      .map((arg: any) => this.argument(arg))
       .join(', ') +
       ')';
   }
@@ -123,7 +123,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
       return 0;
     }
 
-    return fieldOrDirectives.args.reduce((sum, arg) => sum + this.argumentLength(arg), 2);
+    return fieldOrDirectives.args.reduce((sum: number, arg: any) => sum + this.argumentLength(arg), 2);
   }
 
   argumentsMultiline(fieldOrDirectives: Field | Directive): string[] {
@@ -134,10 +134,10 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
     const maxIndex = fieldOrDirectives.args.length - 1;
 
     return fieldOrDirectives.args
-      .map((arg, index) => {
-        return index < maxIndex ?
-        this.argument(arg) + ',' :
-        this.argument(arg);
+      .map((arg: any, index: number) => {
+        return index < maxIndex
+          ? this.argument(arg) + ','
+          : this.argument(arg);
       });
   }
 
@@ -200,7 +200,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
     return this.html.line(
       this.html.keyword('directive') + ' ' +
       this.html.keyword('@' + directive.name) + this.arguments(directive) + ' on ' +
-      directive.locations.map(location => this.html.keyword(location)).join(' | ')
+      directive.locations.map((location: any) => this.html.keyword(location)).join(' | ')
     );
   }
 
@@ -214,7 +214,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
     return this.html.line(this.html.keyword('enum') + ' ' + this.html.identifier(type) + ' {') +
       type.enumValues
       .reduce(reduceEnumValues, [])
-      .map(line => this.html.line(this.html.tab(line)))
+      .map((line: any) => this.html.line(this.html.tab(line)))
       .join('') +
       this.html.line('}');
   }
@@ -394,7 +394,7 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
     return this.html.line(
       this.html.keyword('union') + ' ' + this.html.identifier(type) + ' = ' +
       type.possibleTypes
-      .map(type => this.html.useIdentifier(type, this.url(type)))
+      .map((type: any) => this.html.useIdentifier(type, this.url(type)))
       .join(' | ')
     );
   }

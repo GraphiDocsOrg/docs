@@ -5,20 +5,20 @@ node_js:
   - "10"
   - "11"
 cache:
+  yarn: true
   directories:
-    - "node_modules"
+    - node_modules
 install:
-  - npm install
-  - npm install -g jest
+  - yarn
 before_script:
-  - npm run compile
-  - npm test
+  - yarn compile
+  - yarn test
 script:
-  - npm prune --production
+  - yarn --production
   - mkdir gh-pages
-  - npm run doc.github
-  - npm run doc.pokemon
-  # - npm run doc.scaphold
-  - npm run doc.shopify
-  - npm run doc.starwars-js
-  - npm run doc.starwars
+  - yarn doc.github
+  - yarn doc.pokemon
+  # - yarn doc.scaphold
+  -  yarn doc.shopify
+  - yarn doc.starwars-js
+  - yarn doc.starwars

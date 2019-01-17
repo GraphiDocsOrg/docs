@@ -4,7 +4,7 @@ import { PluginInterface, NavigationItemInterface } from '../lib/interface';
 export default class NavigationDirectives extends Plugin implements PluginInterface {
   getTypes(buildForType?: string): NavigationItemInterface[] {
     return this.document.directives
-      .map(directive => new NavigationItem(
+      .map((directive: any) => new NavigationItem(
         directive.name,
         this.url(directive),
         directive.name === buildForType
