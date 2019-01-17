@@ -8,17 +8,17 @@
   },
   "scripts": {
     "sass": "node-sass --output-style compressed template/slds/styles/graphidocs.scss > template/slds/styles/graphidocs.css",
-    "compile": "tsc -p .",
+    "compile": "tsc",
     "compile:once": "tsc --noEmit",
     "compile:watch": "tsc --watch --noEmit",
-    "declaration": "tsc -d -p tsconfig.json",
-    "readme": "node ./README.js",
-    "doc.github": "node bin/graphidocs.js -c example.github.json -f -v",
-    "doc.pokemon": "node bin/graphidocs.js -c example.pokemon.json -f -v",
-    "doc.shopify": "node bin/graphidocs.js -c example.shopify.json -f -v",
-    "doc.scaphold": "node bin/graphidocs.js -c example.scaphold.json -f -v",
-    "doc.starwars": "node bin/graphidocs.js -c example.starWars.json -f -v",
-    "doc.starwars-js": "node bin/graphidocs.js -c example.starWars-js.json -f -v",
+    "declaration": "tsc -d",
+    "readme": "node -r ts-node/register src/README.ts",
+    "doc.github": "node -r ts-node/register bin/graphidocs.js -c example.github.json -f -v",
+    "doc.pokemon": "node -r ts-node/register bin/graphidocs.js -c example.pokemon.json -f -v",
+    "doc.shopify": "node -r ts-node/register bin/graphidocs.js -c example.shopify.json -f -v",
+    "doc.scaphold": "node -r ts-node/register bin/graphidocs.js -c example.scaphold.json -f -v",
+    "doc.starwars": "node -r ts-node/register bin/graphidocs.js -c example.starWars.json -f -v",
+    "doc.starwars-js": "node -r ts-node/register bin/graphidocs.js -c example.starWars-js.json -f -v",
     "test": "jest"
   },
   "repository": {
@@ -67,6 +67,7 @@
     "jest": "23.6.0",
     "node-sass": "3.13.1",
     "ts-jest": "23.10.5",
+    "ts-node": "7.0.1",
     "typescript": "3.2.2"
   },
   "jest": {

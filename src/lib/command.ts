@@ -25,7 +25,7 @@ import {
   OutputInterface
 } from '@2fd/command';
 
-const graphidocsPakageJSON = require(path.resolve(__dirname, '../package.json'));
+const graphidocsPakageJSON = require(path.resolve(__dirname, '../../package.json'));
 
 export type Params = {};
 
@@ -271,6 +271,7 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
         case '.graphql':
           return idlSchemaLoader(projectPackage.graphidocs);
         case '.js':
+        case '.ts':
           return jsSchemaLoader(projectPackage.graphidocs);
         default:
           return Promise.reject(new Error(

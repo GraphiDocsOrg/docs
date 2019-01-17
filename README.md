@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/graphidocs/docs.svg?branch=master)](https://travis-ci.org/GraphiDocsOrg/docs)
 ![npm (scoped)](https://img.shields.io/npm/v/@graphidocs/docs.svg?style=flat-square)
-![GitHub tag](https://img.shields.io/github/tag/graphidocs/docs.svg?style=flat-square)
+![GitHub tag](https://img.shields.io/github/tag/GraphiDocsOrg/docs.svg?style=flat-square)
 
 * [install](#install)
 * [use](#use)
@@ -13,7 +13,7 @@
 ## Install
 
 ```bash
-    npm install -g @graphidocs/docs
+    npm install -g @graphidocs/graphidocs
 ```
 
 ## Use
@@ -36,7 +36,7 @@
     > graphidocs -s ./schema.js -o ./doc/schema
 ```
 
-> [`./schema.graphql`](https://github.com/graphidocs/docs/blob/master/test/starwars.graphql) must be able to be interpreted with [graphql-js/utilities#buildSchema](http://graphql.org/graphql-js/utilities/#buildschema)
+> [`./schema.graphql`](https://github.com/GraphiDocsOrg/docs/blob/master/test/starwars.graphql) must be able to be interpreted with [graphql-js/utilities#buildSchema](http://graphql.org/graphql-js/utilities/#buildschema)
 
 
 ### Generate documentation from json file
@@ -45,7 +45,7 @@
     > graphidocs -s ./schema.json -o ./doc/schema
 ```
 
-> `./schema.json` contains the result of [GraphQL introspection query](https://github.com/graphidocs/docs/blob/gh-pages/introspection.graphql)
+> `./schema.json` contains the result of [GraphQL introspection query](https://github.com/GraphiDocsOrg/docs/blob/gh-pages/introspection.graphql)
 
 ### Puts the options in your `package.json`
 
@@ -73,10 +73,10 @@ And execute
 ```bash
 
     > graphidocs -h
-
+    
     Static page generator for documenting GraphQL Schema v2.4.0
 
-    Usage: node bin/graphidocs.js [OPTIONS]
+    Usage: node bin/graphidocs.js [OPTIONS] 
 
     
     [OPTIONS]:
@@ -103,7 +103,7 @@ And execute
 In graphidocs a plugin is simply an object that controls the content that is displayed
 on every page of your document.
 
-This object should only implement the [`PluginInterface`](https://github.com/graphidocs/docs/blob/master/lib/interface.d.ts#L12-L117).
+This object should only implement the [`PluginInterface`](https://github.com/GraphiDocsOrg/docs/blob/master/lib/interface.d.ts#L12-L117).
 
 ### Make a Plugin
 
@@ -113,9 +113,9 @@ or a `constructor` and export it as `default`
 If you export your plugin as a constructor, when going to be initialized,
 will receive three parameters
 
-* `schema`: The full the result of [GraphQL instrospection query](https://github.com/graphidocs/docs/blob/gh-pages/introspection.graphql)
+* `schema`: The full the result of [GraphQL instrospection query](https://github.com/GraphiDocsOrg/docs/blob/gh-pages/introspection.graphql)
 * `projectPackage`: The content of `package.json` of current project (or the content of file defined with `--config` flag).
-* `graphidocsPackage`: The content of `package.json` of graphidocs.
+* `graphidocsPackag`: The content of `package.json` of graphidocs.
 
 > For performance reasons all plugins receive the reference to the same object
 > and therefore should not modify them directly as it could affect the behavior
@@ -172,7 +172,7 @@ You can use the plugins in 2 ways.
 #### Use plugins with command line
 
 ```bash
-    > graphidocs  -p graphidocs/plugins/default \
+    > graphidocs -p graphidocs/plugins/default \
                 -p some-dependencie/plugin \
                 -p ./lib/plugin/my-own-plugin \
                 -s ./schema.json -o ./doc/schema
@@ -198,7 +198,7 @@ You can use the plugins in 2 ways.
     }
 ```
 
-### Build-in plugin
+### Built-in plugin
 
 > TODO
 
@@ -206,7 +206,12 @@ You can use the plugins in 2 ways.
 
 > TODO
 
-
 ## Contributors
 
-- [<img src="https://avatars2.githubusercontent.com/u/325473?v=4" width="40"> mitchellsimoens](https://github.com/mitchellsimoens)
+- [<img src="https://avatars1.githubusercontent.com/u/208789?v=4" width="40"> 2fd](https://github.com/2fd)
+- [<img src="https://avatars2.githubusercontent.com/u/1301838?v=4" width="40"> bitliner](https://github.com/bitliner)
+- [<img src="https://avatars1.githubusercontent.com/u/325473?v=4" width="40"> mitchellsimoens](https://github.com/mitchellsimoens)
+- [<img src="https://avatars0.githubusercontent.com/u/605742?v=4" width="40"> kbariotis](https://github.com/kbariotis)
+- [<img src="https://avatars1.githubusercontent.com/u/1648214?v=4" width="40"> Joatin](https://github.com/Joatin)
+- [<img src="https://avatars0.githubusercontent.com/u/226612?v=4" width="40"> shiroyuki](https://github.com/shiroyuki)
+- [<img src="https://avatars1.githubusercontent.com/u/2903325?v=4" width="40"> dnalborczyk](https://github.com/dnalborczyk)

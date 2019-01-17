@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import * as Handlebars from 'handlebars';
 import * as request from 'request';
+import { join } from 'path';
 
 import { readFile, writeFile } from './lib/utility/fs';
 
@@ -27,7 +28,7 @@ async function fromGithub (endpoint: string): Promise<String> {
 
 Promise
   .all([
-    readFile('../README.handlebars', 'utf8'),
+    readFile(join(__dirname, '../README.handlebars'), 'utf8'),
     fromGithub('repos/GraphiDocsOrg/docs'),
     fromGithub('repos/GraphiDocsOrg/docs/contributors')
       .then((contributors: any) => contributors.filter((c: any) => c.login !== 'GraphiDocsOrg') ),

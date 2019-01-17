@@ -11,13 +11,14 @@ install:
   - npm install
   - npm install -g jest
 before_script:
-  - npm prune --production
-  # - mkdir gh-pages
-  # - npm run doc.github
-  # - npm run doc.shopify
-  # - npm run doc.starwars-js
-  # - npm run doc.starwars
-  # - npm run doc.scaphold
-script:
   - npm run compile
   - npm test
+script:
+  - npm prune --production
+  - mkdir gh-pages
+  - npm run doc.github
+  - npm run doc.pokemon
+  # - npm run doc.scaphold
+  - npm run doc.shopify
+  - npm run doc.starwars-js
+  - npm run doc.starwars

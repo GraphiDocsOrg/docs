@@ -73,7 +73,7 @@ And execute
 ```bash
 
     > graphidocs -h
-    {{{bash "node ./bin/graphidocs.js --help"}}}
+    {{{bash "node -r ts-node/register ./bin/graphidocs.js --help"}}}
 ```
 
 ## Plugin
@@ -150,7 +150,7 @@ You can use the plugins in 2 ways.
 #### Use plugins with command line
 
 ```bash
-    > graphidocs  -p graphidocs/plugins/default \
+    > graphidocs -p graphidocs/plugins/default \
                 -p some-dependencie/plugin \
                 -p ./lib/plugin/my-own-plugin \
                 -s ./schema.json -o ./doc/schema
@@ -176,14 +176,13 @@ You can use the plugins in 2 ways.
     }
 ```
 
-### Build-in plugin
+### Built-in plugin
 
 > TODO
 
 ## Template
 
 > TODO
-
 
 ## Contributors
 

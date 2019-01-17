@@ -5,7 +5,7 @@
   "homepage": "https://github.com/GraphiDocsOrg/docs#readme",
   "graphidocs": {
     "ga": "UA-54154153-2",
-    "schemaFile": "./test/starwars.graphql",
+    "schemaFile": "./src/test/starwars.graphql",
     "output": "./gh-pages/star-wars",
     "baseUrl": "./"
   }
