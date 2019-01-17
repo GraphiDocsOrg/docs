@@ -14,11 +14,10 @@ before_script:
   - yarn compile
   - yarn test
 script:
-  - yarn --production
   - mkdir gh-pages
   - yarn doc.github
   - yarn doc.pokemon
   # - yarn doc.scaphold
-  -  yarn doc.shopify
+  - yarn doc.shopify
   - yarn doc.starwars-js
   - yarn doc.starwars
