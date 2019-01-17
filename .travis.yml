@@ -15,9 +15,9 @@ before_script:
   - yarn test
 script:
   - mkdir gh-pages
-  - yarn doc.github
-  - yarn doc.pokemon
-  # - yarn doc.scaphold
-  - yarn doc.shopify
-  - yarn doc.starwars-js
-  - yarn doc.starwars
+  - yarn doc:github
+  - yarn doc:pokemon
+  # - yarn doc:scaphold
+  - yarn doc:shopify
+  - yarn doc:starwars-js
+  - yarn doc:starwars
