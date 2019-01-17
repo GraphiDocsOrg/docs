@@ -1,5 +1,3 @@
-///<reference path="./interface.d.ts"/>
-
 import * as path from 'path';
 import * as fs from 'fs';
 import * as glob from 'glob';
