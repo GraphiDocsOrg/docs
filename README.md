@@ -1,6 +1,6 @@
 # Static page generator for documenting GraphQL Schema
 
-[![Build Status](https://travis-ci.org/graphidocs/docs.svg?branch=master)](https://travis-ci.org/GraphiDocsOrg/docs)
+[![Build Status](https://travis-ci.org/GraphiDocsOrg/docs.svg?branch=master)](https://travis-ci.org/GraphiDocsOrg/docs)
 ![npm (scoped)](https://img.shields.io/npm/v/@graphidocs/docs.svg?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/tag/GraphiDocsOrg/docs.svg?style=flat-square)
 
@@ -74,7 +74,7 @@ And execute
 
     > graphidocs -h
     
-    Static page generator for documenting GraphQL Schema v2.4.0
+    Static page generator for documenting GraphQL Schema v1.0.0
 
     Usage: node bin/graphidocs.js [OPTIONS] 
 
