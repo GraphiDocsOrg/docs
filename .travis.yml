@@ -1,21 +1,24 @@
 language: node_js
 node_js:
-  - "7"
-  - "6"
-  - "5"
-  - "4"
+  - "8"
+  - "10"
+  - "11"
 cache:
+  yarn: true
   directories:
-    - "node_modules"
+    - node_modules
 install:
-  - npm install
-  - npm run compile
-  - npm install -g jest
+  - yarn
 before_script:
-  - npm prune --production
+  - yarn lint
+  - yarn compile
+  - yarn test
+script:
+  - yarn sass
   - mkdir gh-pages
-  - npm run doc.github
-  - npm run doc.shopify
-  - npm run doc.starwars-js
-  - npm run doc.starwars
-  - npm run doc.scaphold
+  - yarn doc:github
+  - yarn doc:pokemon
+  # - yarn doc:scaphold
+  - yarn doc:shopify
+  - yarn doc:starwars-js
+  - yarn doc:starwars
