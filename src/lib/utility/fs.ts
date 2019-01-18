@@ -1,7 +1,7 @@
-import * as path from 'path';
+import * as Bluebird from 'bluebird';
 import * as fs from 'fs';
 import * as fse from 'fs-extra';
-import * as Bluebird from 'bluebird';
+import * as path from 'path';
 
 /**
  * resolve

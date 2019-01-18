@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import * as url from 'url';
 
 import {
@@ -18,7 +19,7 @@ import { getFilenameOf } from './introspection';
  * Plugin Base implementation
  */
 export abstract class Plugin implements PluginInterface, PluginImplementedInterface {
-  static collect<T>(collection: T[][]): T[] {
+  public static collect<T>(collection: T[][]): T[] {
     let result: T[] = [];
 
     collection
@@ -31,63 +32,59 @@ export abstract class Plugin implements PluginInterface, PluginImplementedInterf
     return result;
   }
 
-  static async collectNavigations(plugins: PluginInterface[], buildForType?: string): Promise<NavigationSectionInterface[]> {
+  public static async collectNavigations(plugins: PluginInterface[], buildForType?: string): Promise<NavigationSectionInterface[]> {
     const navigationCollection = await Promise
       .all<NavigationSectionInterface[]>(plugins.map(plugin =>
         plugin.getNavigations
           ? plugin.getNavigations(buildForType)
           : null as any
-      ))
+      ));
 
-    return Plugin.collect(navigationCollection)
+    return Plugin.collect(navigationCollection);
   }
 
-  static async collectDocuments(plugins: PluginInterface[], buildForType?: string): Promise<DocumentSectionInterface[]> {
+  public static async collectDocuments(plugins: PluginInterface[], buildForType?: string): Promise<DocumentSectionInterface[]> {
     const navigationCollection = await Promise
       .all<DocumentSectionInterface[]>(plugins.map(plugin =>
         plugin.getDocuments
           ? plugin.getDocuments(buildForType)
           : null as any
-      ))
+      ));
 
-    return Plugin.collect(navigationCollection)
+    return Plugin.collect(navigationCollection);
   }
 
-  static async collectHeaders(plugins: PluginInterface[], buildForType?: string): Promise<string[]> {
+  public static async collectHeaders(plugins: PluginInterface[], buildForType?: string): Promise<string[]> {
     const headerCollection = await Promise
       .all<string[]>(plugins.map(plugin =>
         plugin.getHeaders
           ? plugin.getHeaders(buildForType)
           : null as any
-      ))
+      ));
 
-    return Plugin.collect(headerCollection)
+    return Plugin.collect(headerCollection);
   }
 
-  static async collectAssets(plugins: PluginInterface[]): Promise<string[]> {
+  public static async collectAssets(plugins: PluginInterface[]): Promise<string[]> {
     const assetCollection = await Promise
       .all<string[]>(plugins.map(plugin =>
         plugin.getAssets
           ? plugin.getAssets()
           : null as any
-      ))
+      ));
 
-    return Plugin.collect(assetCollection)
+    return Plugin.collect(assetCollection);
   }
 
-  queryType: SchemaType | null = null;
+  public queryType: SchemaType | null = null;
 
-  mutationType: SchemaType | null = null;
+  public mutationType: SchemaType | null = null;
 
-  subscriptionType: SchemaType | null = null;
+  public subscriptionType: SchemaType | null = null;
 
-  typeMap: { [name: string]: SchemaType } = {};
+  public typeMap: { [name: string]: SchemaType } = {};
 
-  directiveMap: { [name: string]: Directive } = {};
-
-  getNavigations(_buildForType?: string): NavigationSection[] | Promise<NavigationSectionInterface[]> {
-    return [];
-  }
+  public directiveMap: { [name: string]: Directive } = {};
 
   // getDocuments?: (buildForType?: string) => DocumentSectionInterface[] | PromiseLike<DocumentSectionInterface[]>;
   // getHeaders?: (buildForType?: string) => string[] | PromiseLike<string[]>;
@@ -127,7 +124,11 @@ export abstract class Plugin implements PluginInterface, PluginImplementedInterf
     }
   }
 
-  url(type: TypeRef): string {
+  public getNavigations(_buildForType?: string): NavigationSection[] | Promise<NavigationSectionInterface[]> {
+    return [];
+  }
+
+  public url(type: TypeRef): string {
     return url.resolve(this.projectPackage.graphidocs.baseUrl, getFilenameOf(type));
   }
 }
@@ -165,6 +166,7 @@ export class DocumentSection implements DocumentSectionInterface {
 
 function priorityType(type: SchemaType): number {
   return (
+    // tslint:disable-next-line:no-bitwise
     0 /* initial priority */ |
     (type.name[0] === '_' ? 1 : 0) /* protected type priority */ |
     (type.name[0] === '_' && type.name[1] === '_' ? 2 : 0) /* spec type priority */

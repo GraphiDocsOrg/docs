@@ -7,9 +7,13 @@
     "noUnusedParameters": true,
     "module": "commonjs",
     "sourceMap": false,
+    "resolveJsonModule": true,
 
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDirs": [
+      "src",
+      "."
+    ],
     "declaration": true,
     "inlineSourceMap": true,
     "skipLibCheck": true,
@@ -43,7 +47,7 @@
     "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": [
-    "./src/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",

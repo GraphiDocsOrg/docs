@@ -1,24 +1,24 @@
 import { resolve } from 'path';
 import * as striptags from 'striptags';
 import {
-  SCALAR,
-  OBJECT,
-  INPUT_OBJECT,
-  INTERFACE,
-  ENUM,
-  UNION,
-  Plugin,
-  getTypeOf,
-} from '../../lib/utility';
-import {
-  PluginInterface,
   DocumentSectionInterface,
+  PluginInterface,
   Schema,
   SchemaType,
 } from '../../lib/interface';
+import {
+  ENUM,
+  getTypeOf,
+  INPUT_OBJECT,
+  INTERFACE,
+  OBJECT,
+  Plugin,
+  SCALAR,
+  UNION,
+} from '../../lib/utility';
 
 export default class RequireByPlugin extends Plugin implements PluginInterface {
-  requireBy: Map<string, SchemaType[]>;
+  public requireBy: Map<string, SchemaType[]>;
 
   constructor(
       public document: Schema,
@@ -54,14 +54,14 @@ export default class RequireByPlugin extends Plugin implements PluginInterface {
     }
   }
 
-  getAssets() {
+  public getAssets() {
     return [
       resolve(__dirname, 'require-by.css')
     ];
 }
 
-  getDependencies(type: SchemaType): string[] {
-    let deps: string[] = [];
+  public getDependencies(type: SchemaType): string[] {
+    const deps: string[] = [];
 
     if (Array.isArray(type.interfaces) && type.interfaces.length > 0) {
       type.interfaces.forEach((i: any) => deps.push(i.name));
@@ -95,52 +95,48 @@ export default class RequireByPlugin extends Plugin implements PluginInterface {
     return deps;
   }
 
-  getDescription(type: SchemaType): string {
-    return '<li>' +
-      '<a href="' + this.url(type) + '" title="' +
-      type.name + ' - ' + striptags(type.description).replace(/"/gi, '&quot;') +
-      '">' +
-      type.name + '<em>' + type.description + '</em>' +
-      '</a>' +
-      '<li>';
+  public getDescription(type: SchemaType): string {
+    return `<li>
+      <a href="${this.url(type)}" title="
+        ${type.name} - ${striptags(type.description).replace(/"/gi, '&quot;')}
+      ">
+        ${type.name}<em>${type.description}</em>
+      </a>
+    <li>`;
   }
 
-  getDocuments(buildForType?: string): DocumentSectionInterface[] {
+  public getDocuments(buildForType?: string): DocumentSectionInterface[] {
     if (!buildForType) {
       return [];
     }
 
     const requireBy = this.requireBy.get(buildForType);
 
-    if (!Array.isArray(requireBy) || requireBy.length === 0)
+    if (!Array.isArray(requireBy) || requireBy.length === 0) {
       return [
         {
+          description: '<div class="require-by anyone">This element is not required by anyone</div>',
           title: 'Require by',
-          description: '<div class="require-by anyone">' +
-            'This element is not required by anyone' +
-            '</div>',
         }
       ];
+    }
 
     const used = new Set();
 
     return [
       {
-        title: 'Required by',
-        description: '<ul class="require-by">' +
-          requireBy
-              .filter((t) => {
-                  return used.has(t.name) ?
-                      false : used.add(t.name);
-              })
+        description: `<ul class="require-by">
+          ${requireBy
+              .filter((t) => used.has(t.name) ? false : used.add(t.name))
               .map(t => this.getDescription(t))
-              .join('') +
-          '</ul>',
+              .join('')}
+          </ul>`,
+        title: 'Required by',
       }
     ];
   }
 
-  getHeaders(): string[] {
+  public getHeaders(): string[] {
     return [
       '<link type="text/css" rel="stylesheet" href="./assets/require-by.css" />',
     ];

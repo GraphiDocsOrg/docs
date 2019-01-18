@@ -11,6 +11,7 @@ export const INPUT_OBJECT = 'INPUT_OBJECT';
 
 export function getTypeOf(type: TypeRef): TypeRef {
   while (type.kind === LIST || type.kind === NON_NULL) {
+    // tslint:disable-next-line:no-parameter-reassignment
     type = type.ofType as TypeRef;
   }
 
@@ -21,10 +22,10 @@ export function getFilenameOf(type: TypeRef): string {
   const name = (getTypeOf(type).name as string).toLowerCase();
 
   if (name[0] === '_' && name[1] === '_') {
-    return name.slice(2) + '.spec.html';
+    return `${name.slice(2)}.spec.html`;
   }
 
-  return name + '.doc.html';
+  return `${name}.doc.html`;
 }
 
 const fullTypeFragment = `

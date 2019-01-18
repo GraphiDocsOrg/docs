@@ -5,29 +5,28 @@ import { Introspection, Schema, SchemaLoader } from '../interface';
 
 import { query as introspectionQuery } from '../utility';
 
-export type THttpSchemaLoaderOptions = {
-  endpoint: string,
-  headers: string[],
-  queries: string[],
-};
+export interface IHttpSchemaLoaderOptions {
+  endpoint: string;
+  headers: string[];
+  queries: string[];
+}
 
-async function r(options: request.OptionsWithUrl) {
+async function doRequest(options: request.OptionsWithUrl) {
   return new Bluebird<Schema>((resolve, reject) => {
-    request(options, function (error, res, body: Introspection | string) {
+    request(options, (error, res, body: Introspection | string) => {
       if (error) {
         return reject(error);
       }
 
       if ((res.statusCode as number) >= 400) {
         return reject(new Error(
-          'Unexpected HTTP Status Code ' + res.statusCode +
-          ' (' + res.statusMessage + ') from: ' + options.url
+          `Unexpected HTTP Status Code ${res.statusCode} (${res.statusMessage}) from: ${options.url}`
         ));
       }
 
       if (typeof body === 'string') {
         return reject(new Error(
-          'Unexpected response from "' + options.url + '": ' + body.slice(0, 10) + '...'
+          `Unexpected response from "${options.url}": ${body.slice(0, 10)}...`
         ));
       }
 
@@ -36,12 +35,12 @@ async function r(options: request.OptionsWithUrl) {
 });
 }
 
-export const httpSchemaLoader: SchemaLoader = async function (options: THttpSchemaLoaderOptions) {
+export const httpSchemaLoader: SchemaLoader = async (options: IHttpSchemaLoaderOptions) => {
   const requestOptions: request.OptionsWithUrl = {
-    url: options.endpoint,
-    method: 'POST',
     body: { query: introspectionQuery },
     json: true,
+    method: 'POST',
+    url: options.endpoint,
   };
 
   requestOptions.headers = options.headers.reduce((result: any, header: string) => {
@@ -60,5 +59,5 @@ export const httpSchemaLoader: SchemaLoader = async function (options: THttpSche
     return result;
   }, {});
 
-  return r(requestOptions);
+  return doRequest(requestOptions);
 };

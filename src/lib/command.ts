@@ -1,66 +1,68 @@
-import * as path from 'path';
+import {
+  BooleanFlag,
+  Command,
+  InputInterface,
+  ListValueFlag,
+  NoParams,
+  OutputInterface,
+  ValueFlag
+} from '@2fd/command';
 import * as fs from 'fs';
 import * as glob from 'glob';
 import { render } from 'mustache';
-import { Output, Plugin, getFilenameOf, createData } from './utility';
-import { readFile, writeFile, createBuildDirectory, resolve, removeBuildDirectory } from './utility/fs';
-import {
-  httpSchemaLoader,
-  idlSchemaLoader,
-  jsSchemaLoader,
-  jsonSchemaLoader
-} from './schema-loader';
+import * as path from 'path';
 import {
   PluginInterface,
   Schema,
   TypeRef,
 } from './interface';
 import {
-  Command,
-  NoParams,
-  ValueFlag,
-  ListValueFlag,
-  BooleanFlag,
-  InputInterface,
-  OutputInterface
-} from '@2fd/command';
+  httpSchemaLoader,
+  idlSchemaLoader,
+  jsonSchemaLoader,
+  jsSchemaLoader
+} from './schema-loader';
+import { createData, getFilenameOf, Output, Plugin } from './utility';
+import { createBuildDirectory, readFile, removeBuildDirectory, resolve, writeFile } from './utility/fs';
 
-const graphidocsPakageJSON = require(path.resolve(__dirname, '../../package.json'));
+// tslint:disable-next-line:no-var-requires
+const graphidocsPackageJSON = require(path.resolve(__dirname, '../../package.json'));
 
-export type Params = {};
+// tslint:disable-next-line:no-empty-interface
+export interface IParams {}
 
-export type Flags = {
-  configFile: string,
-  endpoint: string,
-  headers: string[],
-  queries: string[],
-  schemaFile: string,
-  plugins: string[],
-  template: string,
-  data: any,
-  output: string,
-  force: boolean,
-  verbose: boolean,
-  version: boolean,
-};
+export interface IFlags {
+  configFile: string;
+  endpoint: string;
+  headers: string[];
+  queries: string[];
+  schemaFile: string;
+  plugins: string[];
+  template: string;
+  data: any;
+  output: string;
+  force: boolean;
+  verbose: boolean;
+  version: boolean;
+}
 
-export type Partials = {
+export interface IPartials {
   [name: string]: string;
   index: string;
-};
+}
 
-export type ProjectPackage = {
-  graphidocs: Flags
-};
+export interface IProjectPackage {
+  graphidocs: IFlags;
+}
 
-export type Input = InputInterface<Flags, Params>;
+export type Input = InputInterface<IFlags, IParams>;
 
-export class GraphQLDocumentor extends Command<Flags, Params> {
-  description = graphidocsPakageJSON.description + ' v' + graphidocsPakageJSON.version;
+export class GraphQLDocumentor extends Command<IFlags, IParams> {
+  public description = `${graphidocsPackageJSON.description} v${graphidocsPackageJSON.version}`;
 
-  params = new NoParams();
+  public params = new NoParams();
 
-  flags = [
+  public flags = [
     new ValueFlag('configFile', ['-c', '--config'], 'Configuration file [./package.json].', String, './package.json'),
     new ValueFlag('endpoint', ['-e', '--endpoint'], 'Graphql http endpoint ["https://domain.com/graphql"].'),
     new ListValueFlag('headers', ['-x', '--header'], 'HTTP header for request (use with --endpoint). ["Authorization: Token cb8795e7"].'),
@@ -76,16 +78,16 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
     new BooleanFlag('version', ['-V', '--version'], 'Show graphidocs version.'),
   ];
 
-  async action(input: Input, out: OutputInterface) {
+  public async action(input: Input, out: OutputInterface) {
     const output = new Output(out, input.flags);
 
     try {
       if (input.flags.version) {
-        return output.out.log('graphidocs v%s', graphidocsPakageJSON.version);
+        return output.out.log('graphidocs v%s', graphidocsPackageJSON.version);
       }
 
       // Load project info
-      const projectPackageJSON: ProjectPackage = await this.getProjectPackage(input);
+      const projectPackageJSON: IProjectPackage = await this.getProjectPackage(input);
 
       // Load Schema
       const schema: Schema = await this.getSchema(projectPackageJSON);
@@ -95,7 +97,7 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
         projectPackageJSON.graphidocs.plugins,
         schema,
         projectPackageJSON,
-        graphidocsPakageJSON
+        graphidocsPackageJSON
       );
 
       projectPackageJSON.graphidocs.plugins.forEach(plugin => output.info('use plugin', plugin));
@@ -124,7 +126,7 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
       );
 
       // Collect partials
-      const partials: Partials = await this.getTemplatePartials(
+      const partials: IPartials = await this.getTemplatePartials(
         projectPackageJSON.graphidocs.template
       );
 
@@ -153,25 +155,25 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
 
       const files = await Promise.all(renderTypes);
 
-      output.ok('complete', String(files.length + 1 /* index.html */) + ' files generated.');
+      output.ok('complete', `${String(files.length + 1 /* index.html */)} files generated.`);
     } catch (err) {
       output.error(err);
     }
   }
 
-  async ensureOutputDirectory(dir: string, force: boolean) {
+  public async ensureOutputDirectory(dir: string, force: boolean) {
     try {
       const stats = fs.statSync(dir);
 
       if (!stats.isDirectory()) {
         return Promise.reject(
-          new Error('Unexpected output: ' + dir + ' is not a directory.')
+          new Error(`Unexpected output: ${dir} is not a directory.`)
         );
       }
 
       if (!force) {
         return Promise.reject(
-          new Error(dir + ' already exists (delete it or use the --force flag)')
+          new Error(`${dir} already exists (delete it or use the --force flag)`)
         );
       }
 
@@ -183,7 +185,7 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
     }
   }
 
-  getProjectPackage(input: Input) {
+  public getProjectPackage(input: Input) {
     let packageJSON: any & { graphidocs: any };
 
     try {
@@ -192,12 +194,12 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
       packageJSON = {};
     }
 
-    packageJSON.graphidocs = Object.assign(packageJSON.graphidocs || {}, input.flags);
+    packageJSON.graphidocs = {...(packageJSON.graphidocs || {}), ...input.flags};
 
     if (packageJSON.graphidocs.data) {
       const data = packageJSON.graphidocs.data;
 
-      packageJSON.graphidocs = Object.assign(data, packageJSON.graphidocs);
+      packageJSON.graphidocs = {...data, ...packageJSON.graphidocs};
     }
 
     if (packageJSON.graphidocs.plugins.length === 0) {
@@ -207,7 +209,7 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
     packageJSON.graphidocs.baseUrl = packageJSON.graphidocs.baseUrl || './';
     packageJSON.graphidocs.template = resolve(packageJSON.graphidocs.template || 'graphidocs/template/slds');
     packageJSON.graphidocs.output = path.resolve(packageJSON.graphidocs.output);
-    packageJSON.graphidocs.version = graphidocsPakageJSON.version;
+    packageJSON.graphidocs.version = graphidocsPackageJSON.version;
 
     if (!packageJSON.graphidocs.output) {
       return Promise.reject(
@@ -218,28 +220,31 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
     return Promise.resolve(packageJSON);
   }
 
-  getPluginInstances(paths: string[], schema: Schema, projectPackageJSON: object, graphidocsPakageJSON: object): PluginInterface[] {
+  public getPluginInstances(paths: string[], schema: Schema, projectPackageJSON: object, packageJSON: object): PluginInterface[] {
     return paths
-      .map(path => {
-        const absolutePaths = resolve(path);
-        const Plugin = require(absolutePaths).default;
+      .map((pathItem: any) => {
+        const absolutePaths = resolve(pathItem);
+        const plugin = require(absolutePaths).default;
 
-        return typeof Plugin === 'function'
+        return typeof plugin === 'function'
           // plugins as contructor
-          ? new Plugin(schema, projectPackageJSON, graphidocsPakageJSON)
+          ? new plugin(schema, projectPackageJSON, packageJSON)
           // plugins plain object
-          : Plugin;
+          : plugin;
       });
   }
 
-  async getTemplatePartials(templateDir: string): Promise<Partials> {
+  public async getTemplatePartials(templateDir: string): Promise<IPartials> {
+    // tslint:disable-next-line:no-shadowed-variable
     const files = await new Promise<string[]>((resolve, reject) => glob(
       '**/*.mustache',
       { cwd: templateDir },
-      (err, files) => err ? reject(err) : resolve(files)
+      (err, filesArr) => err ? reject(err) : resolve(filesArr)
     ));
 
-    const partials = {} as Partials;
+    const partials: IPartials = {
+      index: ''
+    };
 
     await Promise.all(files.map(file => {
       const name = path.basename(file, '.mustache');
@@ -250,15 +255,14 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
 
     if (!partials.index) {
       throw new Error(
-        'The index partial is missing (file ' +
-        path.resolve(templateDir, 'index.mustache') + ' not found).'
+        `The index partial is missing (file ${path.resolve(templateDir, 'index.mustache')} not found).`
       );
     }
 
     return partials;
   }
 
-  async getSchema(projectPackage: ProjectPackage): Promise<Schema> {
+  public async getSchema(projectPackage: IProjectPackage): Promise<Schema> {
     if (projectPackage.graphidocs.schemaFile) {
       const schemaFileExt = path.extname(projectPackage.graphidocs.schemaFile);
 
@@ -275,23 +279,23 @@ export class GraphQLDocumentor extends Command<Flags, Params> {
           return jsSchemaLoader(projectPackage.graphidocs);
         default:
           return Promise.reject(new Error(
-            'Unexpected schema extension name: ' + schemaFileExt
+            `Unexpected schema extension name: ${schemaFileExt}`
           ));
       }
-    } else if (projectPackage.graphidocs.endpoint) {
+    }  if (projectPackage.graphidocs.endpoint) {
       return httpSchemaLoader(projectPackage.graphidocs);
-    } else {
-      return Promise.reject(
-        new Error('Endpoint (--endpoint, -e) or Schema File (--schema, -s) are require.')
-      );
     }
+
+    return Promise.reject(
+      new Error('Endpoint (--endpoint, -e) or Schema File (--schema, -s) are require.')
+    );
   }
 
-  async renderFile(projectPackageJSON: ProjectPackage, partials: Partials, plugins: PluginInterface[], type?: TypeRef) {
-    const templateData = await createData(projectPackageJSON, graphidocsPakageJSON, plugins, type);
+  public async renderFile(projectPackageJSON: IProjectPackage, partials: IPartials, plugins: PluginInterface[], type?: TypeRef) {
+    const templateData = await createData(projectPackageJSON, graphidocsPackageJSON, plugins, type);
     const file = type ? getFilenameOf(type) : 'index.html';
     const filepath = path.resolve(projectPackageJSON.graphidocs.output, file);
 
-    return await writeFile(filepath, render(partials.index, templateData, partials));
+    return writeFile(filepath, render(partials.index, templateData, partials));
   }
 }

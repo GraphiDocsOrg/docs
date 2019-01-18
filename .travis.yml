@@ -11,6 +11,7 @@ cache:
 install:
   - yarn
 before_script:
+  - yarn lint
   - yarn compile
   - yarn test
 script:

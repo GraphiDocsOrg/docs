@@ -19,7 +19,7 @@ interface Character {
   # All secrets about their past.
   secretBackstory: String
 }
-`
+`;
 
 const Droid = `
 # A mechanical creature in the Star Wars universe.
@@ -42,7 +42,7 @@ type Droid implements Character {
   # The primary function of the droid.
   primaryFunction: String
 }
-`
+`;
 
 const Episode = `
 # One of the films in the Star Wars Trilogy
@@ -56,7 +56,7 @@ enum Episode {
   # Released in 1983.
   JEDI
 }
-`
+`;
 
 const Human = `
 # A humanoid creature in the Star Wars universe.
@@ -79,7 +79,7 @@ type Human implements Character {
   # Where are they from and how they came to be who they are.
   secretBackstory: String
 }
-`
+`;
 
 const Mutation = `
 # Root Mutation
@@ -90,7 +90,7 @@ type Mutation {
     episode: Episode!
   ): Episode
 }
-`
+`;
 
 const Query = `
 # Root query
@@ -113,14 +113,14 @@ type Query {
     id: ID!
   ): Droid
 }
-`
+`;
 
 const Schema = `
 schema {
     query: Query
     mutation: Mutation
 }
-`
+`;
 
 export default () => [
     Character,
@@ -130,4 +130,4 @@ export default () => [
     Mutation,
     Query,
     Schema,
-]
+];

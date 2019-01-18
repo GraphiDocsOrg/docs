@@ -1,26 +1,26 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLNonNull } from 'graphql';
+import * as express from 'express';
+import * as expressGraphql from 'express-graphql';
+import { GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
+import * as packageJson from '../../package.json';
 
-const pack = require('../package.json');
+const app = express();
 
 export const EmptySchema = new GraphQLSchema({
   query: new GraphQLObjectType({
-    name: 'Query',
     description: 'Root query',
     fields: {
       version: {
+        resolve: () => packageJson.version,
         type: new GraphQLNonNull(GraphQLString),
-        resolve: () => pack.version
       }
-    }
+    },
+    name: 'Query',
   })
 });
 
-const app = require('express')();
-const graphqlHTTP = require('express-graphql');
-
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql', expressGraphql({
+  graphiql: true,
   schema: EmptySchema,
-  graphiql: true
 }));
 
 app.listen(4000);

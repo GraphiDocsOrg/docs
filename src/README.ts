@@ -1,21 +1,21 @@
 import { execSync } from 'child_process';
 import * as Handlebars from 'handlebars';
-import * as request from 'request';
 import { join } from 'path';
+import * as request from 'request';
 
 import { readFile, writeFile } from './lib/utility/fs';
 
 Handlebars.registerHelper('bash', (command: string) =>
   execSync(command).toString().replace(/\[\d{1,2}m/gi, '')
-)
+);
 
-async function fromGithub (endpoint: string): Promise<String> {
+async function fromGithub (endpoint: string): Promise<string> {
   return new Promise((resolve, reject) => {
     request({
-      method: 'GET',
-      url: 'https://api.github.com/' + endpoint,
+      headers: { 'User-Agent': 'README generator' },
       json: true,
-      headers: { 'User-Agent': 'README generator' }
+      method: 'GET',
+      url: `https://api.github.com/${endpoint}`
     }, (error, _response, body) => {
       if (error) {
         reject(error);

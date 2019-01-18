@@ -1,11 +1,11 @@
-import { SchemaLoader, Introspection } from '../interface';
 import { resolve } from 'path';
+import { Introspection, SchemaLoader } from '../interface';
 
-export type TJsonSchemaLoaderOptions = {
-  schemaFile: string
-};
+export interface IJsonSchemaLoaderOptions {
+  schemaFile: string;
+}
 
-export const jsonSchemaLoader: SchemaLoader = function (options: TJsonSchemaLoaderOptions) {
+export const jsonSchemaLoader: SchemaLoader = (options: IJsonSchemaLoaderOptions): Promise<any> => {
   try {
     const schemaPath = resolve(options.schemaFile);
     const introspection: Introspection = require(schemaPath);

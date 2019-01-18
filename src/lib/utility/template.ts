@@ -1,30 +1,28 @@
 import * as marked from 'marked';
 import * as slug from 'slug';
-import { Plugin } from './plugin';
 import {
-  PluginInterface,
-  TypeRef,
+  DocumentSectionInterface,
   NavigationSectionInterface,
-  DocumentSectionInterface
+  PluginInterface,
+  TypeRef
 } from '../interface';
+import { Plugin } from './plugin';
 
 export function slugTemplate() {
-  return function(text: any, render: any): string {
-    return slug(render(text)).toLowerCase();
-  };
+  return (text: any, render: any): string => slug(render(text)).toLowerCase();
 }
 
-export type TemplateData = {
-  title: string,
-  type?: TypeRef,
-  description: string,
-  headers: string,
-  navigations: NavigationSectionInterface[],
-  documents: DocumentSectionInterface[],
-  projectPackage: any,
-  graphidocsPackage: any,
-  slug: typeof slugTemplate,
-};
+export interface ITemplateData {
+  title: string;
+  type?: TypeRef;
+  description: string;
+  headers: string;
+  navigations: NavigationSectionInterface[];
+  documents: DocumentSectionInterface[];
+  projectPackage: any;
+  graphidocsPackage: any;
+  slug: typeof slugTemplate;
+}
 
 type Headers = string[];
 type Navs = NavigationSectionInterface[];
@@ -35,7 +33,7 @@ export async function createData(
   graphidocsPackage: any,
   plugins: PluginInterface[],
   type?: TypeRef
-): Promise<TemplateData> {
+): Promise<ITemplateData> {
   const name = type && type.name;
   const [headers, navigations, documents]: [Headers, Navs, Docs] = await Promise.all([
     Plugin.collectHeaders(plugins, name),
@@ -52,14 +50,15 @@ export async function createData(
     : projectPackage.description;
 
   return {
+    description,
+    documents,
+    graphidocsPackage,
+    navigations,
+    projectPackage,
     title,
     type,
-    description,
+    // tslint:disable-next-line:object-literal-sort-keys
     headers: headers.join(''),
-    navigations,
-    documents,
-    projectPackage,
-    graphidocsPackage,
-    slug: slugTemplate
+    slug: slugTemplate,
   };
 }

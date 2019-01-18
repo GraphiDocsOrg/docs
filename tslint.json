@@ -1,4 +1,5 @@
 {
+  "extends": ["tslint-config-airbnb", "tslint:latest", "tslint-config-prettier"],
   "rules": {
     "class-name": true,
     "comment-format": [
@@ -7,15 +8,16 @@
     ],
     "indent": [
       true,
-      "spaces"
+      "spaces",
+      2
     ],
-    "no-unused-variable": true,
     "no-duplicate-variable": true,
     "no-eval": true,
     "no-internal-module": true,
     "no-trailing-whitespace": true,
     "no-unsafe-finally": true,
     "no-var-keyword": true,
+    "no-unused": true,
     "one-line": [
       true,
       "check-open-brace",

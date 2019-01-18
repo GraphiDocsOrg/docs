@@ -1,26 +1,26 @@
 import { OutputInterface } from '@2fd/command';
 
-export type OutputOptions = {
+export interface IOutputOptions {
   verbose: boolean;
 }
 
 export class Output {
   constructor(
     public out: OutputInterface,
-    public options: OutputOptions
+    public options: IOutputOptions
   ) { }
 
-  ok(ref: string, value: string) {
+  public ok(ref: string, value: string) {
     this.out.log('%c ✓ %s: %c%s', 'color:green', ref, 'color:grey', value);
   }
 
-  info(ref: string, value: string) {
+  public info(ref: string, value: string) {
     if (this.options.verbose) {
       this.out.log('%c ❭ %s: %c%s', 'color:yellow', ref, 'color:grey', value);
     }
   }
 
-  error(err: NodeJS.ErrnoException) {
+  public error(err: NodeJS.ErrnoException) {
     this.out.error('%c ✗ %s', 'color:red', err.message || err);
 
     if (this.options.verbose) {

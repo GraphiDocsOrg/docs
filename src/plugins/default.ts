@@ -1,54 +1,54 @@
-import { Plugin } from '../lib/utility';
 import {
-  Schema,
-  PluginInterface,
   DocumentSectionInterface,
   NavigationSectionInterface,
+  PluginInterface,
+  Schema,
 } from '../lib/interface';
-import NavigationSchema from './navigation.schema';
-import NavigationScalar from './navigation.scalar';
-import NavigationEnum from './navigation.enum';
-import NavigationInterfaces from './navigation.interface';
-import NavigationUnion from './navigation.union';
-import NavigationObject from './navigation.object';
-import NavigationIput from './navigation.input';
-import NavigationDirective from './navigation.directive';
-import DocumentSchema from './document.schema';
-import RequireByPlugin from './document.require-by';
+import { Plugin } from '../lib/utility';
+import documentRequireBy from './document.require-by';
+import documentSchema from './document.schema';
+import navigationDirective from './navigation.directive';
+import navigationEnum from './navigation.enum';
+import navigationInput from './navigation.input';
+import navigationInterface from './navigation.interface';
+import navigationObject from './navigation.object';
+import navigationScalar from './navigation.scalar';
+import navigationSchema from './navigation.schema';
+import navigationUnion from './navigation.union';
 
 export default class NavigationDirectives extends Plugin implements PluginInterface {
-  plugins: PluginInterface[];
+  public plugins: PluginInterface[];
 
   constructor(document: Schema, graphidocsPackage: any, projectPackage: any) {
     super(document, graphidocsPackage, projectPackage);
 
     this.plugins = [
-      new NavigationSchema(document, graphidocsPackage, projectPackage),
-      new NavigationScalar(document, graphidocsPackage, projectPackage),
-      new NavigationEnum(document, graphidocsPackage, projectPackage),
-      new NavigationInterfaces(document, graphidocsPackage, projectPackage),
-      new NavigationUnion(document, graphidocsPackage, projectPackage),
-      new NavigationObject(document, graphidocsPackage, projectPackage),
-      new NavigationIput(document, graphidocsPackage, projectPackage),
-      new NavigationDirective(document, graphidocsPackage, projectPackage),
-      new DocumentSchema(document, graphidocsPackage, projectPackage),
-      new RequireByPlugin(document, graphidocsPackage, projectPackage),
+      new navigationSchema(document, graphidocsPackage, projectPackage),
+      new navigationScalar(document, graphidocsPackage, projectPackage),
+      new navigationEnum(document, graphidocsPackage, projectPackage),
+      new navigationInterface(document, graphidocsPackage, projectPackage),
+      new navigationUnion(document, graphidocsPackage, projectPackage),
+      new navigationObject(document, graphidocsPackage, projectPackage),
+      new navigationInput(document, graphidocsPackage, projectPackage),
+      new navigationDirective(document, graphidocsPackage, projectPackage),
+      new documentSchema(document, graphidocsPackage, projectPackage),
+      new documentRequireBy(document, graphidocsPackage, projectPackage),
     ];
   }
 
-  getNavigations(buildForType?: string): Promise<NavigationSectionInterface[]> {
+  public getNavigations(buildForType?: string): Promise<NavigationSectionInterface[]> {
     return Plugin.collectNavigations(this.plugins, buildForType);
-  };
+  }
 
-  getDocuments(buildForType?: string): Promise<DocumentSectionInterface[]> {
+  public getDocuments(buildForType?: string): Promise<DocumentSectionInterface[]> {
     return Plugin.collectDocuments(this.plugins, buildForType);
-  };
+  }
 
-  getHeaders(buildForType?: string): Promise<string[]> {
+  public getHeaders(buildForType?: string): Promise<string[]> {
     return Plugin.collectHeaders(this.plugins, buildForType);
   }
 
-  getAssets(): Promise<string[]> {
+  public getAssets(): Promise<string[]> {
     return Plugin.collectAssets(this.plugins);
   }
 }
