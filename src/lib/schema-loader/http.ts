@@ -1,4 +1,3 @@
-import * as Bluebird from 'bluebird';
 import * as request from 'request';
 
 import { Introspection, Schema, SchemaLoader } from '../interface';
@@ -12,30 +11,41 @@ export interface IHttpSchemaLoaderOptions {
 }
 
 async function doRequest(options: request.OptionsWithUrl) {
-  return new Bluebird<Schema>((resolve, reject) => {
+  return new Promise<Schema>((resolve, reject) => {
     request(options, (error, res, body: Introspection | string) => {
       if (error) {
         return reject(error);
       }
 
       if ((res.statusCode as number) >= 400) {
-        return reject(new Error(
-          `Unexpected HTTP Status Code ${res.statusCode} (${res.statusMessage}) from: ${options.url}`
-        ));
+        return reject(
+          new Error(
+            `Unexpected HTTP Status Code ${res.statusCode} (${
+              res.statusMessage
+            }) from: ${options.url}`,
+          ),
+        );
       }
 
       if (typeof body === 'string') {
-        return reject(new Error(
-          `Unexpected response from "${options.url}": ${body.slice(0, 10)}...`
-        ));
+        return reject(
+          new Error(
+            `Unexpected response from "${options.url}": ${body.slice(
+              0,
+              10,
+            )}...`,
+          ),
+        );
       }
 
       return resolve(body.data.__schema);
     });
-});
+  });
 }
 
-export const httpSchemaLoader: SchemaLoader = async (options: IHttpSchemaLoaderOptions) => {
+export const httpSchemaLoader: SchemaLoader = async (
+  options: IHttpSchemaLoaderOptions,
+) => {
   const requestOptions: request.OptionsWithUrl = {
     body: { query: introspectionQuery },
     json: true,
@@ -43,13 +53,16 @@ export const httpSchemaLoader: SchemaLoader = async (options: IHttpSchemaLoaderO
     url: options.endpoint,
   };
 
-  requestOptions.headers = options.headers.reduce((result: any, header: string) => {
-    const [name, value] = header.split(': ', 2);
+  requestOptions.headers = options.headers.reduce(
+    (result: any, header: string) => {
+      const [name, value] = header.split(': ', 2);
 
-    result[name] = value;
+      result[name] = value;
 
-    return result;
-  }, {});
+      return result;
+    },
+    {},
+  );
 
   requestOptions.qs = options.queries.reduce((result: any, query: string) => {
     const [name, value] = query.split('=', 2);
