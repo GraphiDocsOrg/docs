@@ -1,7 +1,7 @@
-import * as util from "util";
-import * as fs from "fs";
-import * as fse from "fs-extra";
-import * as path from "path";
+import * as fs from 'fs';
+import * as fse from 'fs-extra';
+import * as path from 'path';
+import * as util from 'util';
 
 /**
  * resolve
@@ -10,13 +10,13 @@ import * as path from "path";
  * path start with `graphidocs/` return absolute path to
  * plugins directory
  */
-const MODULE_BASEPATH = "graphidocs/";
+const MODULE_BASEPATH = 'graphidocs/';
 
 export function resolve(relative: string): string {
   if (relative.slice(0, MODULE_BASEPATH.length) === MODULE_BASEPATH) {
     return path.resolve(
       __dirname,
-      "../../",
+      '../../',
       relative.slice(MODULE_BASEPATH.length),
     );
   }
@@ -48,7 +48,7 @@ export async function createBuildDirectory(
   await Promise.all(
     files
       // ignore *.mustache templates
-      .filter((file) => path.extname(file) !== ".mustache")
+      .filter((file) => path.extname(file) !== '.mustache')
 
       // copy recursive
       .map((file) =>
@@ -60,13 +60,13 @@ export async function createBuildDirectory(
   );
 
   // create assets directory
-  await mkDir(path.resolve(buildDirectory, "assets"));
+  await mkDir(path.resolve(buildDirectory, 'assets'));
 
   await Promise.all(
     assets.map((asset) =>
       copyAll(
         asset,
-        path.resolve(buildDirectory, "assets", path.basename(asset)),
+        path.resolve(buildDirectory, 'assets', path.basename(asset)),
       ),
     ),
   );

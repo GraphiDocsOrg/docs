@@ -1,8 +1,8 @@
-import * as request from "request";
+import * as request from 'request';
 
-import { Introspection, Schema, SchemaLoader } from "../interface";
+import { Introspection, Schema, SchemaLoader } from '../interface';
 
-import { query as introspectionQuery } from "../utility";
+import { query as introspectionQuery } from '../utility';
 
 export interface IHttpSchemaLoaderOptions {
   endpoint: string;
@@ -27,7 +27,7 @@ async function doRequest(options: request.OptionsWithUrl) {
         );
       }
 
-      if (typeof body === "string") {
+      if (typeof body === 'string') {
         return reject(
           new Error(
             `Unexpected response from "${options.url}": ${body.slice(
@@ -49,13 +49,13 @@ export const httpSchemaLoader: SchemaLoader = async (
   const requestOptions: request.OptionsWithUrl = {
     body: { query: introspectionQuery },
     json: true,
-    method: "POST",
+    method: 'POST',
     url: options.endpoint,
   };
 
   requestOptions.headers = options.headers.reduce(
     (result: any, header: string) => {
-      const [name, value] = header.split(": ", 2);
+      const [name, value] = header.split(': ', 2);
 
       result[name] = value;
 
@@ -65,7 +65,7 @@ export const httpSchemaLoader: SchemaLoader = async (
   );
 
   requestOptions.qs = options.queries.reduce((result: any, query: string) => {
-    const [name, value] = query.split("=", 2);
+    const [name, value] = query.split('=', 2);
 
     result[name] = value;
 
