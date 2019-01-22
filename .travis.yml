@@ -1,4 +1,7 @@
 language: node_js
+env:
+  global:
+    - secure: "mX5YzdL8FrVZdd+JjXWR+q8+b06rQdUC1j99s2RMZ5uo/s506Q3QIp/1qX5+KnHvbpX1WOxJLtMBHN12tiohYefl0VYAMN73XPHvUsADOahiOeyr9z934a1UM02V6MG8vmFDfyRZNBwetRayyQhJqm6eef/cSI6wk/lG50iRdH/MuYY+LBBYjArY77ci4QLJ9BFb2KQwpNu9TLJFqjnl6RmyXyNEfbZkHVtvPFs6tYkC1PqsA5dgafnTOnWmmtYoG4pAjKNeZrTl6T4dtJzxlD3o3nsDpw5J3iJFxJ0k7JQ3WuIi0r+KAkLwO1kDZRdcoaPdpic2j2YwChj7WsX+iafKRmomXVd6QkKQ+kjhg6vl5lmzXBpz3WReV8L3X52kme6ozbYU5n+c2d4VH2zaE18dypw0UCDjbT90Zm+sKsB6Yd3NriQ5jYQNjSnzHcQVqYRZwbwWD0tMJGvsf0+gdtSGNSreeD6v36k1Aro8MDaFCHZZttmqpNsJyP1ICYv7jZJyGLsw4KH+HgKiKNxU3n7LVfPC1s5sol3lTVC0K4WfdD1ZmmHqPE/xCcUC94A9zI7tVvjfH22jOAyIAEnT7CBmR8BReyl2qAb1mEE3gdsmygMikGrFKSijQFEHIxQXd9a7VsTJXaJLusG/NgEsAw8+1wyvZd8p7FkfJLicfRU="
 node_js:
   - "8"
   - "10"
@@ -22,3 +25,9 @@ script:
   - yarn doc:shopify
   - yarn doc:starwars-js
   - yarn doc:starwars
+deploy:
+  provider: script
+  script: "cp .npmrc.template $HOME/.npmrc && npm publish"
+  skip_cleanup: true
+  on:
+    tags: true
