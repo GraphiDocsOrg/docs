@@ -1,6 +1,7 @@
 # Static page generator for documenting GraphQL Schema
 
 [![Build Status](https://travis-ci.org/GraphiDocsOrg/docs.svg?branch=master)](https://travis-ci.org/GraphiDocsOrg/docs)
+[![Coverage Status](https://coveralls.io/repos/github/GraphiDocsOrg/docs/badge.svg?branch=master)](https://coveralls.io/github/GraphiDocsOrg/docs?branch=master)
 ![npm (scoped)](https://img.shields.io/npm/v/@graphidocs/docs.svg?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/tag/GraphiDocsOrg/docs.svg?style=flat-square)
 
@@ -13,7 +14,7 @@
 ## Install
 
 ```bash
-    npm install -g @graphidocs/graphidocs
+    npm install -g @graphidocs/docs
 ```
 
 ## Use
@@ -76,7 +77,7 @@ And execute
     
     Static page generator for documenting GraphQL Schema v1.0.0
 
-    Usage: node bin/graphidocs.js [OPTIONS] 
+    Usage: node bin/graphidocs.ts [OPTIONS] 
 
     
     [OPTIONS]:
@@ -206,12 +207,39 @@ You can use the plugins in 2 ways.
 
 > TODO
 
+## Release
+
+To release to the [npm registry](https://www.npmjs.com/), a travis job to deploy is setup to occur
+on a tag being pushed to the [GitHub repo](https://github.com/GraphiDocsOrg/docs). We can use
+the `npm version` command that will increment the version in `package.json` and add a git tag. To
+handle this, there is a `release.sh` script. By default, this will increment the patch version:
+
+```bash
+./release.sh
+```
+
+If you want to define which version to increment, you can pass in an argument:
+
+```bash
+./release.sh major
+```
+
+If you wanted to take over exactly which version, you can use specify a semver:
+
+```bash
+./release.sh 1.1.1
+```
+
+This should automatically push the new tag to GitHub and a Travis build will get triggered.
+This will also use the `NPM_API_KEY` environment variable.
+
 ## Contributors
 
 - [<img src="https://avatars1.githubusercontent.com/u/208789?v=4" width="40"> 2fd](https://github.com/2fd)
-- [<img src="https://avatars2.githubusercontent.com/u/1301838?v=4" width="40"> bitliner](https://github.com/bitliner)
 - [<img src="https://avatars1.githubusercontent.com/u/325473?v=4" width="40"> mitchellsimoens](https://github.com/mitchellsimoens)
+- [<img src="https://avatars2.githubusercontent.com/u/1301838?v=4" width="40"> bitliner](https://github.com/bitliner)
 - [<img src="https://avatars0.githubusercontent.com/u/605742?v=4" width="40"> kbariotis](https://github.com/kbariotis)
+- [<img src="https://avatars1.githubusercontent.com/u/1359202?v=4" width="40"> gavinhenderson](https://github.com/gavinhenderson)
 - [<img src="https://avatars1.githubusercontent.com/u/1648214?v=4" width="40"> Joatin](https://github.com/Joatin)
 - [<img src="https://avatars0.githubusercontent.com/u/226612?v=4" width="40"> shiroyuki](https://github.com/shiroyuki)
 - [<img src="https://avatars1.githubusercontent.com/u/2903325?v=4" width="40"> dnalborczyk](https://github.com/dnalborczyk)

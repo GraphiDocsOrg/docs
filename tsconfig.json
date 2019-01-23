@@ -11,6 +11,7 @@
 
     "outDir": "dist",
     "rootDirs": [
+      "bin",
       "src",
       "."
     ],
@@ -47,13 +48,15 @@
     "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "bin/**/*"
   ],
   "exclude": [
-    "node_modules",
+    "coverage",
     "dist",
+    "examples",
     "gh-pages",
-    "templates",
+    "node_modules",
     "**/*.spec.ts",
     "**/__tests__"
   ]

@@ -1,24 +1,47 @@
 language: node_js
+env:
+  global:
+    secure: N3IhuD6buUSK/95vo6WyuYZoE9MRkDk+Of+1PxL/Y+ULOuWWG02q4N4i3vbaBHITjfblX5F67NEbmEM8VgSGN4RosdaPl/NgwN2sde2fpvp8Z0H+0c4+7yhYteOu9XkAa0267v2RjrTELlDWGvKq81ePQcXMRmgpDJsTbQBqIobTve/9/yuPMDSGnC0Y8ED3EYoweOYfxOrVjpqXTffla+L9UCyRCbCFhLASZYc3IH2ENvojJO246orq9MzT8LArwF4p3rawNao92Ym1VyeKgP0SA9eM+AqniVsD+kyWg/Kp0zLj+d1iiSiQ1w0cfr6b6qKFvAwLtYwFMGZShK59WRRuwiDtEXk1z1N6hV9IMtNOoVHR5jY0sTjMh9ucNz/ewH2ZzzpXAVR9gEI0XyQTLJcIoy7s52Q9JS2RwyPSmHPslbyQY9CkaZAo5yCVj1w56SNRcv19VBd0ihDSh+x1oL8EMpLT4/3MmD10LFpMTY9KjJ7e2GChVsRLOHi36RaDi70Ht6ER+SFvPBenU/SEyp+H3KsGQVrEZjVlnV6xaTapcyes+b6QzhUBe+ubctwHugmRigNH41Mw1uX+JUwSdQJ39OBoOeAs+NHtUrgESOpuzPqlD8snPU0b4KnbhX8p8+cQq/Cdt6DEkAWZk5+63Es0m00bWshVuGlteTi0B7c=
 node_js:
-  - "8"
-  - "10"
-  - "11"
+- '8'
+- '10'
+- '11'
 cache:
   yarn: true
   directories:
-    - node_modules
+  - node_modules
 install:
-  - yarn
+- yarn
 before_script:
-  - yarn lint
-  - yarn compile
-  - yarn test
+- yarn lint
+- yarn compile
+- yarn test
 script:
-  - yarn sass
-  - mkdir gh-pages
-  - yarn doc:github
-  - yarn doc:pokemon
-  # - yarn doc:scaphold
-  - yarn doc:shopify
-  - yarn doc:starwars-js
-  - yarn doc:starwars
+- yarn sass
+- mkdir gh-pages
+- yarn example:github
+- yarn example:pokemon
+- yarn example:shopify
+- yarn example:starwars-js
+- yarn example:starwars
+
+jobs:
+  include:
+    - stage: coveralls publish
+      if: branch = master
+      node_js: '11'
+      script: yarn test:coveralls
+    - stage: npm release
+      if: tag IS present
+      node_js: '11'
+      script: echo "Deploying to npm ..."
+      before_deploy:
+      - yarn beforedeploy
+      - cd dist
+      deploy:
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_API_KEY
+        skip_cleanup: true
+        on:
+          tags: true

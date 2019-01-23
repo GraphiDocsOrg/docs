@@ -1,6 +1,7 @@
 # {{project.description}}
 
 [![Build Status](https://travis-ci.org/GraphiDocsOrg/docs.svg?branch=master)](https://travis-ci.org/GraphiDocsOrg/docs)
+[![Coverage Status](https://coveralls.io/repos/github/GraphiDocsOrg/docs/badge.svg?branch=master)](https://coveralls.io/github/GraphiDocsOrg/docs?branch=master)
 ![npm (scoped)](https://img.shields.io/npm/v/@graphidocs/docs.svg?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/tag/GraphiDocsOrg/docs.svg?style=flat-square)
 
@@ -13,7 +14,7 @@
 ## Install
 
 ```bash
-    npm install -g @graphidocs/graphidocs
+    npm install -g @graphidocs/docs
 ```
 
 ## Use
@@ -73,7 +74,7 @@ And execute
 ```bash
 
     > graphidocs -h
-    {{{bash "node -r ts-node/register ./bin/graphidocs.js --help"}}}
+    {{{bash "node -r ts-node/register ./bin/graphidocs.ts --help"}}}
 ```
 
 ## Plugin
@@ -183,6 +184,32 @@ You can use the plugins in 2 ways.
 ## Template
 
 > TODO
+
+## Release
+
+To release to the [npm registry](https://www.npmjs.com/), a travis job to deploy is setup to occur
+on a tag being pushed to the [GitHub repo](https://github.com/GraphiDocsOrg/docs). We can use
+the `npm version` command that will increment the version in `package.json` and add a git tag. To
+handle this, there is a `release.sh` script. By default, this will increment the patch version:
+
+```bash
+./release.sh
+```
+
+If you want to define which version to increment, you can pass in an argument:
+
+```bash
+./release.sh major
+```
+
+If you wanted to take over exactly which version, you can use specify a semver:
+
+```bash
+./release.sh 1.1.1
+```
+
+This should automatically push the new tag to GitHub and a Travis build will get triggered.
+This will also use the `NPM_API_KEY` environment variable.
 
 ## Contributors
 
