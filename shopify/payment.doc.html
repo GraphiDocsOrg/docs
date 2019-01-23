@@ -6,9 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
     <title>Payment</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
     <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
@@ -658,30 +658,44 @@
 </section>
 <section>
     <div class="container">
-        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
             <a href="#graphql-schema-definition">
                 <i class="material-icons">link</i>
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Payment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The amount of the payment.</span></span></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The billing address for the payment.</span></span></li><li><span class="tab"><span class="meta">billingAddress</span>: <a class="support type" href="mailingaddress.doc.html">MailingAddress</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The checkout to which the payment belongs.</span></span></li><li><span class="tab"><span class="meta">checkout</span>: <a class="support type" href="checkout.doc.html">Checkout</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The credit card used for the payment in the case of direct payments.</span></span></li><li><span class="tab"><span class="meta">creditCard</span>: <a class="support type" href="creditcard.doc.html">CreditCard</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   An message describing a processing error during asynchronous processing.</span></span></li><li><span class="tab"><span class="meta">errorMessage</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   A client-side generated token to identify a payment and perform idempotent </span></span></li><li><span class="tab"><span class="comment line">#   operations.</span></span></li><li><span class="tab"><span class="meta">idempotencyKey</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Whether or not the payment is still processing asynchronously.</span></span></li><li><span class="tab"><span class="meta">ready</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   A flag to indicate if the payment is to be done in test mode for gateways that </span></span></li><li><span class="tab"><span class="comment line">#   support it.</span></span></li><li><span class="tab"><span class="meta">test</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The actual transaction recorded by Shopify after having processed the payment </span></span></li><li><span class="tab"><span class="comment line">#   with the gateway.</span></span></li><li><span class="tab"><span class="meta">transaction</span>: <a class="support type" href="transaction.doc.html">Transaction</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">Payment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The amount of the payment.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">amount</span>: <a class="support type" href="money.doc.html">Money</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The billing address for the payment.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">billingAddress</span>: <a class="support type" href="mailingaddress.doc.html">MailingAddress</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The checkout to which the payment belongs.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">checkout</span>: <a class="support type" href="checkout.doc.html">Checkout</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The credit card used for the payment in the case of direct payments.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">creditCard</span>: <a class="support type" href="creditcard.doc.html">CreditCard</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   An message describing a processing error during asynchronous processing.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">errorMessage</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   A client-side generated token to identify a payment and perform idempotent </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   operations.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">idempotencyKey</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Whether or not the payment is still processing asynchronously.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">ready</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   A flag to indicate if the payment is to be done in test mode for gateways that </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   support it.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">test</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The actual transaction recorded by Shopify after having processed the payment </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   with the gateway.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">transaction</span>: <a class="support type" href="transaction.doc.html">Transaction</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
     <div class="container">
-        <h2 id="require-by" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
-            <a href="#require-by">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
                 <i class="material-icons">link</i>
             </a>
-            Require by
+            Required by
         </h2>
-        <ul class="require-by"><li><a href="checkoutcompletewithcreditcardpayload.doc.html" title="CheckoutCompleteWithCreditCardPayload - ">CheckoutCompleteWithCreditCardPayload<em>null</em></a><li><li><a href="checkoutcompletewithtokenizedpaymentpayload.doc.html" title="CheckoutCompleteWithTokenizedPaymentPayload - ">CheckoutCompleteWithTokenizedPaymentPayload<em>null</em></a><li></ul>
+        <ul class="require-by">
+          <li>
+      <a href="checkoutcompletewithcreditcardpayload.doc.html" title="
+        CheckoutCompleteWithCreditCardPayload - 
+      ">
+        CheckoutCompleteWithCreditCardPayload<em>null</em>
+      </a>
+    <li><li>
+      <a href="checkoutcompletewithtokenizedpaymentpayload.doc.html" title="
+        CheckoutCompleteWithTokenizedPaymentPayload - 
+      ">
+        CheckoutCompleteWithTokenizedPaymentPayload<em>null</em>
+      </a>
+    <li>
+          </ul>
     </div>
 </section>
 <footer>
 <div class="container slds-p-around--large">
     <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.3.0</a>
+        Generated with <a href="https://github.com/GraphiDocsOrg/docs#readme" target="_blank">graphidocs 1.0.2</a>
     </p>
 </div>
 </footer>

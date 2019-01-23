@@ -6,9 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
     <title>GitSignatureState</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
     <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
@@ -1448,30 +1448,56 @@
 </section>
 <section>
     <div class="container">
-        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
             <a href="#graphql-schema-definition">
                 <i class="material-icons">link</i>
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">GitSignatureState</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Valid signature and verified by GitHub.</span></span></li><li><span class="tab"><span class="meta">VALID</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Invalid signature.</span></span></li><li><span class="tab"><span class="meta">INVALID</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Malformed signature.</span></span></li><li><span class="tab"><span class="meta">MALFORMED_SIG</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Key used for signing not known to GitHub.</span></span></li><li><span class="tab"><span class="meta">UNKNOWN_KEY</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Invalid email used for signing.</span></span></li><li><span class="tab"><span class="meta">BAD_EMAIL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Email used for signing unverified on GitHub.</span></span></li><li><span class="tab"><span class="meta">UNVERIFIED_EMAIL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Email used for signing not known to GitHub.</span></span></li><li><span class="tab"><span class="meta">NO_USER</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Unknown signature type.</span></span></li><li><span class="tab"><span class="meta">UNKNOWN_SIG_TYPE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Unsigned.</span></span></li><li><span class="tab"><span class="meta">UNSIGNED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Internal error - the GPG verification service is unavailable at the moment.</span></span></li><li><span class="tab"><span class="meta">GPGVERIFY_UNAVAILABLE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Internal error - the GPG verification service misbehaved.</span></span></li><li><span class="tab"><span class="meta">GPGVERIFY_ERROR</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   The usage flags for the key that signed this don't allow signing.</span></span></li><li><span class="tab"><span class="meta">NOT_SIGNING_KEY</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="comment line">#   Signing key expired.</span></span></li><li><span class="tab"><span class="meta">EXPIRED_KEY</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="keyword operator ts">enum</span> <span class="identifier">GitSignatureState</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Valid signature and verified by GitHub.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">VALID</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Invalid signature.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">INVALID</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Malformed signature.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">MALFORMED_SIG</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Key used for signing not known to GitHub.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">UNKNOWN_KEY</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Invalid email used for signing.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">BAD_EMAIL</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Email used for signing unverified on GitHub.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">UNVERIFIED_EMAIL</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Email used for signing not known to GitHub.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">NO_USER</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Unknown signature type.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">UNKNOWN_SIG_TYPE</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Unsigned.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">UNSIGNED</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Internal error - the GPG verification service is unavailable at the moment.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">GPGVERIFY_UNAVAILABLE</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Internal error - the GPG verification service misbehaved.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">GPGVERIFY_ERROR</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The usage flags for the key that signed this don't allow signing.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">NOT_SIGNING_KEY</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Signing key expired.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">EXPIRED_KEY</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
     <div class="container">
-        <h2 id="require-by" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
-            <a href="#require-by">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
                 <i class="material-icons">link</i>
             </a>
-            Require by
+            Required by
         </h2>
-        <ul class="require-by"><li><a href="gitsignature.doc.html" title="GitSignature - Information about a signature (GPG or S/MIME) on a Commit or Tag.">GitSignature<em>Information about a signature (GPG or S/MIME) on a Commit or Tag.</em></a><li><li><a href="gpgsignature.doc.html" title="GpgSignature - Represents a GPG signature on a Commit or Tag.">GpgSignature<em>Represents a GPG signature on a Commit or Tag.</em></a><li><li><a href="smimesignature.doc.html" title="SmimeSignature - Represents an S/MIME signature on a Commit or Tag.">SmimeSignature<em>Represents an S/MIME signature on a Commit or Tag.</em></a><li><li><a href="unknownsignature.doc.html" title="UnknownSignature - Represents an unknown signature on a Commit or Tag.">UnknownSignature<em>Represents an unknown signature on a Commit or Tag.</em></a><li></ul>
+        <ul class="require-by">
+          <li>
+      <a href="gitsignature.doc.html" title="
+        GitSignature - Information about a signature (GPG or S/MIME) on a Commit or Tag.
+      ">
+        GitSignature<em>Information about a signature (GPG or S/MIME) on a Commit or Tag.</em>
+      </a>
+    <li><li>
+      <a href="gpgsignature.doc.html" title="
+        GpgSignature - Represents a GPG signature on a Commit or Tag.
+      ">
+        GpgSignature<em>Represents a GPG signature on a Commit or Tag.</em>
+      </a>
+    <li><li>
+      <a href="smimesignature.doc.html" title="
+        SmimeSignature - Represents an S/MIME signature on a Commit or Tag.
+      ">
+        SmimeSignature<em>Represents an S/MIME signature on a Commit or Tag.</em>
+      </a>
+    <li><li>
+      <a href="unknownsignature.doc.html" title="
+        UnknownSignature - Represents an unknown signature on a Commit or Tag.
+      ">
+        UnknownSignature<em>Represents an unknown signature on a Commit or Tag.</em>
+      </a>
+    <li>
+          </ul>
     </div>
 </section>
 <footer>
 <div class="container slds-p-around--large">
     <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.3.0</a>
+        Generated with <a href="https://github.com/GraphiDocsOrg/docs#readme" target="_blank">graphidocs 1.0.2</a>
     </p>
 </div>
 </footer>

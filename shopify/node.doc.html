@@ -6,9 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
     <title>Node</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
     <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
@@ -658,40 +658,114 @@
 </section>
 <section>
     <div class="container">
-        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
             <a href="#graphql-schema-definition">
                 <i class="material-icons">link</i>
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">interface</span> <span class="identifier">Node</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Globally unique identifier.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="keyword operator ts">interface</span> <span class="identifier">Node</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Globally unique identifier.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
     <div class="container">
-        <h2 id="require-by" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
-            <a href="#require-by">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
                 <i class="material-icons">link</i>
             </a>
-            Require by
+            Required by
         </h2>
-        <ul class="require-by"><li><a href="appliedgiftcard.doc.html" title="AppliedGiftCard - Details about the gift card used on the checkout.">AppliedGiftCard<em>Details about the gift card used on the checkout.</em></a><li><li><a href="checkout.doc.html" title="Checkout - A container for all the information required to checkout items and pay.">Checkout<em>A container for all the information required to checkout items and pay.</em></a><li><li><a href="checkoutlineitem.doc.html" title="CheckoutLineItem - A single line item in the checkout, grouped by variant and attributes.">CheckoutLineItem<em>A single line item in the checkout, grouped by variant and attributes.</em></a><li><li><a href="collection.doc.html" title="Collection - A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse.">Collection<em>A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse.</em></a><li><li><a href="mailingaddress.doc.html" title="MailingAddress - Represents a mailing address for customers and shipping.">MailingAddress<em>Represents a mailing address for customers and shipping.</em></a><li><li><a href="order.doc.html" title="Order - An order is a customer’s completed request to purchase one or more products from a shop. An order is created when a customer completes the checkout process, during which time they provides an email address, billing address and payment information.">Order<em>An order is a customer’s completed request to purchase one or more products from a shop. An order is created when a customer completes the checkout process, during which time they provides an email address, billing address and payment information.</em></a><li><li><a href="payment.doc.html" title="Payment - A payment applied to a checkout.">Payment<em>A payment applied to a checkout.</em></a><li><li><a href="product.doc.html" title="Product - A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
-For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).">Product<em>A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
-For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).</em></a><li><li><a href="productoption.doc.html" title="ProductOption - Custom product property names like &quot;Size&quot;, &quot;Color&quot;, and &quot;Material&quot;.
+        <ul class="require-by">
+          <li>
+      <a href="appliedgiftcard.doc.html" title="
+        AppliedGiftCard - Details about the gift card used on the checkout.
+      ">
+        AppliedGiftCard<em>Details about the gift card used on the checkout.</em>
+      </a>
+    <li><li>
+      <a href="checkout.doc.html" title="
+        Checkout - A container for all the information required to checkout items and pay.
+      ">
+        Checkout<em>A container for all the information required to checkout items and pay.</em>
+      </a>
+    <li><li>
+      <a href="checkoutlineitem.doc.html" title="
+        CheckoutLineItem - A single line item in the checkout, grouped by variant and attributes.
+      ">
+        CheckoutLineItem<em>A single line item in the checkout, grouped by variant and attributes.</em>
+      </a>
+    <li><li>
+      <a href="collection.doc.html" title="
+        Collection - A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse.
+      ">
+        Collection<em>A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse.</em>
+      </a>
+    <li><li>
+      <a href="mailingaddress.doc.html" title="
+        MailingAddress - Represents a mailing address for customers and shipping.
+      ">
+        MailingAddress<em>Represents a mailing address for customers and shipping.</em>
+      </a>
+    <li><li>
+      <a href="order.doc.html" title="
+        Order - An order is a customer’s completed request to purchase one or more products from a shop. An order is created when a customer completes the checkout process, during which time they provides an email address, billing address and payment information.
+      ">
+        Order<em>An order is a customer’s completed request to purchase one or more products from a shop. An order is created when a customer completes the checkout process, during which time they provides an email address, billing address and payment information.</em>
+      </a>
+    <li><li>
+      <a href="payment.doc.html" title="
+        Payment - A payment applied to a checkout.
+      ">
+        Payment<em>A payment applied to a checkout.</em>
+      </a>
+    <li><li>
+      <a href="product.doc.html" title="
+        Product - A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
+For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+      ">
+        Product<em>A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
+For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).</em>
+      </a>
+    <li><li>
+      <a href="productoption.doc.html" title="
+        ProductOption - Custom product property names like &quot;Size&quot;, &quot;Color&quot;, and &quot;Material&quot;.
 Products are based on permutations of these options.
 A product may have a maximum of 3 options.
 255 characters limit each.
-">ProductOption<em>Custom product property names like "Size", "Color", and "Material".
+
+      ">
+        ProductOption<em>Custom product property names like "Size", "Color", and "Material".
 Products are based on permutations of these options.
 A product may have a maximum of 3 options.
 255 characters limit each.
-</em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - A product variant represents a different version of a product, such as differing sizes or differing colors.">ProductVariant<em>A product variant represents a different version of a product, such as differing sizes or differing colors.</em></a><li><li><a href="queryroot.doc.html" title="QueryRoot - The schema’s entry-point for queries. This acts as the public, top-level API from which all queries must start.">QueryRoot<em>The schema’s entry-point for queries. This acts as the public, top-level API from which all queries must start.</em></a><li><li><a href="shoppolicy.doc.html" title="ShopPolicy - Policy that a merchant has configured for their store, such as their refund or privacy policy.">ShopPolicy<em>Policy that a merchant has configured for their store, such as their refund or privacy policy.</em></a><li></ul>
+</em>
+      </a>
+    <li><li>
+      <a href="productvariant.doc.html" title="
+        ProductVariant - A product variant represents a different version of a product, such as differing sizes or differing colors.
+      ">
+        ProductVariant<em>A product variant represents a different version of a product, such as differing sizes or differing colors.</em>
+      </a>
+    <li><li>
+      <a href="queryroot.doc.html" title="
+        QueryRoot - The schema’s entry-point for queries. This acts as the public, top-level API from which all queries must start.
+      ">
+        QueryRoot<em>The schema’s entry-point for queries. This acts as the public, top-level API from which all queries must start.</em>
+      </a>
+    <li><li>
+      <a href="shoppolicy.doc.html" title="
+        ShopPolicy - Policy that a merchant has configured for their store, such as their refund or privacy policy.
+      ">
+        ShopPolicy<em>Policy that a merchant has configured for their store, such as their refund or privacy policy.</em>
+      </a>
+    <li>
+          </ul>
     </div>
 </section>
 <footer>
 <div class="container slds-p-around--large">
     <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.3.0</a>
+        Generated with <a href="https://github.com/GraphiDocsOrg/docs#readme" target="_blank">graphidocs 1.0.2</a>
     </p>
 </div>
 </footer>

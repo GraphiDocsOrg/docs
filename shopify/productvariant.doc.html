@@ -6,9 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
     <title>ProductVariant</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
     <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
@@ -658,32 +658,58 @@
 </section>
 <section>
     <div class="container">
-        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
             <a href="#graphql-schema-definition">
                 <i class="material-icons">link</i>
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductVariant</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   Indicates if the product variant is in stock.</span></span></li><li><span class="tab"><span class="meta">available</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Image associated with the product variant.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>maxWidth</strong>: Image width in pixels between 1 and 2048</span></span></li><li><span class="tab"><span class="comment line">#   <strong>maxHeight</strong>: Image height in pixels between 1 and 2048</span></span></li><li><span class="tab"><span class="comment line">#   <strong>crop</strong>: If specified, crop the image keeping the specified region</span></span></li><li><span class="tab"><span class="comment line">#   <strong>scale</strong>: Image size multiplier retina displays. Must be between 1 </span></span></li><li><span class="tab"><span class="comment line">#   and 3</span></span></li><li><span class="tab"><span class="meta">image</span>(<span class="meta">maxWidth</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">maxHeight</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">crop</span>: <a class="support type" href="cropregion.doc.html">CropRegion</a>, <span class="meta">scale</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="image.doc.html">Image</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The product variant’s price.</span></span></li><li><span class="tab"><span class="meta">price</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The product object that the product variant belongs to.</span></span></li><li><span class="tab"><span class="meta">product</span>: <a class="support type" href="product.doc.html">Product</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of product options applied to the variant.</span></span></li><li><span class="tab"><span class="meta">selectedOptions</span>: [<a class="support type" href="selectedoption.doc.html">SelectedOption</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   The product variant’s title.</span></span></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The weight of the product variant in the unit system specified with </span></span></li><li><span class="tab"><span class="comment line">#   `weight_unit`.</span></span></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Unit of measurement for weight.</span></span></li><li><span class="tab"><span class="meta">weightUnit</span>: <a class="support type" href="weightunit.doc.html">WeightUnit</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">ProductVariant</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Indicates if the product variant is in stock.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">available</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Image associated with the product variant.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line"># Arguments</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>maxWidth</strong>: Image width in pixels between 1 and 2048</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>maxHeight</strong>: Image height in pixels between 1 and 2048</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>crop</strong>: If specified, crop the image keeping the specified region</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>scale</strong>: Image size multiplier retina displays. Must be between 1 </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   and 3</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">image</span>(<span class="meta">maxWidth</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">maxHeight</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">crop</span>: <a class="support type" href="cropregion.doc.html">CropRegion</a>, <span class="meta">scale</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="image.doc.html">Image</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The product variant’s price.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">price</span>: <a class="support type" href="money.doc.html">Money</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The product object that the product variant belongs to.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">product</span>: <a class="support type" href="product.doc.html">Product</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   List of product options applied to the variant.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">selectedOptions</span>: [<a class="support type" href="selectedoption.doc.html">SelectedOption</a>!]! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The product variant’s title.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The weight of the product variant in the unit system specified with </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   `weight_unit`.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">weight</span>: <a class="support type" href="float.doc.html">Float</a> </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Unit of measurement for weight.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">weightUnit</span>: <a class="support type" href="weightunit.doc.html">WeightUnit</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
     <div class="container">
-        <h2 id="require-by" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
-            <a href="#require-by">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
                 <i class="material-icons">link</i>
             </a>
-            Require by
+            Required by
         </h2>
-        <ul class="require-by"><li><a href="checkoutlineitem.doc.html" title="CheckoutLineItem - A single line item in the checkout, grouped by variant and attributes.">CheckoutLineItem<em>A single line item in the checkout, grouped by variant and attributes.</em></a><li><li><a href="orderlineitem.doc.html" title="OrderLineItem - Represents a single line in an order. There is one line item for each distinct product variant.">OrderLineItem<em>Represents a single line in an order. There is one line item for each distinct product variant.</em></a><li><li><a href="product.doc.html" title="Product - A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
-For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).">Product<em>A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
-For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).</em></a><li><li><a href="productvariantedge.doc.html" title="ProductVariantEdge - ">ProductVariantEdge<em>null</em></a><li></ul>
+        <ul class="require-by">
+          <li>
+      <a href="checkoutlineitem.doc.html" title="
+        CheckoutLineItem - A single line item in the checkout, grouped by variant and attributes.
+      ">
+        CheckoutLineItem<em>A single line item in the checkout, grouped by variant and attributes.</em>
+      </a>
+    <li><li>
+      <a href="orderlineitem.doc.html" title="
+        OrderLineItem - Represents a single line in an order. There is one line item for each distinct product variant.
+      ">
+        OrderLineItem<em>Represents a single line in an order. There is one line item for each distinct product variant.</em>
+      </a>
+    <li><li>
+      <a href="product.doc.html" title="
+        Product - A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
+For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+      ">
+        Product<em>A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be. 
+For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).</em>
+      </a>
+    <li><li>
+      <a href="productvariantedge.doc.html" title="
+        ProductVariantEdge - 
+      ">
+        ProductVariantEdge<em>null</em>
+      </a>
+    <li>
+          </ul>
     </div>
 </section>
 <footer>
 <div class="container slds-p-around--large">
     <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.3.0</a>
+        Generated with <a href="https://github.com/GraphiDocsOrg/docs#readme" target="_blank">graphidocs 1.0.2</a>
     </p>
 </div>
 </footer>

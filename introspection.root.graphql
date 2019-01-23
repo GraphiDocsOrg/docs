@@ -1,7 +1,0 @@
-query IntrospectionQuery {
-    __schema {
-      queryType { name description kind}
-      mutationType { name description kind }
-      subscriptionType { name description kind }
-    }
-  }

@@ -6,9 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
     <title>Reactable</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
     <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
@@ -1448,30 +1448,80 @@
 </section>
 <section>
     <div class="container">
-        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
             <a href="#graphql-schema-definition">
                 <i class="material-icons">link</i>
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">interface</span> <span class="identifier">Reactable</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Identifies the primary key from the database.</span></span></li><li><span class="tab"><span class="meta">databaseId</span>: <a class="support type" href="int.doc.html">Int</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"Exposed database IDs will eventually be removed in favor of global Relay IDs." </span> )</span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Are reaction live updates enabled for this subject.</span></span></li><li><span class="tab"><span class="meta">liveReactionUpdatesEnabled</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   A list of reactions grouped by content left on the subject.</span></span></li><li><span class="tab"><span class="meta">reactionGroups</span>: [<a class="support type" href="reactiongroup.doc.html">ReactionGroup</a>!] </span></li><li></li><li><span class="tab"><span class="comment line">#   A list of Reactions left on the Issue.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Returns the first _n_ elements from the list.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: Returns the elements in the list that come after the </span></span></li><li><span class="tab"><span class="comment line">#   specified global ID.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: Returns the last _n_ elements from the list.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: Returns the elements in the list that come before the </span></span></li><li><span class="tab"><span class="comment line">#   specified global ID.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>content</strong>: Allows filtering Reactions by emoji.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>orderBy</strong>: Allows specifying the order in which reactions are </span></span></li><li><span class="tab"><span class="comment line">#   returned.</span></span></li><li><span class="tab"><span class="meta">reactions</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">content</span>: <a class="support type" href="reactioncontent.doc.html">ReactionContent</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">orderBy</span>: <a class="support type" href="reactionorder.doc.html">ReactionOrder</a></span></span></li><li><span class="tab">): <a class="support type" href="reactionconnection.doc.html">ReactionConnection</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The websocket channel ID for reaction live updates.</span></span></li><li><span class="tab"><span class="meta">reactionsWebsocket</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The repository associated with this reaction subject.</span></span></li><li><span class="tab"><span class="meta">repository</span>: <a class="support type" href="repository.doc.html">Repository</a>! <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"Future reaction subjects may not be scoped under repositories." </span> )</span></li><li></li><li><span class="tab"><span class="comment line">#   Can user react to this subject</span></span></li><li><span class="tab"><span class="meta">viewerCanReact</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="keyword operator ts">interface</span> <span class="identifier">Reactable</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Identifies the primary key from the database.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">databaseId</span>: <a class="support type" href="int.doc.html">Int</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"Exposed database IDs will eventually be removed in favor of global Relay IDs." </span> )</span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Are reaction live updates enabled for this subject.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">liveReactionUpdatesEnabled</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   A list of reactions grouped by content left on the subject.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">reactionGroups</span>: [<a class="support type" href="reactiongroup.doc.html">ReactionGroup</a>!] </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   A list of Reactions left on the Issue.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line"># Arguments</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>first</strong>: Returns the first _n_ elements from the list.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>after</strong>: Returns the elements in the list that come after the </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   specified global ID.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>last</strong>: Returns the last _n_ elements from the list.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>before</strong>: Returns the elements in the list that come before the </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   specified global ID.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>content</strong>: Allows filtering Reactions by emoji.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   <strong>orderBy</strong>: Allows specifying the order in which reactions are </span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   returned.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">reactions</span>(</span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="tab"><span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="tab"><span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="tab"><span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="tab"><span class="meta">content</span>: <a class="support type" href="reactioncontent.doc.html">ReactionContent</a>,</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="tab"><span class="meta">orderBy</span>: <a class="support type" href="reactionorder.doc.html">ReactionOrder</a></span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab">): <a class="support type" href="reactionconnection.doc.html">ReactionConnection</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The websocket channel ID for reaction live updates.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">reactionsWebsocket</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   The repository associated with this reaction subject.</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">repository</span>: <a class="support type" href="repository.doc.html">Repository</a>! <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"Future reaction subjects may not be scoped under repositories." </span> )</span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="comment line">#   Can user react to this subject</span></span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"><span class="meta">viewerCanReact</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
     <div class="container">
-        <h2 id="require-by" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
-            <a href="#require-by">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
                 <i class="material-icons">link</i>
             </a>
-            Require by
+            Required by
         </h2>
-        <ul class="require-by"><li><a href="addreactionpayload.doc.html" title="AddReactionPayload - Autogenerated return type of AddReaction">AddReactionPayload<em>Autogenerated return type of AddReaction</em></a><li><li><a href="commitcomment.doc.html" title="CommitComment - Represents a comment on a given Commit.">CommitComment<em>Represents a comment on a given Commit.</em></a><li><li><a href="issue.doc.html" title="Issue - An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.">Issue<em>An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.</em></a><li><li><a href="issuecomment.doc.html" title="IssueComment - Represents a comment on an Issue.">IssueComment<em>Represents a comment on an Issue.</em></a><li><li><a href="pullrequest.doc.html" title="PullRequest - A repository pull request.">PullRequest<em>A repository pull request.</em></a><li><li><a href="pullrequestreviewcomment.doc.html" title="PullRequestReviewComment - A review comment associated with a given repository pull request.">PullRequestReviewComment<em>A review comment associated with a given repository pull request.</em></a><li><li><a href="reactiongroup.doc.html" title="ReactionGroup - A group of emoji reactions to a particular piece of content.">ReactionGroup<em>A group of emoji reactions to a particular piece of content.</em></a><li><li><a href="removereactionpayload.doc.html" title="RemoveReactionPayload - Autogenerated return type of RemoveReaction">RemoveReactionPayload<em>Autogenerated return type of RemoveReaction</em></a><li></ul>
+        <ul class="require-by">
+          <li>
+      <a href="addreactionpayload.doc.html" title="
+        AddReactionPayload - Autogenerated return type of AddReaction
+      ">
+        AddReactionPayload<em>Autogenerated return type of AddReaction</em>
+      </a>
+    <li><li>
+      <a href="commitcomment.doc.html" title="
+        CommitComment - Represents a comment on a given Commit.
+      ">
+        CommitComment<em>Represents a comment on a given Commit.</em>
+      </a>
+    <li><li>
+      <a href="issue.doc.html" title="
+        Issue - An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
+      ">
+        Issue<em>An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.</em>
+      </a>
+    <li><li>
+      <a href="issuecomment.doc.html" title="
+        IssueComment - Represents a comment on an Issue.
+      ">
+        IssueComment<em>Represents a comment on an Issue.</em>
+      </a>
+    <li><li>
+      <a href="pullrequest.doc.html" title="
+        PullRequest - A repository pull request.
+      ">
+        PullRequest<em>A repository pull request.</em>
+      </a>
+    <li><li>
+      <a href="pullrequestreviewcomment.doc.html" title="
+        PullRequestReviewComment - A review comment associated with a given repository pull request.
+      ">
+        PullRequestReviewComment<em>A review comment associated with a given repository pull request.</em>
+      </a>
+    <li><li>
+      <a href="reactiongroup.doc.html" title="
+        ReactionGroup - A group of emoji reactions to a particular piece of content.
+      ">
+        ReactionGroup<em>A group of emoji reactions to a particular piece of content.</em>
+      </a>
+    <li><li>
+      <a href="removereactionpayload.doc.html" title="
+        RemoveReactionPayload - Autogenerated return type of RemoveReaction
+      ">
+        RemoveReactionPayload<em>Autogenerated return type of RemoveReaction</em>
+      </a>
+    <li>
+          </ul>
     </div>
 </section>
 <footer>
 <div class="container slds-p-around--large">
     <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.3.0</a>
+        Generated with <a href="https://github.com/GraphiDocsOrg/docs#readme" target="_blank">graphidocs 1.0.2</a>
     </p>
 </div>
 </footer>
