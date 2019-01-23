@@ -1,7 +1,8 @@
 language: node_js
 env:
   global:
-    secure: N3IhuD6buUSK/95vo6WyuYZoE9MRkDk+Of+1PxL/Y+ULOuWWG02q4N4i3vbaBHITjfblX5F67NEbmEM8VgSGN4RosdaPl/NgwN2sde2fpvp8Z0H+0c4+7yhYteOu9XkAa0267v2RjrTELlDWGvKq81ePQcXMRmgpDJsTbQBqIobTve/9/yuPMDSGnC0Y8ED3EYoweOYfxOrVjpqXTffla+L9UCyRCbCFhLASZYc3IH2ENvojJO246orq9MzT8LArwF4p3rawNao92Ym1VyeKgP0SA9eM+AqniVsD+kyWg/Kp0zLj+d1iiSiQ1w0cfr6b6qKFvAwLtYwFMGZShK59WRRuwiDtEXk1z1N6hV9IMtNOoVHR5jY0sTjMh9ucNz/ewH2ZzzpXAVR9gEI0XyQTLJcIoy7s52Q9JS2RwyPSmHPslbyQY9CkaZAo5yCVj1w56SNRcv19VBd0ihDSh+x1oL8EMpLT4/3MmD10LFpMTY9KjJ7e2GChVsRLOHi36RaDi70Ht6ER+SFvPBenU/SEyp+H3KsGQVrEZjVlnV6xaTapcyes+b6QzhUBe+ubctwHugmRigNH41Mw1uX+JUwSdQJ39OBoOeAs+NHtUrgESOpuzPqlD8snPU0b4KnbhX8p8+cQq/Cdt6DEkAWZk5+63Es0m00bWshVuGlteTi0B7c=
+  - secure: N3IhuD6buUSK/95vo6WyuYZoE9MRkDk+Of+1PxL/Y+ULOuWWG02q4N4i3vbaBHITjfblX5F67NEbmEM8VgSGN4RosdaPl/NgwN2sde2fpvp8Z0H+0c4+7yhYteOu9XkAa0267v2RjrTELlDWGvKq81ePQcXMRmgpDJsTbQBqIobTve/9/yuPMDSGnC0Y8ED3EYoweOYfxOrVjpqXTffla+L9UCyRCbCFhLASZYc3IH2ENvojJO246orq9MzT8LArwF4p3rawNao92Ym1VyeKgP0SA9eM+AqniVsD+kyWg/Kp0zLj+d1iiSiQ1w0cfr6b6qKFvAwLtYwFMGZShK59WRRuwiDtEXk1z1N6hV9IMtNOoVHR5jY0sTjMh9ucNz/ewH2ZzzpXAVR9gEI0XyQTLJcIoy7s52Q9JS2RwyPSmHPslbyQY9CkaZAo5yCVj1w56SNRcv19VBd0ihDSh+x1oL8EMpLT4/3MmD10LFpMTY9KjJ7e2GChVsRLOHi36RaDi70Ht6ER+SFvPBenU/SEyp+H3KsGQVrEZjVlnV6xaTapcyes+b6QzhUBe+ubctwHugmRigNH41Mw1uX+JUwSdQJ39OBoOeAs+NHtUrgESOpuzPqlD8snPU0b4KnbhX8p8+cQq/Cdt6DEkAWZk5+63Es0m00bWshVuGlteTi0B7c=
+  - secure: lFifrbNoSOfEPr1Ne8haZWe08KGzmM8Hg2aiTvQVRJ6637wIYEx2EokV1y6e+oiA/CPjvKMigzSiZ1IvuB7gRcGFpWVy9lS+bC5VkLI/n/RRMZp9qpYJI/KoOD/fRsR2IR8GX9lrdSnuPr613gJ/jQWHhNB2swgfnciQscNy1g5riCZOvAoMpUoJe9cw4zKVbONwTwAPCz2A3wPn6R2cqvlytmddKUh5eaVRq/UZuOw0Fa67gmgWtv9ClzyPNgZi5lWn1NZB51uNV3f706d0LYIHiB7FBYRmUFAk9nayGajLuXaXfZyMc6pgGCy+rIUeKgjOhu7UpPTNdqENdtcz/QQb7Clh/M/th8z5Qd7fqqwJBsUQ9+IXkLcqVSix0mI8T1Et7waOuorw4cmce5bYG/AHj9hNk1//6XtWubNXHXJQGRX9MatalIfuHXle6DYZBs02yOuozsP8d69MkB4j7usx1Yc45ZbGZl1pP5L1korZOY2Z6sZEao5tDD2fb4FIJvh2uItIqnYdLxvIkNawgjHZmZYp6BGtIRy7UXV8OT3VNi3MI9iTyjvTaL278/nX7IDkM7gLu8gaiZLdeSaUFdJq7nFimmIbYWJhtwJe8y2LBqWiD9V0oBp+pQE+RruKU3AJ+lGXAXTNY/1xNwUx0IGB1B+8SGUC+jl+METdmAE=
 node_js:
 - '8'
 - '10'
@@ -24,24 +25,39 @@ script:
 - yarn example:shopify
 - yarn example:starwars-js
 - yarn example:starwars
-
 jobs:
   include:
-    - stage: coveralls publish
-      if: branch = master
-      node_js: '11'
-      script: yarn test:coveralls
-    - stage: npm release
-      if: tag IS present
-      node_js: '11'
-      script: echo "Deploying to npm ..."
-      before_deploy:
-      - yarn beforedeploy
-      - cd dist
-      deploy:
-        provider: npm
-        email: $NPM_EMAIL
-        api_key: $NPM_API_KEY
-        skip_cleanup: true
-        on:
-          tags: true
+  - stage: coveralls publish
+    if: branch = master
+    node_js: '11'
+    script: yarn test:coveralls
+  - stage: npm release
+    if: tag IS present
+    node_js: '11'
+    script: echo "Deploying to npm ..."
+    before_deploy:
+    - yarn beforedeploy
+    - cd dist
+    deploy:
+      provider: npm
+      email: "$NPM_EMAIL"
+      api_key: "$NPM_API_KEY"
+      skip_cleanup: true
+      on:
+        tags: true
+  - stage: gitHub Pages
+    if: tag IS present
+    node_js: '11'
+    script:
+      - echo "Deploying to GitHub Pages ..."
+      - yarn example:github
+      - yarn example:pokemon
+      - yarn example:shopify
+      - yarn example:starwars
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: "$GITHUB_TOKEN"
+      keep-history: true
+      on:
+        tags: true
