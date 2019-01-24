@@ -19,9 +19,9 @@ import {
   jsonSchemaLoader,
   jsSchemaLoader
 } from './schema-loader';
+import Template from './Template';
 import { Output, Plugin } from './utility';
 import { createBuildDirectory, removeBuildDirectory, resolve } from './utility/fs';
-import Template from './Template';
 
 // tslint:disable-next-line:no-var-requires
 const graphidocsPackageJSON = require(path.resolve(__dirname, '../../package.json'));
