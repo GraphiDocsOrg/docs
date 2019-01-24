@@ -256,6 +256,56 @@ To specify a node module as a template, specify the name as the template:
     }
 ```
 
+### Create a Template
+
+All rendering is done within the template. It's up to the template to pick what and how to render.
+In order to render, you should extend the [`Template`](src/lib/Template) class. There are a few methods
+you must use:
+
+- `getTemplateFiles` A way to get all the template files. Should return a promise of strings to the files.
+- `serialize` The method that will turn the data into text that will get written out.
+- `renderDirective` The method that will render the GraphQL directives.
+- `renderIndex` The method that will render the index file like `index.html`.
+- `renderType` The method that will render the GraphQL types.
+
+An example of this is (from the classic toolkit):
+
+```javascript
+import * as glob from 'glob';
+import { render } from 'mustache';
+import { TypeRef } from '../../lib/interface';
+import Template, { ITemplateFileMap } from '../../lib/Template';
+import { getFilenameOf } from '../../lib/utility';
+import { ITemplateData } from '../../lib/utility/template';
+
+export default class ClassicTemplate extends Template {
+  public async getTemplateFiles(): Promise<string[]> {
+    return new Promise<string[]>((resolve, reject) => glob(
+      '**/*.mustache',
+      { cwd: __dirname },
+      (error, files) => error ? reject(error) : resolve(files)
+    ));
+  }
+
+  public serialize(templateData: ITemplateData, templateFiles: ITemplateFileMap): string {
+    return render(templateFiles.index, templateData, templateFiles);
+  }
+
+  public renderDirective(type: TypeRef): Promise<void> {
+    return this.renderFile(getFilenameOf(type), type);
+  }
+
+  public renderIndex(): Promise<void> {
+    return this.renderFile('index.html');
+  }
+
+  public renderType(type: TypeRef): Promise<void> {
+    return this.renderFile(getFilenameOf(type), type);
+  }
+}
+
+```
+
 ## Release
 
 To release to the [npm registry](https://www.npmjs.com/), a travis job to deploy is setup to occur
