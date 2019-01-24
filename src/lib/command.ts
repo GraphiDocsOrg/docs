@@ -19,14 +19,12 @@ import {
   jsonSchemaLoader,
   jsSchemaLoader
 } from './schema-loader';
-import Template from './Template';
+import Template, { defaultTemplate } from './Template';
 import { Output, Plugin } from './utility';
-import { createBuildDirectory, removeBuildDirectory, resolve } from './utility/fs';
+import { createBuildDirectory, relative, removeBuildDirectory, resolve } from './utility/fs';
 
 // tslint:disable-next-line:no-var-requires
 const graphidocsPackageJSON = require(path.resolve(__dirname, '../../package.json'));
-
-const defaultTemplate = 'classic';
 
 // tslint:disable-next-line:no-empty-interface
 export interface IParams {}
@@ -70,7 +68,7 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
     new ListValueFlag('queries', ['-q', '--query'], 'HTTP querystring for request (use with --endpoint) ["token=cb8795e7"].'),
     new ValueFlag('schemaFile', ['-s', '--schema', '--schema-file'], 'Graphql Schema file ["./schema.json"].'),
     new ListValueFlag('plugins', ['-p', '--plugin'], 'Use plugins [default=graphidocs/plugins/default].'),
-    new ValueFlag('template', ['-t', '--template'], `Use template [default=graphidocs/template/${defaultTemplate}].`),
+    new ValueFlag('template', ['-t', '--template'], `Use template [default=${defaultTemplate}].`),
     new ValueFlag('output', ['-o', '--output'], 'Output directory.'),
     new ValueFlag('data', ['-d', '--data'], 'Inject custom data.', JSON.parse, {}),
     new ValueFlag('baseUrl', ['-b', '--base-url'], 'Base url for templates.'),
@@ -109,10 +107,7 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
       assets.forEach(asset => output.info('use asset', path.relative(process.cwd(), asset)));
 
       // Ensure Output directory
-      output.info('output directory', path.relative(
-        process.cwd(),
-        projectPackageJSON.graphidocs.output)
-      );
+      output.info('output directory', relative(projectPackageJSON.graphidocs.output));
 
       await this.ensureOutputDirectory(
         projectPackageJSON.graphidocs.output,
@@ -180,7 +175,7 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
     }
 
     packageJSON.graphidocs.baseUrl = packageJSON.graphidocs.baseUrl || './';
-    packageJSON.graphidocs.template = resolve(packageJSON.graphidocs.template || `graphidocs/template/${defaultTemplate}`);
+    packageJSON.graphidocs.template = Template.determineTemplate(input, packageJSON);
     packageJSON.graphidocs.output = path.resolve(packageJSON.graphidocs.output);
     packageJSON.graphidocs.version = graphidocsPackageJSON.version;
 

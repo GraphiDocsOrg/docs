@@ -1,8 +1,9 @@
+import * as fs from 'fs';
 import * as path from 'path';
-import { IProjectPackage } from './command';
+import { Input, IProjectPackage } from './command';
 import { PluginInterface, Schema, TypeRef } from './interface';
 import { asyncForEach, createData } from './utility';
-import { readFile, writeFile } from './utility/fs';
+import { readFile, resolve, writeFile } from './utility/fs';
 import { ITemplateData } from './utility/template';
 
 export interface ITemplate {
@@ -16,7 +17,28 @@ export interface ITemplateFileMap {
   [name: string]: string;
 }
 
+export const defaultTemplate = 'classic';
+
 export default class Template {
+  public static determineTemplate(_input: Input, projectPackageJSON: IProjectPackage) {
+    const { template = defaultTemplate } = projectPackageJSON.graphidocs;
+    const templatePath = template.match(/^\.|\//)
+      ? resolve(template)
+      : path.resolve(__dirname, `../template/${template}`);
+
+    try {
+      const stats = fs.lstatSync(templatePath);
+
+      if (stats.isDirectory()) {
+        return resolve(templatePath);
+      }
+    } catch (error) {
+      return require(template);
+    }
+
+    return template;
+  }
+
   public static resolveTemplate(projectPackageJSON: IProjectPackage, graphidocsPackageJSON: any, config: any): Template {
     const { template, templateInstance } = projectPackageJSON.graphidocs;
 
