@@ -34,6 +34,8 @@ export const readDir = util.promisify(fs.readdir);
 export const mkDir = util.promisify(fs.mkdir as any);
 export const removeBuildDirectory = util.promisify(fse.remove as any);
 
+const SKIP_COPY_RE = /\.(?:mustache|tsx?)$/i;
+
 /**
  * Create build directory from a templete directory
  */
@@ -47,8 +49,8 @@ export async function createBuildDirectory(
 
   await Promise.all(
     files
-      // ignore *.mustache templates
-      .filter((file) => path.extname(file) !== '.mustache')
+      // ignore certain kinds of files
+      .filter(file => !file.match(SKIP_COPY_RE))
 
       // copy recursive
       .map((file) =>
