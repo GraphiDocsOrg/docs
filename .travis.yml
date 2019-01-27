@@ -28,11 +28,11 @@ script:
 jobs:
   include:
   - stage: coveralls publish
-    if: branch = master
+    if: branch = master AND type != pull_request
     node_js: '11'
     script: yarn test:coveralls
   - stage: npm release
-    if: tag IS present
+    if: tag IS present AND type != pull_request
     node_js: '11'
     script: echo "Deploying to npm ..."
     before_deploy:
@@ -46,7 +46,7 @@ jobs:
       on:
         tags: true
   - stage: gitHub Pages
-    if: tag IS present
+    if: tag IS present AND type != pull_request
     node_js: '11'
     script:
       - echo "Deploying to GitHub Pages ..."

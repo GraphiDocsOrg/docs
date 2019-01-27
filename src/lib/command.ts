@@ -8,13 +8,10 @@ import {
   ValueFlag
 } from '@2fd/command';
 import * as fs from 'fs';
-import * as glob from 'glob';
-import { render } from 'mustache';
 import * as path from 'path';
 import {
   PluginInterface,
   Schema,
-  TypeRef,
 } from './interface';
 import {
   httpSchemaLoader,
@@ -22,8 +19,9 @@ import {
   jsonSchemaLoader,
   jsSchemaLoader
 } from './schema-loader';
-import { createData, getFilenameOf, Output, Plugin } from './utility';
-import { createBuildDirectory, readFile, removeBuildDirectory, resolve, writeFile } from './utility/fs';
+import Template, { defaultTemplate } from './Template';
+import { Output, Plugin } from './utility';
+import { createBuildDirectory, relative, removeBuildDirectory, resolve } from './utility/fs';
 
 // tslint:disable-next-line:no-var-requires
 const graphidocsPackageJSON = require(path.resolve(__dirname, '../../package.json'));
@@ -39,6 +37,7 @@ export interface IFlags {
   schemaFile: string;
   plugins: string[];
   template: string;
+  templateInstance?: Template;
   data: any;
   output: string;
   force: boolean;
@@ -69,7 +68,7 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
     new ListValueFlag('queries', ['-q', '--query'], 'HTTP querystring for request (use with --endpoint) ["token=cb8795e7"].'),
     new ValueFlag('schemaFile', ['-s', '--schema', '--schema-file'], 'Graphql Schema file ["./schema.json"].'),
     new ListValueFlag('plugins', ['-p', '--plugin'], 'Use plugins [default=graphidocs/plugins/default].'),
-    new ValueFlag('template', ['-t', '--template'], 'Use template [default=graphidocs/template/slds].'),
+    new ValueFlag('template', ['-t', '--template'], `Use template [default=${defaultTemplate}].`),
     new ValueFlag('output', ['-o', '--output'], 'Output directory.'),
     new ValueFlag('data', ['-d', '--data'], 'Inject custom data.', JSON.parse, {}),
     new ValueFlag('baseUrl', ['-b', '--base-url'], 'Base url for templates.'),
@@ -107,55 +106,24 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
 
       assets.forEach(asset => output.info('use asset', path.relative(process.cwd(), asset)));
 
-      // Ensure Ourput directory
-      output.info('output directory', path.relative(
-        process.cwd(),
-        projectPackageJSON.graphidocs.output)
-      );
+      // Ensure Output directory
+      output.info('output directory', relative(projectPackageJSON.graphidocs.output));
 
       await this.ensureOutputDirectory(
         projectPackageJSON.graphidocs.output,
         projectPackageJSON.graphidocs.force
       );
 
-      // Create Ourput directory
+      // Create Output directory
       await createBuildDirectory(
         projectPackageJSON.graphidocs.output,
         projectPackageJSON.graphidocs.template,
         assets
       );
 
-      // Collect partials
-      const partials: IPartials = await this.getTemplatePartials(
-        projectPackageJSON.graphidocs.template
-      );
+      const renderResult = await this.renderTemplate(projectPackageJSON, plugins, schema);
 
-      // Render index.html
-      output.info('render', 'index');
-      await this.renderFile(
-        projectPackageJSON,
-        partials,
-        plugins
-      );
-
-      // Render types
-      const renderTypes = ([] as any[])
-        .concat(schema.types || [])
-        .concat(schema.directives || [])
-        .map((type: TypeRef) => {
-          output.info('render', type.name);
-
-          return this.renderFile(
-            projectPackageJSON,
-            partials,
-            plugins,
-            type
-          );
-        });
-
-      const files = await Promise.all(renderTypes);
-
-      output.ok('complete', `${String(files.length + 1 /* index.html */)} files generated.`);
+      output.ok('complete', `${renderResult.length} files generated.`);
     } catch (err) {
       output.error(err);
     }
@@ -207,7 +175,7 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
     }
 
     packageJSON.graphidocs.baseUrl = packageJSON.graphidocs.baseUrl || './';
-    packageJSON.graphidocs.template = resolve(packageJSON.graphidocs.template || 'graphidocs/template/slds');
+    packageJSON.graphidocs.template = Template.determineTemplate(input, packageJSON);
     packageJSON.graphidocs.output = path.resolve(packageJSON.graphidocs.output);
     packageJSON.graphidocs.version = graphidocsPackageJSON.version;
 
@@ -227,39 +195,11 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
         const plugin = require(absolutePaths).default;
 
         return typeof plugin === 'function'
-          // plugins as contructor
+          // plugins as constructor
           ? new plugin(schema, projectPackageJSON, packageJSON)
           // plugins plain object
           : plugin;
       });
-  }
-
-  public async getTemplatePartials(templateDir: string): Promise<IPartials> {
-    // tslint:disable-next-line:no-shadowed-variable
-    const files = await new Promise<string[]>((resolve, reject) => glob(
-      '**/*.mustache',
-      { cwd: templateDir },
-      (err, filesArr) => err ? reject(err) : resolve(filesArr)
-    ));
-
-    const partials: IPartials = {
-      index: ''
-    };
-
-    await Promise.all(files.map(file => {
-      const name = path.basename(file, '.mustache');
-
-      return readFile(path.resolve(templateDir, file), 'utf8')
-        .then(content => partials[name] = content);
-    }));
-
-    if (!partials.index) {
-      throw new Error(
-        `The index partial is missing (file ${path.resolve(templateDir, 'index.mustache')} not found).`
-      );
-    }
-
-    return partials;
   }
 
   public async getSchema(projectPackage: IProjectPackage): Promise<Schema> {
@@ -291,11 +231,11 @@ export class GraphQLDocumentor extends Command<IFlags, IParams> {
     );
   }
 
-  public async renderFile(projectPackageJSON: IProjectPackage, partials: IPartials, plugins: PluginInterface[], type?: TypeRef) {
-    const templateData = await createData(projectPackageJSON, graphidocsPackageJSON, plugins, type);
-    const file = type ? getFilenameOf(type) : 'index.html';
-    const filepath = path.resolve(projectPackageJSON.graphidocs.output, file);
+  public async renderTemplate(projectPackageJSON: IProjectPackage, plugins: PluginInterface[], schema: Schema) {
+    const templateInstance = Template.resolveTemplate(projectPackageJSON, graphidocsPackageJSON, {
+      plugins, schema
+    });
 
-    return writeFile(filepath, render(partials.index, templateData, partials));
+    return templateInstance.render();
   }
 }

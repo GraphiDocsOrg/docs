@@ -75,7 +75,7 @@ And execute
 
     > graphidocs -h
     
-    Static page generator for documenting GraphQL Schema v1.0.0
+    Static page generator for documenting GraphQL Schema v1.0.2
 
     Usage: node bin/graphidocs.ts [OPTIONS] 
 
@@ -87,7 +87,7 @@ And execute
     -q, --query                    HTTP querystring for request (use with --endpoint) ["token=cb8795e7"].
     -s, --schema, --schema-file    Graphql Schema file ["./schema.json"].
     -p, --plugin                   Use plugins [default=graphidocs/plugins/default].
-    -t, --template                 Use template [default=graphidocs/template/slds].
+    -t, --template                 Use template [default=classic].
     -o, --output                   Output directory.
     -d, --data                     Inject custom data.
     -b, --base-url                 Base url for templates.
@@ -205,7 +205,78 @@ You can use the plugins in 2 ways.
 
 ## Template
 
-> TODO
+You can specify which template to use via the CLI:
+
+```bash
+    > graphidocs -t classic \
+                -s ./schema.json -o ./doc/schema
+```
+
+Or via 'package.json':
+
+```javascript
+     // package.json
+
+    {
+        "name": "project",
+        // [...]
+        "graphidocs": {
+            "endpoint": "http://localhost:8080/graphql",
+            "output": "./doc/schema",
+            "template": "classic"
+        }
+    }
+```
+
+The current built-in templates are:
+
+- `classic`
+
+### Relative Path
+
+The template can also take a relative path (from where command is executed):
+
+```bash
+    > graphidocs -t ./my-template \
+                -s ./schema.json -o ./doc/schema
+```
+
+```javascript
+     // package.json
+
+    {
+        "name": "project",
+        // [...]
+        "graphidocs": {
+            "endpoint": "http://localhost:8080/graphql",
+            "output": "./doc/schema",
+            "template": "./my-template"
+        }
+    }
+```
+
+### Node Module
+
+To specify a node module as a template, specify the name as the template:
+
+```bash
+    > graphidocs -t my-graphidocs-template \
+                -s ./schema.json -o ./doc/schema
+```
+
+```javascript
+     // package.json
+
+    {
+        "name": "project",
+        // [...]
+        "graphidocs": {
+            "endpoint": "http://localhost:8080/graphql",
+            "output": "./doc/schema",
+            "template": "my-graphidocs-template"
+        }
+    }
+```
 
 ## Release
 

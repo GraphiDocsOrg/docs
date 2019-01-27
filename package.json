@@ -20,9 +20,10 @@
     "example:shopify": "node -r ts-node/register ./bin/graphidocs.ts -c examples/shopify.json -f -v",
     "example:starwars": "node -r ts-node/register ./bin/graphidocs.ts -c examples/starWars.json -f -v",
     "example:starwars-js": "node -r ts-node/register ./bin/graphidocs.ts -c examples/starWars-js.json -f -v",
+    "git:clean": "git clean -dfX",
     "lint": "tslint --project .",
     "readme": "node -r ts-node/register src/README.ts",
-    "sass": "node-sass --output-style compressed src/template/slds/styles/graphidocs.scss > src/template/slds/styles/graphidocs.css",
+    "sass": "node-sass --output-style compressed src/template/classic/styles/graphidocs.scss > src/template/classic/styles/graphidocs.css",
     "test": "jest --coverage",
     "test:coveralls": "cat ./coverage/lcov.info | coveralls",
     "test:nocov": "jest"

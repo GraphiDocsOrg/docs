@@ -183,7 +183,128 @@ You can use the plugins in 2 ways.
 
 ## Template
 
-> TODO
+You can specify which template to use via the CLI:
+
+```bash
+    > graphidocs -t classic \
+                -s ./schema.json -o ./doc/schema
+```
+
+Or via 'package.json':
+
+```javascript
+     // package.json
+
+    {
+        "name": "project",
+        // [...]
+        "graphidocs": {
+            "endpoint": "http://localhost:8080/graphql",
+            "output": "./doc/schema",
+            "template": "classic"
+        }
+    }
+```
+
+The current built-in templates are:
+
+- `classic`
+
+### Relative Path
+
+The template can also take a relative path (from where command is executed):
+
+```bash
+    > graphidocs -t ./my-template \
+                -s ./schema.json -o ./doc/schema
+```
+
+```javascript
+     // package.json
+
+    {
+        "name": "project",
+        // [...]
+        "graphidocs": {
+            "endpoint": "http://localhost:8080/graphql",
+            "output": "./doc/schema",
+            "template": "./my-template"
+        }
+    }
+```
+
+### Node Module
+
+To specify a node module as a template, specify the name as the template:
+
+```bash
+    > graphidocs -t my-graphidocs-template \
+                -s ./schema.json -o ./doc/schema
+```
+
+```javascript
+     // package.json
+
+    {
+        "name": "project",
+        // [...]
+        "graphidocs": {
+            "endpoint": "http://localhost:8080/graphql",
+            "output": "./doc/schema",
+            "template": "my-graphidocs-template"
+        }
+    }
+```
+
+### Create a Template
+
+All rendering is done within the template. It's up to the template to pick what and how to render.
+In order to render, you should extend the [`Template`](src/lib/Template) class. There are a few methods
+you must use:
+
+- `getTemplateFiles` A way to get all the template files. Should return a promise of strings to the files.
+- `serialize` The method that will turn the data into text that will get written out.
+- `renderDirective` The method that will render the GraphQL directives.
+- `renderIndex` The method that will render the index file like `index.html`.
+- `renderType` The method that will render the GraphQL types.
+
+An example of this is (from the classic toolkit):
+
+```javascript
+import * as glob from 'glob';
+import { render } from 'mustache';
+import { TypeRef } from '../../lib/interface';
+import Template, { ITemplateFileMap } from '../../lib/Template';
+import { getFilenameOf } from '../../lib/utility';
+import { ITemplateData } from '../../lib/utility/template';
+
+export default class ClassicTemplate extends Template {
+  public async getTemplateFiles(): Promise<string[]> {
+    return new Promise<string[]>((resolve, reject) => glob(
+      '**/*.mustache',
+      { cwd: __dirname },
+      (error, files) => error ? reject(error) : resolve(files)
+    ));
+  }
+
+  public serialize(templateData: ITemplateData, templateFiles: ITemplateFileMap): string {
+    return render(templateFiles.index, templateData, templateFiles);
+  }
+
+  public renderDirective(type: TypeRef): Promise<void> {
+    return this.renderFile(getFilenameOf(type), type);
+  }
+
+  public renderIndex(): Promise<void> {
+    return this.renderFile('index.html');
+  }
+
+  public renderType(type: TypeRef): Promise<void> {
+    return this.renderFile(getFilenameOf(type), type);
+  }
+}
+
+```
 
 ## Release
 

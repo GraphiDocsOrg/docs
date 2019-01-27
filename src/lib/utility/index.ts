@@ -26,6 +26,10 @@ export {
 } from './introspection';
 
 export {
+  asyncForEach
+} from './js';
+
+export {
   Output
 } from './output';
 

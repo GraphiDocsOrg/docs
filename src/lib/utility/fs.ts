@@ -12,16 +12,23 @@ import * as util from 'util';
  */
 const MODULE_BASEPATH = 'graphidocs/';
 
-export function resolve(relative: string): string {
-  if (relative.slice(0, MODULE_BASEPATH.length) === MODULE_BASEPATH) {
+export function resolve(relativePath: string): string {
+  if (relativePath.slice(0, MODULE_BASEPATH.length) === MODULE_BASEPATH) {
     return path.resolve(
       __dirname,
       '../../',
-      relative.slice(MODULE_BASEPATH.length),
+      relativePath.slice(MODULE_BASEPATH.length),
     );
   }
 
-  return path.resolve(relative);
+  return path.resolve(relativePath);
+}
+
+export function relative(relativePath: string, root: string = process.cwd()): string {
+  return path.relative(
+    root,
+    relativePath
+  );
 }
 
 /**
@@ -34,8 +41,10 @@ export const readDir = util.promisify(fs.readdir);
 export const mkDir = util.promisify(fs.mkdir as any);
 export const removeBuildDirectory = util.promisify(fse.remove as any);
 
+const SKIP_COPY_RE = /\.(?:mustache|tsx?)$/i;
+
 /**
- * Create build directory from a templete directory
+ * Create build directory from a template directory
  */
 export async function createBuildDirectory(
   buildDirectory: string,
@@ -47,8 +56,8 @@ export async function createBuildDirectory(
 
   await Promise.all(
     files
-      // ignore *.mustache templates
-      .filter((file) => path.extname(file) !== '.mustache')
+      // ignore certain kinds of files
+      .filter(file => !file.match(SKIP_COPY_RE))
 
       // copy recursive
       .map((file) =>
