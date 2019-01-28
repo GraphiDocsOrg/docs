@@ -37,8 +37,6 @@ const PUBLIC_RE = /^public\//;
         return copy(fullPath, destPath);
       })
     );
-
-    console.log('GitHub pages successfully built');
   } else {
     throw new Error('No files to copy!');
   }
