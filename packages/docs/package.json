@@ -14,7 +14,7 @@
     "compile:once": "tsc --noEmit",
     "compile:watch": "tsc --watch --noEmit",
     "declaration": "tsc -d",
-    "example": "yarn example:github && yarn example:pokemon && yarn example:shopify && yarn example:starwars && yarn example:starwars-js",
+    "example": "yarn sass && yarn example:github && yarn example:pokemon && yarn example:shopify && yarn example:starwars && yarn example:starwars-js",
     "example:github": "node -r ts-node/register ./bin/graphidocs.ts -c examples/github.json -f -v",
     "example:pokemon": "node -r ts-node/register ./bin/graphidocs.ts -c examples/pokemon.json -f -v",
     "example:shopify": "node -r ts-node/register ./bin/graphidocs.ts -c examples/shopify.json -f -v",
