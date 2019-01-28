@@ -50,5 +50,6 @@ jobs:
       skip-cleanup: true
       github-token: "$GITHUB_TOKEN"
       keep-history: true
+      local-dir: gh-pages
       on:
         tags: true
