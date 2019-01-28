@@ -6,7 +6,7 @@
   "graphidocs": {
     "ga": "UA-54154153-2",
     "schemaFile": "./src/test/starwars.graphql",
-    "output": "./gh-pages/star-wars",
+    "output": "../../gh-pages/packages/docs/examples/star-wars",
     "baseUrl": "./"
   }
 }

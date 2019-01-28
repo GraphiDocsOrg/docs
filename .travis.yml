@@ -39,16 +39,16 @@ jobs:
   #     skip_cleanup: true
   #     on:
   #       tags: true
-  # - stage: gitHub Pages
-  #   if: tag IS present AND type != pull_request
-  #   node_js: '11'
-  #   script:
-  #     - echo "Deploying to GitHub Pages ..."
-  #     - yarn example
-  #   deploy:
-  #     provider: pages
-  #     skip-cleanup: true
-  #     github-token: "$GITHUB_TOKEN"
-  #     keep-history: true
-  #     on:
-  #       tags: true
+  - stage: gitHub Pages
+    if: tag IS present AND type != pull_request
+    node_js: '11'
+    script:
+      - echo "Deploying to GitHub Pages ..."
+      - yarn example
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: "$GITHUB_TOKEN"
+      keep-history: true
+      on:
+        tags: true
