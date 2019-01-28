@@ -20,44 +20,37 @@ before_script:
 script:
 - yarn sass
 - mkdir gh-pages
-- yarn example:github
-- yarn example:pokemon
-- yarn example:shopify
-- yarn example:starwars-js
-- yarn example:starwars
+- yarn example
 jobs:
   include:
   - stage: coveralls publish
     if: branch = master AND type != pull_request
     node_js: '11'
     script: yarn test:coveralls
-  - stage: npm release
-    if: tag IS present AND type != pull_request
-    node_js: '11'
-    script: echo "Deploying to npm ..."
-    before_deploy:
-    - yarn beforedeploy
-    - cd dist
-    deploy:
-      provider: npm
-      email: "$NPM_EMAIL"
-      api_key: "$NPM_API_KEY"
-      skip_cleanup: true
-      on:
-        tags: true
-  - stage: gitHub Pages
-    if: tag IS present AND type != pull_request
-    node_js: '11'
-    script:
-      - echo "Deploying to GitHub Pages ..."
-      - yarn example:github
-      - yarn example:pokemon
-      - yarn example:shopify
-      - yarn example:starwars
-    deploy:
-      provider: pages
-      skip-cleanup: true
-      github-token: "$GITHUB_TOKEN"
-      keep-history: true
-      on:
-        tags: true
+  # - stage: npm release
+  #   if: tag IS present AND type != pull_request
+  #   node_js: '11'
+  #   script: echo "Deploying to npm ..."
+  #   before_deploy:
+  #   - yarn beforedeploy
+  #   - cd dist
+  #   deploy:
+  #     provider: npm
+  #     email: "$NPM_EMAIL"
+  #     api_key: "$NPM_API_KEY"
+  #     skip_cleanup: true
+  #     on:
+  #       tags: true
+  # - stage: gitHub Pages
+  #   if: tag IS present AND type != pull_request
+  #   node_js: '11'
+  #   script:
+  #     - echo "Deploying to GitHub Pages ..."
+  #     - yarn example
+  #   deploy:
+  #     provider: pages
+  #     skip-cleanup: true
+  #     github-token: "$GITHUB_TOKEN"
+  #     keep-history: true
+  #     on:
+  #       tags: true
