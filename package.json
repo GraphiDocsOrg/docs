@@ -37,7 +37,16 @@
   },
   "keywords": [
     "graphql",
-    "documentation"
+    "graphql-js",
+    "documentation",
+    "docs",
+    "generator",
+    "codegen",
+    "apollo",
+    "javascript",
+    "typescript",
+    "schema",
+    "tools"
   ],
   "author": "Fede Ramirez <i@2fd.me>",
   "license": "MIT",
