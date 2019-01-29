@@ -278,32 +278,55 @@ To specify a node module as a template, specify the name as the template:
     }
 ```
 
-## Release
+### Create a Template
 
-To release to the [npm registry](https://www.npmjs.com/), a travis job to deploy is setup to occur
-on a tag being pushed to the [GitHub repo](https://github.com/GraphiDocsOrg/docs). We can use
-the `npm version` command that will increment the version in `package.json` and add a git tag. To
-handle this, there is a `release.sh` script. By default, this will increment the patch version:
+All rendering is done within the template. It's up to the template to pick what and how to render.
+In order to render, you should extend the [`Template`](src/lib/Template) class. There are a few methods
+you must use:
 
-```bash
-./release.sh
+- `getTemplateFiles` A way to get all the template files. Should return a promise of strings to the files.
+- `serialize` The method that will turn the data into text that will get written out.
+- `renderDirective` The method that will render the GraphQL directives.
+- `renderIndex` The method that will render the index file like `index.html`.
+- `renderType` The method that will render the GraphQL types.
+
+An example of this is (from the classic toolkit):
+
+```javascript
+import * as glob from 'glob';
+import { render } from 'mustache';
+import { TypeRef } from '../../lib/interface';
+import Template, { ITemplateFileMap } from '../../lib/Template';
+import { getFilenameOf } from '../../lib/utility';
+import { ITemplateData } from '../../lib/utility/template';
+
+export default class ClassicTemplate extends Template {
+  public async getTemplateFiles(): Promise<string[]> {
+    return new Promise<string[]>((resolve, reject) => glob(
+      '**/*.mustache',
+      { cwd: __dirname },
+      (error, files) => error ? reject(error) : resolve(files)
+    ));
+  }
+
+  public serialize(templateData: ITemplateData, templateFiles: ITemplateFileMap): string {
+    return render(templateFiles.index, templateData, templateFiles);
+  }
+
+  public renderDirective(type: TypeRef): Promise<void> {
+    return this.renderFile(getFilenameOf(type), type);
+  }
+
+  public renderIndex(): Promise<void> {
+    return this.renderFile('index.html');
+  }
+
+  public renderType(type: TypeRef): Promise<void> {
+    return this.renderFile(getFilenameOf(type), type);
+  }
+}
+
 ```
-
-If you want to define which version to increment, you can pass in an argument:
-
-```bash
-./release.sh major
-```
-
-If you wanted to take over exactly which version, you can use specify a semver:
-
-```bash
-./release.sh 1.1.1
-```
-
-This should automatically push the new tag to GitHub and a Travis build will get triggered.
-This will also use the `NPM_API_KEY` environment variable.
-
 ## Contributors
 
 - [<img src="https://avatars1.githubusercontent.com/u/208789?v=4" width="40"> 2fd](https://github.com/2fd)

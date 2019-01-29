@@ -26,13 +26,15 @@ async function fromGithub (endpoint: string): Promise<string> {
   });
 }
 
+const cwd = process.cwd();
+
 Promise
   .all([
-    readFile(join(__dirname, '../README.handlebars'), 'utf8'),
+    readFile(join(cwd, 'README.handlebars'), 'utf8'),
     fromGithub('repos/GraphiDocsOrg/docs'),
     fromGithub('repos/GraphiDocsOrg/docs/contributors')
       .then((contributors: any) => contributors.filter((c: any) => c.login !== 'GraphiDocsOrg') ),
   ])
   .then(([template, project, contributors]) =>
-    writeFile('README.md',  Handlebars.compile(template)({project, contributors}))
+    writeFile(join(cwd, 'README.md'),  Handlebars.compile(template)({project, contributors}))
   );

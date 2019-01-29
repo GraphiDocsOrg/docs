@@ -2,7 +2,7 @@
   "name": "@graphidocs/root",
   "private": true,
   "scripts": {
-    "beforedeploy": "lerna run beforedeploy",
+    "beforedeploy": "yarn readme && lerna run beforedeploy",
     "clean": "lerna clean",
     "compile": "lerna run compile",
     "compile:once": "lerna run compile:once",
@@ -15,6 +15,10 @@
     "lint": "tslint --project .",
     "pages": "node -r ts-node/register ./public/build.ts",
     "postinstall": "lerna bootstrap",
+    "publish": "lerna publish --contents dist from-git",
+    "readme": "yarn readme:root && lerna run readme",
+    "readme:root": "node -r ts-node/register ./packages/docs/src/README.ts",
+    "release": "./release.sh",
     "test": "jest --coverage",
     "test:coveralls": "cat ./coverage/lcov.info | coveralls",
     "test:nocov": "jest"
