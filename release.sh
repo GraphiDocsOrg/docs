@@ -32,9 +32,9 @@ if elementIn "$VERSION" "${VERSION_LIST[@]}" || checkRe "$VERSION" $VERSION_RE; 
   read DO_PUSH
 
   if [[ ! "$DO_PUSH" ]] || checkRe "$DO_PUSH" $YES_RE; then
-    lerna version --exact --git-remote origin --yes $VERSION
+    lerna version --exact $VERSION
   else
-    lerna version --exact --yes $VERSION
+    lerna version --exact --no-push --yes $VERSION
   fi
 else
     echo "'$VERSION' is not a valid SEMVER version"
