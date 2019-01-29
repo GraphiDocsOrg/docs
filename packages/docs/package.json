@@ -2,11 +2,17 @@
   "name": "@graphidocs/docs",
   "version": "1.0.2",
   "description": "Static page generator for documenting GraphQL Schema",
-  "main": "./bin/graphidocs",
-  "types": "./bin/graphidocs.d.ts",
+  "main": "./dist/bin/graphidocs",
+  "types": "./dist/bin/graphidocs.d.ts",
   "bin": {
-    "graphidocs": "./bin/graphidocs.js"
+    "graphidocs": "./dist/bin/graphidocs.js"
   },
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "beforedeploy": "yarn readme && yarn beforedeploy:copy-assets",
     "beforedeploy:copy-assets": "node -r ts-node/register scripts/before-deploy.ts",
@@ -43,7 +49,7 @@
     "schema",
     "tools"
   ],
-  "author": "Fede Ramirez <i@2fd.me>",
+  "author": "Mitchell Simoens <mitchellsimoens@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GraphiDocsOrg/docs/issues"

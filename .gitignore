@@ -10,5 +10,5 @@ node_modules
 
 .vscode/settings.json
 gh-pages
-dist
+packages/*/dist
 .idea
