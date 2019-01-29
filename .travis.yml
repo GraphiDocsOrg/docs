@@ -25,20 +25,14 @@ jobs:
     if: branch = master AND type != pull_request
     node_js: '11'
     script: yarn test:coveralls
-  # - stage: npm release
-  #   if: tag IS present AND type != pull_request
-  #   node_js: '11'
-  #   script: echo "Deploying to npm ..."
-  #   before_deploy:
-  #   - yarn beforedeploy
-  #   - cd dist
-  #   deploy:
-  #     provider: npm
-  #     email: "$NPM_EMAIL"
-  #     api_key: "$NPM_API_KEY"
-  #     skip_cleanup: true
-  #     on:
-  #       tags: true
+  - stage: npm release
+    if: tag IS present AND type != pull_request
+    node_js: '11'
+    before_script:
+    - echo "Deploying to npm ..."
+    - yarn beforedeploy
+    script:
+    - yarn publish
   - stage: gitHub Pages
     if: tag IS present AND type != pull_request
     node_js: '11'
