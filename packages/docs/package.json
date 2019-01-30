@@ -2,17 +2,11 @@
   "name": "@graphidocs/docs",
   "version": "1.0.2",
   "description": "Static page generator for documenting GraphQL Schema",
-  "main": "./dist/bin/graphidocs",
-  "types": "./dist/bin/graphidocs.d.ts",
+  "main": "./bin/graphidocs",
+  "types": "./bin/graphidocs.d.ts",
   "bin": {
-    "graphidocs": "./dist/bin/graphidocs.js"
+    "graphidocs": "./bin/graphidocs.js"
   },
-  "directories": {
-    "lib": "dist"
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "beforedeploy": "yarn beforedeploy:copy-assets",
     "beforedeploy:copy-assets": "node -r ts-node/register scripts/before-deploy.ts",

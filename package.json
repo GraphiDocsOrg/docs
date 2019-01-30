@@ -1,6 +1,16 @@
 {
   "name": "@graphidocs/root",
   "private": true,
+  "author": "Mitchell Simoens <mitchellsimoens@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GraphiDocsOrg/docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GraphiDocsOrg/docs/issues"
+  },
+  "homepage": "https://github.com/GraphiDocsOrg/docs#readme",
   "scripts": {
     "beforedeploy": "yarn readme && lerna run beforedeploy",
     "clean": "lerna clean",
