@@ -1,0 +1,17 @@
+{
+  "command": {
+    "init": {
+      "exact": true
+    },
+    "publish": {
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
+    }
+  },
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "1.0.2"
+}

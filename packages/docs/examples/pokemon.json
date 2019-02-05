@@ -16,7 +16,7 @@
     "graphiql": "https://graphql-pokemon.now.sh/",
     "logo": "<a href=\"https://github.com/lucasbento/graphql-pokemon\" target=\"_blank\" style=\"display:block;padding:1rem 35%\"><img src=\"https://raw.githubusercontent.com/lucasbento/graphql-pokemon/master/content/logo.png\" /></a>",
     "endpoint": "https://graphql-pokemon.now.sh/",
-    "output": "./gh-pages/pokemon",
+    "output": "../../gh-pages/packages/docs/examples/pokemon",
     "baseUrl": "./"
   }
 }

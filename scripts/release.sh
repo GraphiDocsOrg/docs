@@ -27,20 +27,14 @@ if [[ ! "$VERSION" ]]; then
 fi
 
 if elementIn "$VERSION" "${VERSION_LIST[@]}" || checkRe "$VERSION" $VERSION_RE; then
-  npm version $VERSION -m "Bumping to %s"
+  echo -n "Push version and tag to GitHub? [y] "
 
-  if [ $? == 0 ]; then
-    echo -n "Push version and tag to GitHub? [y] "
+  read DO_PUSH
 
-    read DO_PUSH
-
-    if [[ ! "$DO_PUSH" ]] || checkRe "$DO_PUSH" $YES_RE; then
-      git push
-
-      git push --tags
-    fi
+  if [[ ! "$DO_PUSH" ]] || checkRe "$DO_PUSH" $YES_RE; then
+    lerna version --exact $VERSION
   else
-    exit $?
+    lerna version --exact --no-push --yes $VERSION
   fi
 else
     echo "'$VERSION' is not a valid SEMVER version"

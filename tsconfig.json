@@ -9,12 +9,6 @@
     "sourceMap": false,
     "resolveJsonModule": true,
 
-    "outDir": "dist",
-    "rootDirs": [
-      "bin",
-      "src",
-      "."
-    ],
     "declaration": true,
     "inlineSourceMap": true,
     "skipLibCheck": true,
@@ -44,13 +38,8 @@
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     "lib": ["es2017"],
-    "types": ["node", "jest"],
-    "typeRoots": ["node_modules/@types", "src/types"]
+    "types": ["node", "jest"]
   },
-  "include": [
-    "src/**/*",
-    "bin/**/*"
-  ],
   "exclude": [
     "coverage",
     "dist",
