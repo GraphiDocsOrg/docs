@@ -1,6 +1,6 @@
 {
   "name": "@graphidocs/docs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Static page generator for documenting GraphQL Schema",
   "main": "./bin/graphidocs",
   "types": "./bin/graphidocs.d.ts",
