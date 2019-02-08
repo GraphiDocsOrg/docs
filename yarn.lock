@@ -760,10 +760,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@salesforce-ux/design-system@2.8.1":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.8.1.tgz#a7e2e391a3d68620810ab4e79df4d917e9a573e0"
-  integrity sha512-Q6q2sXMBLFOoG2z0aXPgmzaF5l0lYgGCnHibHx+qTTDT8meO9v2/62ZhrO2FRdkRcMPMhIGH/xPpAat7fRwA4A==
+"@salesforce-ux/design-system@2.8.3":
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.8.3.tgz#8dafc0319a85150889920487ebcbba550b565823"
+  integrity sha512-ILar52PYftf+ShMh4mnu/4Y6F3bLgZOEn2RfX4EpzH9uD044LGGZCNbM24TCMNw4mJjnv7cK9ArhkRx/xYIp7w==
 
 "@types/body-parser@*":
   version "1.17.0"
@@ -2923,7 +2923,18 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-handlebars@4.0.12, handlebars@^4.0.11, handlebars@^4.0.2:
+handlebars@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.0.tgz#0d6a6f34ff1f63cecec8423aa4169827bf787c3a"
+  integrity sha512-l2jRuU1NAWK6AW5qqcTATWQJvNPEwkM7NEKSiv/gqOsoSQbVoWyqVEY5GS+XPQ88zLNmqASRpzfdm8d79hJS+w==
+  dependencies:
+    async "^2.5.0"
+    optimist "^0.6.1"
+    source-map "^0.6.1"
+  optionalDependencies:
+    uglify-js "^3.1.4"
+
+handlebars@^4.0.11, handlebars@^4.0.2:
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.12.tgz#2c15c8a96d46da5e266700518ba8cb8d919d5bc5"
   integrity sha512-RhmTekP+FZL+XNhwS1Wf+bTTZpdLougwt5pcgA1tuz6Jcx0fpH/7z0qd71RKnZHBCxIRBHfBOnio4gViPemNzA==

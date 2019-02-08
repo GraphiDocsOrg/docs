@@ -32,9 +32,9 @@ if elementIn "$VERSION" "${VERSION_LIST[@]}" || checkRe "$VERSION" $VERSION_RE; 
   read DO_PUSH
 
   if [[ ! "$DO_PUSH" ]] || checkRe "$DO_PUSH" $YES_RE; then
-    lerna version --exact $VERSION
+    lerna version --exact --yes --force-publish=* $VERSION
   else
-    lerna version --exact --no-push --yes $VERSION
+    lerna version --exact --no-push --yes --force-publish=* $VERSION
   fi
 else
     echo "'$VERSION' is not a valid SEMVER version"

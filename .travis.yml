@@ -32,7 +32,9 @@ jobs:
     - echo "Deploying to npm ..."
     - yarn beforedeploy
     script:
-    - yarn publish
+    - git reset --hard
+    - echo "//registry.npmjs.org/:_authToken=${NPM_API_KEY}" > $HOME/.npmrc
+    - yarn do:publish
   - stage: gitHub Pages
     if: tag IS present AND type != pull_request
     node_js: '11'
