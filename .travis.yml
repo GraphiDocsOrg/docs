@@ -26,7 +26,7 @@ jobs:
     node_js: '11'
     script: yarn test:coveralls
   - stage: npm test release
-    if: branch != master
+    if: tag IS present
     node_js: '11'
     before_script:
     - echo "Deploying to npm ..."
