@@ -21,8 +21,8 @@ jobs:
     if: branch = master AND type != pull_request
     node_js: '11'
     script: yarn test:coveralls
-  - stage: npm test release
-    if: tag IS present
+  - stage: npm release
+    if: tag IS present AND type != pull_request
     node_js: '11'
     before_script:
     - echo "Deploying to npm ..."
@@ -31,18 +31,7 @@ jobs:
     script:
     - git reset --hard
     - echo "//registry.npmjs.org/:_authToken=${NPM_API_KEY}" > $HOME/.npmrc
-    - ls -lR packages/docs/dist
-    - yarn test:do:publish
-  # - stage: npm release
-  #   if: tag IS present AND type != pull_request
-  #   node_js: '11'
-  #   before_script:
-  #   - echo "Deploying to npm ..."
-  #   - yarn beforedeploy
-  #   script:
-  #   - git reset --hard
-  #   - echo "//registry.npmjs.org/:_authToken=${NPM_API_KEY}" > $HOME/.npmrc
-  #   - yarn do:publish
+    - yarn do:publish
   - stage: gitHub Pages
     if: tag IS present AND type != pull_request
     node_js: '11'
