@@ -32,6 +32,7 @@
     "readme:root": "node -r ts-node/register ./packages/docs/src/README.ts",
     "release": "./scripts/release.sh",
     "test": "jest --coverage",
+    "test:ci": "yarn lint && yarn compile && yarn test && yarn example",
     "test:coveralls": "cat ./coverage/lcov.info | coveralls",
     "test:nocov": "jest"
   },
