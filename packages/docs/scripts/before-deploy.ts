@@ -1,4 +1,4 @@
-// tslint:disable:no-implicit-dependencies
+// tslint:disable:no-implicit-dependencies no-console
 import { createReadStream, createWriteStream } from 'fs';
 import * as globby from 'globby';
 import * as mkdirp from 'mkdirp';
@@ -9,6 +9,9 @@ const globs = [
   resolve(root, '**/*'),
 ];
 const dest = resolve(__dirname, '../dist');
+
+console.log(`Root: ${root}`);
+console.log(`Destination: ${dest}`);
 
 const mkdir = (path: string) =>
   new Promise((resolveFn, rejectFn) =>
@@ -30,6 +33,8 @@ const mkdir = (path: string) =>
 
   paths.forEach(async (path: string) => {
     const destPath = resolve(dest, relative(root, path));
+
+    console.log(`Copying '${path}' to '${destPath}'`);
 
     await mkdir(dirname(destPath));
 
