@@ -19,6 +19,7 @@ before_script:
 - yarn test
 script:
 - yarn example
+- yarn test:do:publish
 jobs:
   include:
   - stage: coveralls publish
