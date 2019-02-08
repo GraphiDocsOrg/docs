@@ -20,7 +20,10 @@ jobs:
   - stage: coveralls publish
     if: branch = master AND type != pull_request
     node_js: '11'
-    script: yarn test:coveralls
+    before_script:
+    - yarn test
+    script:
+    - yarn test:coveralls
   - stage: npm release
     if: tag IS present AND type != pull_request
     node_js: '11'
