@@ -34,6 +34,7 @@ jobs:
     script:
     - git reset --hard
     - echo "//registry.npmjs.org/:_authToken=${NPM_API_KEY}" > $HOME/.npmrc
+    - ls -lR packages/docs/dist
     - yarn test:do:publish
   # - stage: npm release
   #   if: tag IS present AND type != pull_request
