@@ -13,13 +13,8 @@ cache:
   - node_modules
 install:
 - yarn
-before_script:
-- yarn lint
-- yarn compile
-- yarn test
 script:
-- yarn example
-- yarn test:do:publish
+- yarn test:ci
 jobs:
   include:
   - stage: coveralls publish
@@ -31,6 +26,7 @@ jobs:
     node_js: '11'
     before_script:
     - echo "Deploying to npm ..."
+    - yarn test:ci
     - yarn beforedeploy
     script:
     - git reset --hard
