@@ -75,7 +75,7 @@ And execute
 
     > graphidocs -h
     
-    Static page generator for documenting GraphQL Schema v1.0.2
+    Static page generator for documenting GraphQL Schema v1.0.4
 
     Usage: node bin/graphidocs.ts [OPTIONS] 
 
