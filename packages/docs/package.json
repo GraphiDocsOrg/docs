@@ -51,7 +51,6 @@
   "homepage": "https://graphidocsorg.github.io/docs/",
   "dependencies": {
     "@2fd/command": "1.1.2",
-    "docs": "0.0.0-37",
     "express": "4.16.4",
     "express-graphql": "0.7.1",
     "fs-extra": "7.0.1",
