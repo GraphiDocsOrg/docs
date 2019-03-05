@@ -39,12 +39,15 @@ This will also use the `NPM_API_KEY` environment variable.
 
 To publish all the modules to the [npm registry](https://www.npmjs.com/), a travis job can be used
 to react to a git tag being pushed to the [GitHub repo](https://github.com/GraphiDocsOrg/docs) from
-the [release](#release) section. This will execute the `yarn publish` command which will in turn
+the [release](#release) section. This will execute the `yarn do:publish` command which will in turn
 execute the `lerna publish --contents dist from-git`. The `from-git` part tells lerna to use the
 git tag that was push. The `--contents dist` is used since we have to compile from TypeScript. This
 also requires that each package has a `dist` directory to be published with.
 
 Also note, it may be a good idea to copy a README over to the `dist` directory so npm will show this.
+
+The reason of `yarn do:publish` and not just `yarn publish` is due to this
+[yarn issue](https://github.com/yarnpkg/yarn/issues/5334).
 
 ## Contributors
 

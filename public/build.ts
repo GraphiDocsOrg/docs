@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import * as globby from 'globby';
+import globby from 'globby';
 import * as mkdirp from 'mkdirp';
 import * as path from 'path';
 import * as util from 'util';
@@ -13,7 +13,7 @@ const PUBLIC_RE = /^public\//;
 
   await mkdir(dest);
 
-  const paths = await globby([
+  const paths: string[] = await globby([
     'public/**/*',
     '!public/build.ts',
     'packages/docs/src/template/classic/scripts/*.js',
@@ -23,7 +23,7 @@ const PUBLIC_RE = /^public\//;
 
   if (paths.length) {
     await Promise.all(
-      paths.map(async (file) => {
+      paths.map(async (file: string) => {
         const fullPath = path.resolve(__dirname, '..', file);
         const destPath = path.resolve(
           dest,
