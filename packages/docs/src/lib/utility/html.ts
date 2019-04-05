@@ -6,7 +6,7 @@ import {
 import { LIST, NON_NULL } from './introspection';
 
 export class HTML {
-  public index = 1;
+  public index = 0;
 
   public code(code: string): string {
     return `<code class="highlight"><table class="code"><tbody>${code}</tbody></table></code>`;
@@ -22,6 +22,8 @@ export class HTML {
 
   public line(code?: string): string {
     const row = this.index + 1;
+
+    this.index = row;
 
     return `<tr class="row"><td id="L${row}" class="td-index">${row}</td><td id="LC${row}" class="td-code">${code || ''}</td></tr>`;
   }
