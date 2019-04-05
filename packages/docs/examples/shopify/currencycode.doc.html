@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
+    <title>CurrencyCode</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+</head>
+<body class="slds-scrollable--y">
+    <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
+        <header class="slds-p-around--medium slds-col slds-shrik slds-grow-none">
+            <button class="slds-button slds-button--icon slds-float--right js-toggle-navigation less-than-medium">
+                <i class="material-icons">close</i>
+            </button>
+                <a href="/shopify" target="_blank" style="display:block;padding:1rem 15%"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Shopify_Logo.png" /></a>
+            <div class="slds-p-top--small">
+                <input id="type-search" type="text" placeholder="Search a type" autofocus="" class="slds-input" />
+            </div>
+        </header>
+        <div id="navication-scroll" class="slds-scrollable--y slds-col slds-grow">
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Schema</h4>
+    <ul>
+        <li  title="QueryRoot">
+            <a href="queryroot.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                QueryRoot
+            </a>
+        </li>
+        <li  title="Mutation">
+            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Mutation
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Scalars</h4>
+    <ul>
+        <li  title="Boolean">
+            <a href="boolean.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Boolean
+            </a>
+        </li>
+        <li  title="DateTime">
+            <a href="datetime.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DateTime
+            </a>
+        </li>
+        <li  title="Float">
+            <a href="float.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Float
+            </a>
+        </li>
+        <li  title="HTML">
+            <a href="html.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                HTML
+            </a>
+        </li>
+        <li  title="ID">
+            <a href="id.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ID
+            </a>
+        </li>
+        <li  title="Int">
+            <a href="int.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Int
+            </a>
+        </li>
+        <li  title="Money">
+            <a href="money.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Money
+            </a>
+        </li>
+        <li  title="String">
+            <a href="string.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                String
+            </a>
+        </li>
+        <li  title="URL">
+            <a href="url.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                URL
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Enums</h4>
+    <ul>
+        <li  title="CollectionSortKeys">
+            <a href="collectionsortkeys.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CollectionSortKeys
+            </a>
+        </li>
+        <li  title="CropRegion">
+            <a href="cropregion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CropRegion
+            </a>
+        </li>
+        <li class="slds-is-active" title="CurrencyCode">
+            <a href="currencycode.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CurrencyCode
+            </a>
+        </li>
+        <li  title="OrderCancelReason">
+            <a href="ordercancelreason.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderCancelReason
+            </a>
+        </li>
+        <li  title="OrderDisplayFinancialStatus">
+            <a href="orderdisplayfinancialstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderDisplayFinancialStatus
+            </a>
+        </li>
+        <li  title="OrderDisplayFulfillmentStatus">
+            <a href="orderdisplayfulfillmentstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderDisplayFulfillmentStatus
+            </a>
+        </li>
+        <li  title="OrderSortKeys">
+            <a href="ordersortkeys.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderSortKeys
+            </a>
+        </li>
+        <li  title="ProductSortKeys">
+            <a href="productsortkeys.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductSortKeys
+            </a>
+        </li>
+        <li  title="TransactionKind">
+            <a href="transactionkind.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TransactionKind
+            </a>
+        </li>
+        <li  title="TransactionStatus">
+            <a href="transactionstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TransactionStatus
+            </a>
+        </li>
+        <li  title="WeightUnit">
+            <a href="weightunit.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WeightUnit
+            </a>
+        </li>
+        <li  title="__DirectiveLocation">
+            <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __DirectiveLocation
+            </a>
+        </li>
+        <li  title="__TypeKind">
+            <a href="typekind.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __TypeKind
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
+    <ul>
+        <li  title="Node">
+            <a href="node.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Node
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
+    <ul>
+        <li  title="AppliedGiftCard">
+            <a href="appliedgiftcard.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppliedGiftCard
+            </a>
+        </li>
+        <li  title="Attribute">
+            <a href="attribute.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Attribute
+            </a>
+        </li>
+        <li  title="AvailableShippingRates">
+            <a href="availableshippingrates.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AvailableShippingRates
+            </a>
+        </li>
+        <li  title="Checkout">
+            <a href="checkout.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Checkout
+            </a>
+        </li>
+        <li  title="CheckoutAttributesUpdatePayload">
+            <a href="checkoutattributesupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutAttributesUpdatePayload
+            </a>
+        </li>
+        <li  title="CheckoutCompleteFreePayload">
+            <a href="checkoutcompletefreepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCompleteFreePayload
+            </a>
+        </li>
+        <li  title="CheckoutCompleteWithCreditCardPayload">
+            <a href="checkoutcompletewithcreditcardpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCompleteWithCreditCardPayload
+            </a>
+        </li>
+        <li  title="CheckoutCompleteWithTokenizedPaymentPayload">
+            <a href="checkoutcompletewithtokenizedpaymentpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCompleteWithTokenizedPaymentPayload
+            </a>
+        </li>
+        <li  title="CheckoutCreatePayload">
+            <a href="checkoutcreatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCreatePayload
+            </a>
+        </li>
+        <li  title="CheckoutCustomerAssociatePayload">
+            <a href="checkoutcustomerassociatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCustomerAssociatePayload
+            </a>
+        </li>
+        <li  title="CheckoutCustomerDisassociatePayload">
+            <a href="checkoutcustomerdisassociatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCustomerDisassociatePayload
+            </a>
+        </li>
+        <li  title="CheckoutEmailUpdatePayload">
+            <a href="checkoutemailupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutEmailUpdatePayload
+            </a>
+        </li>
+        <li  title="CheckoutGiftCardApplyPayload">
+            <a href="checkoutgiftcardapplypayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutGiftCardApplyPayload
+            </a>
+        </li>
+        <li  title="CheckoutGiftCardRemovePayload">
+            <a href="checkoutgiftcardremovepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutGiftCardRemovePayload
+            </a>
+        </li>
+        <li  title="CheckoutLineItem">
+            <a href="checkoutlineitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItem
+            </a>
+        </li>
+        <li  title="CheckoutLineItemConnection">
+            <a href="checkoutlineitemconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemConnection
+            </a>
+        </li>
+        <li  title="CheckoutLineItemEdge">
+            <a href="checkoutlineitemedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemEdge
+            </a>
+        </li>
+        <li  title="CheckoutLineItemsAddPayload">
+            <a href="checkoutlineitemsaddpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemsAddPayload
+            </a>
+        </li>
+        <li  title="CheckoutLineItemsRemovePayload">
+            <a href="checkoutlineitemsremovepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemsRemovePayload
+            </a>
+        </li>
+        <li  title="CheckoutLineItemsUpdatePayload">
+            <a href="checkoutlineitemsupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemsUpdatePayload
+            </a>
+        </li>
+        <li  title="CheckoutShippingAddressUpdatePayload">
+            <a href="checkoutshippingaddressupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutShippingAddressUpdatePayload
+            </a>
+        </li>
+        <li  title="CheckoutShippingLineUpdatePayload">
+            <a href="checkoutshippinglineupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutShippingLineUpdatePayload
+            </a>
+        </li>
+        <li  title="Collection">
+            <a href="collection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Collection
+            </a>
+        </li>
+        <li  title="CollectionConnection">
+            <a href="collectionconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CollectionConnection
+            </a>
+        </li>
+        <li  title="CollectionEdge">
+            <a href="collectionedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CollectionEdge
+            </a>
+        </li>
+        <li  title="CreditCard">
+            <a href="creditcard.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreditCard
+            </a>
+        </li>
+        <li  title="Customer">
+            <a href="customer.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Customer
+            </a>
+        </li>
+        <li  title="CustomerAccessToken">
+            <a href="customeraccesstoken.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAccessToken
+            </a>
+        </li>
+        <li  title="CustomerAccessTokenCreatePayload">
+            <a href="customeraccesstokencreatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAccessTokenCreatePayload
+            </a>
+        </li>
+        <li  title="CustomerAccessTokenDeletePayload">
+            <a href="customeraccesstokendeletepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAccessTokenDeletePayload
+            </a>
+        </li>
+        <li  title="CustomerAccessTokenRenewPayload">
+            <a href="customeraccesstokenrenewpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAccessTokenRenewPayload
+            </a>
+        </li>
+        <li  title="CustomerActivatePayload">
+            <a href="customeractivatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerActivatePayload
+            </a>
+        </li>
+        <li  title="CustomerAddressCreatePayload">
+            <a href="customeraddresscreatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAddressCreatePayload
+            </a>
+        </li>
+        <li  title="CustomerAddressDeletePayload">
+            <a href="customeraddressdeletepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAddressDeletePayload
+            </a>
+        </li>
+        <li  title="CustomerAddressUpdatePayload">
+            <a href="customeraddressupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAddressUpdatePayload
+            </a>
+        </li>
+        <li  title="CustomerCreatePayload">
+            <a href="customercreatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerCreatePayload
+            </a>
+        </li>
+        <li  title="CustomerRecoverPayload">
+            <a href="customerrecoverpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerRecoverPayload
+            </a>
+        </li>
+        <li  title="CustomerResetPayload">
+            <a href="customerresetpayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerResetPayload
+            </a>
+        </li>
+        <li  title="CustomerUpdatePayload">
+            <a href="customerupdatepayload.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerUpdatePayload
+            </a>
+        </li>
+        <li  title="Domain">
+            <a href="domain.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Domain
+            </a>
+        </li>
+        <li  title="Image">
+            <a href="image.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Image
+            </a>
+        </li>
+        <li  title="ImageConnection">
+            <a href="imageconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ImageConnection
+            </a>
+        </li>
+        <li  title="ImageEdge">
+            <a href="imageedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ImageEdge
+            </a>
+        </li>
+        <li  title="MailingAddress">
+            <a href="mailingaddress.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                MailingAddress
+            </a>
+        </li>
+        <li  title="MailingAddressConnection">
+            <a href="mailingaddressconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                MailingAddressConnection
+            </a>
+        </li>
+        <li  title="MailingAddressEdge">
+            <a href="mailingaddressedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                MailingAddressEdge
+            </a>
+        </li>
+        <li  title="Order">
+            <a href="order.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Order
+            </a>
+        </li>
+        <li  title="OrderConnection">
+            <a href="orderconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderConnection
+            </a>
+        </li>
+        <li  title="OrderEdge">
+            <a href="orderedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEdge
+            </a>
+        </li>
+        <li  title="OrderLineItem">
+            <a href="orderlineitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderLineItem
+            </a>
+        </li>
+        <li  title="OrderLineItemConnection">
+            <a href="orderlineitemconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderLineItemConnection
+            </a>
+        </li>
+        <li  title="OrderLineItemEdge">
+            <a href="orderlineitemedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderLineItemEdge
+            </a>
+        </li>
+        <li  title="PageInfo">
+            <a href="pageinfo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PageInfo
+            </a>
+        </li>
+        <li  title="Payment">
+            <a href="payment.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Payment
+            </a>
+        </li>
+        <li  title="Product">
+            <a href="product.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Product
+            </a>
+        </li>
+        <li  title="ProductConnection">
+            <a href="productconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductConnection
+            </a>
+        </li>
+        <li  title="ProductEdge">
+            <a href="productedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductEdge
+            </a>
+        </li>
+        <li  title="ProductOption">
+            <a href="productoption.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductOption
+            </a>
+        </li>
+        <li  title="ProductVariant">
+            <a href="productvariant.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductVariant
+            </a>
+        </li>
+        <li  title="ProductVariantConnection">
+            <a href="productvariantconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductVariantConnection
+            </a>
+        </li>
+        <li  title="ProductVariantEdge">
+            <a href="productvariantedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductVariantEdge
+            </a>
+        </li>
+        <li  title="SelectedOption">
+            <a href="selectedoption.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SelectedOption
+            </a>
+        </li>
+        <li  title="ShippingRate">
+            <a href="shippingrate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShippingRate
+            </a>
+        </li>
+        <li  title="Shop">
+            <a href="shop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Shop
+            </a>
+        </li>
+        <li  title="ShopPolicy">
+            <a href="shoppolicy.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopPolicy
+            </a>
+        </li>
+        <li  title="Transaction">
+            <a href="transaction.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Transaction
+            </a>
+        </li>
+        <li  title="UserError">
+            <a href="usererror.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserError
+            </a>
+        </li>
+        <li  title="__Directive">
+            <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Directive
+            </a>
+        </li>
+        <li  title="__EnumValue">
+            <a href="enumvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __EnumValue
+            </a>
+        </li>
+        <li  title="__Field">
+            <a href="field.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Field
+            </a>
+        </li>
+        <li  title="__InputValue">
+            <a href="inputvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __InputValue
+            </a>
+        </li>
+        <li  title="__Schema">
+            <a href="schema.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Schema
+            </a>
+        </li>
+        <li  title="__Type">
+            <a href="type.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Type
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
+    <ul>
+        <li  title="AttributeInput">
+            <a href="attributeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeInput
+            </a>
+        </li>
+        <li  title="CheckoutAttributesUpdateInput">
+            <a href="checkoutattributesupdateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutAttributesUpdateInput
+            </a>
+        </li>
+        <li  title="CheckoutCreateInput">
+            <a href="checkoutcreateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutCreateInput
+            </a>
+        </li>
+        <li  title="CheckoutLineItemInput">
+            <a href="checkoutlineiteminput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemInput
+            </a>
+        </li>
+        <li  title="CheckoutLineItemUpdateInput">
+            <a href="checkoutlineitemupdateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CheckoutLineItemUpdateInput
+            </a>
+        </li>
+        <li  title="CreditCardPaymentInput">
+            <a href="creditcardpaymentinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreditCardPaymentInput
+            </a>
+        </li>
+        <li  title="CustomerAccessTokenCreateInput">
+            <a href="customeraccesstokencreateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerAccessTokenCreateInput
+            </a>
+        </li>
+        <li  title="CustomerActivateInput">
+            <a href="customeractivateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerActivateInput
+            </a>
+        </li>
+        <li  title="CustomerCreateInput">
+            <a href="customercreateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerCreateInput
+            </a>
+        </li>
+        <li  title="CustomerResetInput">
+            <a href="customerresetinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerResetInput
+            </a>
+        </li>
+        <li  title="CustomerUpdateInput">
+            <a href="customerupdateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CustomerUpdateInput
+            </a>
+        </li>
+        <li  title="MailingAddressInput">
+            <a href="mailingaddressinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                MailingAddressInput
+            </a>
+        </li>
+        <li  title="SelectedOptionInput">
+            <a href="selectedoptioninput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SelectedOptionInput
+            </a>
+        </li>
+        <li  title="TokenizedPaymentInput">
+            <a href="tokenizedpaymentinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TokenizedPaymentInput
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Directives</h4>
+    <ul>
+        <li  title="deprecated">
+            <a href="deprecated.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                deprecated
+            </a>
+        </li>
+        <li  title="include">
+            <a href="include.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                include
+            </a>
+        </li>
+        <li  title="skip">
+            <a href="skip.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                skip
+            </a>
+        </li>
+    </ul>
+</div>
+        </div>
+    </nav>
+    <main><section class="title slds-theme--inverse">
+    <div class="container slds-grid">
+        <div>
+        <button class="slds-button js-toggle-navigation less-than-medium">
+            <i class="material-icons slds-button__icon slds-button__icon--left">menu</i>
+            <span class="slds-text-title--caps">Types<span>
+        </button>
+        </div>
+        <div class="slds-col--bump-left">
+        <a class="slds-button js-toggle-navigation" target="_blank" href="https:&#x2F;&#x2F;help.shopify.com&#x2F;api&#x2F;storefront-api&#x2F;graphql-explorer&#x2F;graphiql">
+            <span class="slds-text-title--caps">GraphiQL<span>
+            <i class="material-icons slds-button__icon slds-button__icon--rigth">open_in_new</i>
+        </a>
+        </div>
+    </div>
+    <div class="container">
+        <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
+        <h1 class="slds-text-heading--large">CurrencyCode</h1>
+        <div class="slds-text-body--regular"><p>Currency codes</p>
+</div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#graphql-schema-definition">
+                <i class="material-icons">link</i>
+            </a>
+            GraphQL Schema definition
+        </h2>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">enum</span> <span class="identifier">CurrencyCode</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   United States Dollars (USD)</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="meta">USD</span></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"><span class="comment line">#   Euro (EUR)</span></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">EUR</span></span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="comment line">#   United Kingdom Pounds (GBP)</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"><span class="meta">GBP</span></span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"><span class="tab"><span class="comment line">#   Canadian Dollars (CAD)</span></span></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"><span class="tab"><span class="meta">CAD</span></span></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code"><span class="tab"><span class="comment line">#   Afghan Afghani (AFN)</span></span></td></tr><tr class="row"><td id="L16" class="td-index">16</td><td id="LC16" class="td-code"><span class="tab"><span class="meta">AFN</span></span></td></tr><tr class="row"><td id="L17" class="td-index">17</td><td id="LC17" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L18" class="td-index">18</td><td id="LC18" class="td-code"><span class="tab"><span class="comment line">#   Albanian Lek (ALL)</span></span></td></tr><tr class="row"><td id="L19" class="td-index">19</td><td id="LC19" class="td-code"><span class="tab"><span class="meta">ALL</span></span></td></tr><tr class="row"><td id="L20" class="td-index">20</td><td id="LC20" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L21" class="td-index">21</td><td id="LC21" class="td-code"><span class="tab"><span class="comment line">#   Algerian Dinar (DZD)</span></span></td></tr><tr class="row"><td id="L22" class="td-index">22</td><td id="LC22" class="td-code"><span class="tab"><span class="meta">DZD</span></span></td></tr><tr class="row"><td id="L23" class="td-index">23</td><td id="LC23" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L24" class="td-index">24</td><td id="LC24" class="td-code"><span class="tab"><span class="comment line">#   Angolan Kwanza (AOA)</span></span></td></tr><tr class="row"><td id="L25" class="td-index">25</td><td id="LC25" class="td-code"><span class="tab"><span class="meta">AOA</span></span></td></tr><tr class="row"><td id="L26" class="td-index">26</td><td id="LC26" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L27" class="td-index">27</td><td id="LC27" class="td-code"><span class="tab"><span class="comment line">#   Argentine Pesos (ARS)</span></span></td></tr><tr class="row"><td id="L28" class="td-index">28</td><td id="LC28" class="td-code"><span class="tab"><span class="meta">ARS</span></span></td></tr><tr class="row"><td id="L29" class="td-index">29</td><td id="LC29" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L30" class="td-index">30</td><td id="LC30" class="td-code"><span class="tab"><span class="comment line">#   Armenian Dram (AMD)</span></span></td></tr><tr class="row"><td id="L31" class="td-index">31</td><td id="LC31" class="td-code"><span class="tab"><span class="meta">AMD</span></span></td></tr><tr class="row"><td id="L32" class="td-index">32</td><td id="LC32" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L33" class="td-index">33</td><td id="LC33" class="td-code"><span class="tab"><span class="comment line">#   Aruban Florin (AWG)</span></span></td></tr><tr class="row"><td id="L34" class="td-index">34</td><td id="LC34" class="td-code"><span class="tab"><span class="meta">AWG</span></span></td></tr><tr class="row"><td id="L35" class="td-index">35</td><td id="LC35" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L36" class="td-index">36</td><td id="LC36" class="td-code"><span class="tab"><span class="comment line">#   Australian Dollars (AUD)</span></span></td></tr><tr class="row"><td id="L37" class="td-index">37</td><td id="LC37" class="td-code"><span class="tab"><span class="meta">AUD</span></span></td></tr><tr class="row"><td id="L38" class="td-index">38</td><td id="LC38" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L39" class="td-index">39</td><td id="LC39" class="td-code"><span class="tab"><span class="comment line">#   Barbadian Dollar (BBD)</span></span></td></tr><tr class="row"><td id="L40" class="td-index">40</td><td id="LC40" class="td-code"><span class="tab"><span class="meta">BBD</span></span></td></tr><tr class="row"><td id="L41" class="td-index">41</td><td id="LC41" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L42" class="td-index">42</td><td id="LC42" class="td-code"><span class="tab"><span class="comment line">#   Azerbaijani Manat (AZN)</span></span></td></tr><tr class="row"><td id="L43" class="td-index">43</td><td id="LC43" class="td-code"><span class="tab"><span class="meta">AZN</span></span></td></tr><tr class="row"><td id="L44" class="td-index">44</td><td id="LC44" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L45" class="td-index">45</td><td id="LC45" class="td-code"><span class="tab"><span class="comment line">#   Bangladesh Taka (BDT)</span></span></td></tr><tr class="row"><td id="L46" class="td-index">46</td><td id="LC46" class="td-code"><span class="tab"><span class="meta">BDT</span></span></td></tr><tr class="row"><td id="L47" class="td-index">47</td><td id="LC47" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L48" class="td-index">48</td><td id="LC48" class="td-code"><span class="tab"><span class="comment line">#   Bahamian Dollar (BSD)</span></span></td></tr><tr class="row"><td id="L49" class="td-index">49</td><td id="LC49" class="td-code"><span class="tab"><span class="meta">BSD</span></span></td></tr><tr class="row"><td id="L50" class="td-index">50</td><td id="LC50" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L51" class="td-index">51</td><td id="LC51" class="td-code"><span class="tab"><span class="comment line">#   Bahraini Dinar (BHD)</span></span></td></tr><tr class="row"><td id="L52" class="td-index">52</td><td id="LC52" class="td-code"><span class="tab"><span class="meta">BHD</span></span></td></tr><tr class="row"><td id="L53" class="td-index">53</td><td id="LC53" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L54" class="td-index">54</td><td id="LC54" class="td-code"><span class="tab"><span class="comment line">#   Belarusian Ruble (BYR)</span></span></td></tr><tr class="row"><td id="L55" class="td-index">55</td><td id="LC55" class="td-code"><span class="tab"><span class="meta">BYR</span></span></td></tr><tr class="row"><td id="L56" class="td-index">56</td><td id="LC56" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L57" class="td-index">57</td><td id="LC57" class="td-code"><span class="tab"><span class="comment line">#   Belize Dollar (BZD)</span></span></td></tr><tr class="row"><td id="L58" class="td-index">58</td><td id="LC58" class="td-code"><span class="tab"><span class="meta">BZD</span></span></td></tr><tr class="row"><td id="L59" class="td-index">59</td><td id="LC59" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L60" class="td-index">60</td><td id="LC60" class="td-code"><span class="tab"><span class="comment line">#   Bhutanese Ngultrum (BTN)</span></span></td></tr><tr class="row"><td id="L61" class="td-index">61</td><td id="LC61" class="td-code"><span class="tab"><span class="meta">BTN</span></span></td></tr><tr class="row"><td id="L62" class="td-index">62</td><td id="LC62" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L63" class="td-index">63</td><td id="LC63" class="td-code"><span class="tab"><span class="comment line">#   Bosnia and Herzegovina Convertible Mark (BAM)</span></span></td></tr><tr class="row"><td id="L64" class="td-index">64</td><td id="LC64" class="td-code"><span class="tab"><span class="meta">BAM</span></span></td></tr><tr class="row"><td id="L65" class="td-index">65</td><td id="LC65" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L66" class="td-index">66</td><td id="LC66" class="td-code"><span class="tab"><span class="comment line">#   Brazilian Real (BRL)</span></span></td></tr><tr class="row"><td id="L67" class="td-index">67</td><td id="LC67" class="td-code"><span class="tab"><span class="meta">BRL</span></span></td></tr><tr class="row"><td id="L68" class="td-index">68</td><td id="LC68" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L69" class="td-index">69</td><td id="LC69" class="td-code"><span class="tab"><span class="comment line">#   Bolivian Boliviano (BOB)</span></span></td></tr><tr class="row"><td id="L70" class="td-index">70</td><td id="LC70" class="td-code"><span class="tab"><span class="meta">BOB</span></span></td></tr><tr class="row"><td id="L71" class="td-index">71</td><td id="LC71" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L72" class="td-index">72</td><td id="LC72" class="td-code"><span class="tab"><span class="comment line">#   Botswana Pula (BWP)</span></span></td></tr><tr class="row"><td id="L73" class="td-index">73</td><td id="LC73" class="td-code"><span class="tab"><span class="meta">BWP</span></span></td></tr><tr class="row"><td id="L74" class="td-index">74</td><td id="LC74" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L75" class="td-index">75</td><td id="LC75" class="td-code"><span class="tab"><span class="comment line">#   Brunei Dollar (BND)</span></span></td></tr><tr class="row"><td id="L76" class="td-index">76</td><td id="LC76" class="td-code"><span class="tab"><span class="meta">BND</span></span></td></tr><tr class="row"><td id="L77" class="td-index">77</td><td id="LC77" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L78" class="td-index">78</td><td id="LC78" class="td-code"><span class="tab"><span class="comment line">#   Bulgarian Lev (BGN)</span></span></td></tr><tr class="row"><td id="L79" class="td-index">79</td><td id="LC79" class="td-code"><span class="tab"><span class="meta">BGN</span></span></td></tr><tr class="row"><td id="L80" class="td-index">80</td><td id="LC80" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L81" class="td-index">81</td><td id="LC81" class="td-code"><span class="tab"><span class="comment line">#   Burmese Kyat (MMK)</span></span></td></tr><tr class="row"><td id="L82" class="td-index">82</td><td id="LC82" class="td-code"><span class="tab"><span class="meta">MMK</span></span></td></tr><tr class="row"><td id="L83" class="td-index">83</td><td id="LC83" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L84" class="td-index">84</td><td id="LC84" class="td-code"><span class="tab"><span class="comment line">#   Cambodian Riel</span></span></td></tr><tr class="row"><td id="L85" class="td-index">85</td><td id="LC85" class="td-code"><span class="tab"><span class="meta">KHR</span></span></td></tr><tr class="row"><td id="L86" class="td-index">86</td><td id="LC86" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L87" class="td-index">87</td><td id="LC87" class="td-code"><span class="tab"><span class="comment line">#   Cayman Dollars (KYD)</span></span></td></tr><tr class="row"><td id="L88" class="td-index">88</td><td id="LC88" class="td-code"><span class="tab"><span class="meta">KYD</span></span></td></tr><tr class="row"><td id="L89" class="td-index">89</td><td id="LC89" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L90" class="td-index">90</td><td id="LC90" class="td-code"><span class="tab"><span class="comment line">#   Central African CFA Franc (XAF)</span></span></td></tr><tr class="row"><td id="L91" class="td-index">91</td><td id="LC91" class="td-code"><span class="tab"><span class="meta">XAF</span></span></td></tr><tr class="row"><td id="L92" class="td-index">92</td><td id="LC92" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L93" class="td-index">93</td><td id="LC93" class="td-code"><span class="tab"><span class="comment line">#   Chilean Peso (CLP)</span></span></td></tr><tr class="row"><td id="L94" class="td-index">94</td><td id="LC94" class="td-code"><span class="tab"><span class="meta">CLP</span></span></td></tr><tr class="row"><td id="L95" class="td-index">95</td><td id="LC95" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L96" class="td-index">96</td><td id="LC96" class="td-code"><span class="tab"><span class="comment line">#   Chinese Yuan Renminbi (CNY)</span></span></td></tr><tr class="row"><td id="L97" class="td-index">97</td><td id="LC97" class="td-code"><span class="tab"><span class="meta">CNY</span></span></td></tr><tr class="row"><td id="L98" class="td-index">98</td><td id="LC98" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L99" class="td-index">99</td><td id="LC99" class="td-code"><span class="tab"><span class="comment line">#   Colombian Peso (COP)</span></span></td></tr><tr class="row"><td id="L100" class="td-index">100</td><td id="LC100" class="td-code"><span class="tab"><span class="meta">COP</span></span></td></tr><tr class="row"><td id="L101" class="td-index">101</td><td id="LC101" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L102" class="td-index">102</td><td id="LC102" class="td-code"><span class="tab"><span class="comment line">#   Comorian Franc (KMF)</span></span></td></tr><tr class="row"><td id="L103" class="td-index">103</td><td id="LC103" class="td-code"><span class="tab"><span class="meta">KMF</span></span></td></tr><tr class="row"><td id="L104" class="td-index">104</td><td id="LC104" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L105" class="td-index">105</td><td id="LC105" class="td-code"><span class="tab"><span class="comment line">#   Congolese franc (CDF)</span></span></td></tr><tr class="row"><td id="L106" class="td-index">106</td><td id="LC106" class="td-code"><span class="tab"><span class="meta">CDF</span></span></td></tr><tr class="row"><td id="L107" class="td-index">107</td><td id="LC107" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L108" class="td-index">108</td><td id="LC108" class="td-code"><span class="tab"><span class="comment line">#   Costa Rican Colones (CRC)</span></span></td></tr><tr class="row"><td id="L109" class="td-index">109</td><td id="LC109" class="td-code"><span class="tab"><span class="meta">CRC</span></span></td></tr><tr class="row"><td id="L110" class="td-index">110</td><td id="LC110" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L111" class="td-index">111</td><td id="LC111" class="td-code"><span class="tab"><span class="comment line">#   Croatian Kuna (HRK)</span></span></td></tr><tr class="row"><td id="L112" class="td-index">112</td><td id="LC112" class="td-code"><span class="tab"><span class="meta">HRK</span></span></td></tr><tr class="row"><td id="L113" class="td-index">113</td><td id="LC113" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L114" class="td-index">114</td><td id="LC114" class="td-code"><span class="tab"><span class="comment line">#   Czech Koruny (CZK)</span></span></td></tr><tr class="row"><td id="L115" class="td-index">115</td><td id="LC115" class="td-code"><span class="tab"><span class="meta">CZK</span></span></td></tr><tr class="row"><td id="L116" class="td-index">116</td><td id="LC116" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L117" class="td-index">117</td><td id="LC117" class="td-code"><span class="tab"><span class="comment line">#   Danish Kroner (DKK)</span></span></td></tr><tr class="row"><td id="L118" class="td-index">118</td><td id="LC118" class="td-code"><span class="tab"><span class="meta">DKK</span></span></td></tr><tr class="row"><td id="L119" class="td-index">119</td><td id="LC119" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L120" class="td-index">120</td><td id="LC120" class="td-code"><span class="tab"><span class="comment line">#   Dominican Peso (DOP)</span></span></td></tr><tr class="row"><td id="L121" class="td-index">121</td><td id="LC121" class="td-code"><span class="tab"><span class="meta">DOP</span></span></td></tr><tr class="row"><td id="L122" class="td-index">122</td><td id="LC122" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L123" class="td-index">123</td><td id="LC123" class="td-code"><span class="tab"><span class="comment line">#   East Caribbean Dollar (XCD)</span></span></td></tr><tr class="row"><td id="L124" class="td-index">124</td><td id="LC124" class="td-code"><span class="tab"><span class="meta">XCD</span></span></td></tr><tr class="row"><td id="L125" class="td-index">125</td><td id="LC125" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L126" class="td-index">126</td><td id="LC126" class="td-code"><span class="tab"><span class="comment line">#   Egyptian Pound (EGP)</span></span></td></tr><tr class="row"><td id="L127" class="td-index">127</td><td id="LC127" class="td-code"><span class="tab"><span class="meta">EGP</span></span></td></tr><tr class="row"><td id="L128" class="td-index">128</td><td id="LC128" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L129" class="td-index">129</td><td id="LC129" class="td-code"><span class="tab"><span class="comment line">#   Ethiopian Birr (ETB)</span></span></td></tr><tr class="row"><td id="L130" class="td-index">130</td><td id="LC130" class="td-code"><span class="tab"><span class="meta">ETB</span></span></td></tr><tr class="row"><td id="L131" class="td-index">131</td><td id="LC131" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L132" class="td-index">132</td><td id="LC132" class="td-code"><span class="tab"><span class="comment line">#   CFP Franc (XPF)</span></span></td></tr><tr class="row"><td id="L133" class="td-index">133</td><td id="LC133" class="td-code"><span class="tab"><span class="meta">XPF</span></span></td></tr><tr class="row"><td id="L134" class="td-index">134</td><td id="LC134" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L135" class="td-index">135</td><td id="LC135" class="td-code"><span class="tab"><span class="comment line">#   Fijian Dollars (FJD)</span></span></td></tr><tr class="row"><td id="L136" class="td-index">136</td><td id="LC136" class="td-code"><span class="tab"><span class="meta">FJD</span></span></td></tr><tr class="row"><td id="L137" class="td-index">137</td><td id="LC137" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L138" class="td-index">138</td><td id="LC138" class="td-code"><span class="tab"><span class="comment line">#   Gambian Dalasi (GMD)</span></span></td></tr><tr class="row"><td id="L139" class="td-index">139</td><td id="LC139" class="td-code"><span class="tab"><span class="meta">GMD</span></span></td></tr><tr class="row"><td id="L140" class="td-index">140</td><td id="LC140" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L141" class="td-index">141</td><td id="LC141" class="td-code"><span class="tab"><span class="comment line">#   Ghanaian Cedi (GHS)</span></span></td></tr><tr class="row"><td id="L142" class="td-index">142</td><td id="LC142" class="td-code"><span class="tab"><span class="meta">GHS</span></span></td></tr><tr class="row"><td id="L143" class="td-index">143</td><td id="LC143" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L144" class="td-index">144</td><td id="LC144" class="td-code"><span class="tab"><span class="comment line">#   Guatemalan Quetzal (GTQ)</span></span></td></tr><tr class="row"><td id="L145" class="td-index">145</td><td id="LC145" class="td-code"><span class="tab"><span class="meta">GTQ</span></span></td></tr><tr class="row"><td id="L146" class="td-index">146</td><td id="LC146" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L147" class="td-index">147</td><td id="LC147" class="td-code"><span class="tab"><span class="comment line">#   Guyanese Dollar (GYD)</span></span></td></tr><tr class="row"><td id="L148" class="td-index">148</td><td id="LC148" class="td-code"><span class="tab"><span class="meta">GYD</span></span></td></tr><tr class="row"><td id="L149" class="td-index">149</td><td id="LC149" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L150" class="td-index">150</td><td id="LC150" class="td-code"><span class="tab"><span class="comment line">#   Georgian Lari (GEL)</span></span></td></tr><tr class="row"><td id="L151" class="td-index">151</td><td id="LC151" class="td-code"><span class="tab"><span class="meta">GEL</span></span></td></tr><tr class="row"><td id="L152" class="td-index">152</td><td id="LC152" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L153" class="td-index">153</td><td id="LC153" class="td-code"><span class="tab"><span class="comment line">#   Haitian Gourde (HTG)</span></span></td></tr><tr class="row"><td id="L154" class="td-index">154</td><td id="LC154" class="td-code"><span class="tab"><span class="meta">HTG</span></span></td></tr><tr class="row"><td id="L155" class="td-index">155</td><td id="LC155" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L156" class="td-index">156</td><td id="LC156" class="td-code"><span class="tab"><span class="comment line">#   Honduran Lempira (HNL)</span></span></td></tr><tr class="row"><td id="L157" class="td-index">157</td><td id="LC157" class="td-code"><span class="tab"><span class="meta">HNL</span></span></td></tr><tr class="row"><td id="L158" class="td-index">158</td><td id="LC158" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L159" class="td-index">159</td><td id="LC159" class="td-code"><span class="tab"><span class="comment line">#   Hong Kong Dollars (HKD)</span></span></td></tr><tr class="row"><td id="L160" class="td-index">160</td><td id="LC160" class="td-code"><span class="tab"><span class="meta">HKD</span></span></td></tr><tr class="row"><td id="L161" class="td-index">161</td><td id="LC161" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L162" class="td-index">162</td><td id="LC162" class="td-code"><span class="tab"><span class="comment line">#   Hungarian Forint (HUF)</span></span></td></tr><tr class="row"><td id="L163" class="td-index">163</td><td id="LC163" class="td-code"><span class="tab"><span class="meta">HUF</span></span></td></tr><tr class="row"><td id="L164" class="td-index">164</td><td id="LC164" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L165" class="td-index">165</td><td id="LC165" class="td-code"><span class="tab"><span class="comment line">#   Icelandic Kronur (ISK)</span></span></td></tr><tr class="row"><td id="L166" class="td-index">166</td><td id="LC166" class="td-code"><span class="tab"><span class="meta">ISK</span></span></td></tr><tr class="row"><td id="L167" class="td-index">167</td><td id="LC167" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L168" class="td-index">168</td><td id="LC168" class="td-code"><span class="tab"><span class="comment line">#   Indian Rupees (INR)</span></span></td></tr><tr class="row"><td id="L169" class="td-index">169</td><td id="LC169" class="td-code"><span class="tab"><span class="meta">INR</span></span></td></tr><tr class="row"><td id="L170" class="td-index">170</td><td id="LC170" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L171" class="td-index">171</td><td id="LC171" class="td-code"><span class="tab"><span class="comment line">#   Indonesian Rupiah (IDR)</span></span></td></tr><tr class="row"><td id="L172" class="td-index">172</td><td id="LC172" class="td-code"><span class="tab"><span class="meta">IDR</span></span></td></tr><tr class="row"><td id="L173" class="td-index">173</td><td id="LC173" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L174" class="td-index">174</td><td id="LC174" class="td-code"><span class="tab"><span class="comment line">#   Israeli New Shekel (NIS)</span></span></td></tr><tr class="row"><td id="L175" class="td-index">175</td><td id="LC175" class="td-code"><span class="tab"><span class="meta">ILS</span></span></td></tr><tr class="row"><td id="L176" class="td-index">176</td><td id="LC176" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L177" class="td-index">177</td><td id="LC177" class="td-code"><span class="tab"><span class="comment line">#   Jamaican Dollars (JMD)</span></span></td></tr><tr class="row"><td id="L178" class="td-index">178</td><td id="LC178" class="td-code"><span class="tab"><span class="meta">JMD</span></span></td></tr><tr class="row"><td id="L179" class="td-index">179</td><td id="LC179" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L180" class="td-index">180</td><td id="LC180" class="td-code"><span class="tab"><span class="comment line">#   Japanese Yen (JPY)</span></span></td></tr><tr class="row"><td id="L181" class="td-index">181</td><td id="LC181" class="td-code"><span class="tab"><span class="meta">JPY</span></span></td></tr><tr class="row"><td id="L182" class="td-index">182</td><td id="LC182" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L183" class="td-index">183</td><td id="LC183" class="td-code"><span class="tab"><span class="comment line">#   Jersey Pound</span></span></td></tr><tr class="row"><td id="L184" class="td-index">184</td><td id="LC184" class="td-code"><span class="tab"><span class="meta">JEP</span></span></td></tr><tr class="row"><td id="L185" class="td-index">185</td><td id="LC185" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L186" class="td-index">186</td><td id="LC186" class="td-code"><span class="tab"><span class="comment line">#   Jordanian Dinar (JOD)</span></span></td></tr><tr class="row"><td id="L187" class="td-index">187</td><td id="LC187" class="td-code"><span class="tab"><span class="meta">JOD</span></span></td></tr><tr class="row"><td id="L188" class="td-index">188</td><td id="LC188" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L189" class="td-index">189</td><td id="LC189" class="td-code"><span class="tab"><span class="comment line">#   Kazakhstani Tenge (KZT)</span></span></td></tr><tr class="row"><td id="L190" class="td-index">190</td><td id="LC190" class="td-code"><span class="tab"><span class="meta">KZT</span></span></td></tr><tr class="row"><td id="L191" class="td-index">191</td><td id="LC191" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L192" class="td-index">192</td><td id="LC192" class="td-code"><span class="tab"><span class="comment line">#   Kenyan Shilling (KES)</span></span></td></tr><tr class="row"><td id="L193" class="td-index">193</td><td id="LC193" class="td-code"><span class="tab"><span class="meta">KES</span></span></td></tr><tr class="row"><td id="L194" class="td-index">194</td><td id="LC194" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L195" class="td-index">195</td><td id="LC195" class="td-code"><span class="tab"><span class="comment line">#   Kuwaiti Dinar (KWD)</span></span></td></tr><tr class="row"><td id="L196" class="td-index">196</td><td id="LC196" class="td-code"><span class="tab"><span class="meta">KWD</span></span></td></tr><tr class="row"><td id="L197" class="td-index">197</td><td id="LC197" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L198" class="td-index">198</td><td id="LC198" class="td-code"><span class="tab"><span class="comment line">#   Kyrgyzstani Som (KGS)</span></span></td></tr><tr class="row"><td id="L199" class="td-index">199</td><td id="LC199" class="td-code"><span class="tab"><span class="meta">KGS</span></span></td></tr><tr class="row"><td id="L200" class="td-index">200</td><td id="LC200" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L201" class="td-index">201</td><td id="LC201" class="td-code"><span class="tab"><span class="comment line">#   Laotian Kip (LAK)</span></span></td></tr><tr class="row"><td id="L202" class="td-index">202</td><td id="LC202" class="td-code"><span class="tab"><span class="meta">LAK</span></span></td></tr><tr class="row"><td id="L203" class="td-index">203</td><td id="LC203" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L204" class="td-index">204</td><td id="LC204" class="td-code"><span class="tab"><span class="comment line">#   Latvian Lati (LVL)</span></span></td></tr><tr class="row"><td id="L205" class="td-index">205</td><td id="LC205" class="td-code"><span class="tab"><span class="meta">LVL</span></span></td></tr><tr class="row"><td id="L206" class="td-index">206</td><td id="LC206" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L207" class="td-index">207</td><td id="LC207" class="td-code"><span class="tab"><span class="comment line">#   Lebanese Pounds (LBP)</span></span></td></tr><tr class="row"><td id="L208" class="td-index">208</td><td id="LC208" class="td-code"><span class="tab"><span class="meta">LBP</span></span></td></tr><tr class="row"><td id="L209" class="td-index">209</td><td id="LC209" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L210" class="td-index">210</td><td id="LC210" class="td-code"><span class="tab"><span class="comment line">#   Lesotho Loti (LSL)</span></span></td></tr><tr class="row"><td id="L211" class="td-index">211</td><td id="LC211" class="td-code"><span class="tab"><span class="meta">LSL</span></span></td></tr><tr class="row"><td id="L212" class="td-index">212</td><td id="LC212" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L213" class="td-index">213</td><td id="LC213" class="td-code"><span class="tab"><span class="comment line">#   Liberian Dollar (LRD)</span></span></td></tr><tr class="row"><td id="L214" class="td-index">214</td><td id="LC214" class="td-code"><span class="tab"><span class="meta">LRD</span></span></td></tr><tr class="row"><td id="L215" class="td-index">215</td><td id="LC215" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L216" class="td-index">216</td><td id="LC216" class="td-code"><span class="tab"><span class="comment line">#   Lithuanian Litai (LTL)</span></span></td></tr><tr class="row"><td id="L217" class="td-index">217</td><td id="LC217" class="td-code"><span class="tab"><span class="meta">LTL</span></span></td></tr><tr class="row"><td id="L218" class="td-index">218</td><td id="LC218" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L219" class="td-index">219</td><td id="LC219" class="td-code"><span class="tab"><span class="comment line">#   Malagasy Ariary (MGA)</span></span></td></tr><tr class="row"><td id="L220" class="td-index">220</td><td id="LC220" class="td-code"><span class="tab"><span class="meta">MGA</span></span></td></tr><tr class="row"><td id="L221" class="td-index">221</td><td id="LC221" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L222" class="td-index">222</td><td id="LC222" class="td-code"><span class="tab"><span class="comment line">#   Macedonia Denar (MKD)</span></span></td></tr><tr class="row"><td id="L223" class="td-index">223</td><td id="LC223" class="td-code"><span class="tab"><span class="meta">MKD</span></span></td></tr><tr class="row"><td id="L224" class="td-index">224</td><td id="LC224" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L225" class="td-index">225</td><td id="LC225" class="td-code"><span class="tab"><span class="comment line">#   Macanese Pataca (MOP)</span></span></td></tr><tr class="row"><td id="L226" class="td-index">226</td><td id="LC226" class="td-code"><span class="tab"><span class="meta">MOP</span></span></td></tr><tr class="row"><td id="L227" class="td-index">227</td><td id="LC227" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L228" class="td-index">228</td><td id="LC228" class="td-code"><span class="tab"><span class="comment line">#   Malawian Kwacha (MWK)</span></span></td></tr><tr class="row"><td id="L229" class="td-index">229</td><td id="LC229" class="td-code"><span class="tab"><span class="meta">MWK</span></span></td></tr><tr class="row"><td id="L230" class="td-index">230</td><td id="LC230" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L231" class="td-index">231</td><td id="LC231" class="td-code"><span class="tab"><span class="comment line">#   Maldivian Rufiyaa (MVR)</span></span></td></tr><tr class="row"><td id="L232" class="td-index">232</td><td id="LC232" class="td-code"><span class="tab"><span class="meta">MVR</span></span></td></tr><tr class="row"><td id="L233" class="td-index">233</td><td id="LC233" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L234" class="td-index">234</td><td id="LC234" class="td-code"><span class="tab"><span class="comment line">#   Mexican Pesos (MXN)</span></span></td></tr><tr class="row"><td id="L235" class="td-index">235</td><td id="LC235" class="td-code"><span class="tab"><span class="meta">MXN</span></span></td></tr><tr class="row"><td id="L236" class="td-index">236</td><td id="LC236" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L237" class="td-index">237</td><td id="LC237" class="td-code"><span class="tab"><span class="comment line">#   Malaysian Ringgits (MYR)</span></span></td></tr><tr class="row"><td id="L238" class="td-index">238</td><td id="LC238" class="td-code"><span class="tab"><span class="meta">MYR</span></span></td></tr><tr class="row"><td id="L239" class="td-index">239</td><td id="LC239" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L240" class="td-index">240</td><td id="LC240" class="td-code"><span class="tab"><span class="comment line">#   Mauritian Rupee (MUR)</span></span></td></tr><tr class="row"><td id="L241" class="td-index">241</td><td id="LC241" class="td-code"><span class="tab"><span class="meta">MUR</span></span></td></tr><tr class="row"><td id="L242" class="td-index">242</td><td id="LC242" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L243" class="td-index">243</td><td id="LC243" class="td-code"><span class="tab"><span class="comment line">#   Moldovan Leu (MDL)</span></span></td></tr><tr class="row"><td id="L244" class="td-index">244</td><td id="LC244" class="td-code"><span class="tab"><span class="meta">MDL</span></span></td></tr><tr class="row"><td id="L245" class="td-index">245</td><td id="LC245" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L246" class="td-index">246</td><td id="LC246" class="td-code"><span class="tab"><span class="comment line">#   Moroccan Dirham</span></span></td></tr><tr class="row"><td id="L247" class="td-index">247</td><td id="LC247" class="td-code"><span class="tab"><span class="meta">MAD</span></span></td></tr><tr class="row"><td id="L248" class="td-index">248</td><td id="LC248" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L249" class="td-index">249</td><td id="LC249" class="td-code"><span class="tab"><span class="comment line">#   Mongolian Tugrik</span></span></td></tr><tr class="row"><td id="L250" class="td-index">250</td><td id="LC250" class="td-code"><span class="tab"><span class="meta">MNT</span></span></td></tr><tr class="row"><td id="L251" class="td-index">251</td><td id="LC251" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L252" class="td-index">252</td><td id="LC252" class="td-code"><span class="tab"><span class="comment line">#   Mozambican Metical</span></span></td></tr><tr class="row"><td id="L253" class="td-index">253</td><td id="LC253" class="td-code"><span class="tab"><span class="meta">MZN</span></span></td></tr><tr class="row"><td id="L254" class="td-index">254</td><td id="LC254" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L255" class="td-index">255</td><td id="LC255" class="td-code"><span class="tab"><span class="comment line">#   Namibian Dollar</span></span></td></tr><tr class="row"><td id="L256" class="td-index">256</td><td id="LC256" class="td-code"><span class="tab"><span class="meta">NAD</span></span></td></tr><tr class="row"><td id="L257" class="td-index">257</td><td id="LC257" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L258" class="td-index">258</td><td id="LC258" class="td-code"><span class="tab"><span class="comment line">#   Nepalese Rupee (NPR)</span></span></td></tr><tr class="row"><td id="L259" class="td-index">259</td><td id="LC259" class="td-code"><span class="tab"><span class="meta">NPR</span></span></td></tr><tr class="row"><td id="L260" class="td-index">260</td><td id="LC260" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L261" class="td-index">261</td><td id="LC261" class="td-code"><span class="tab"><span class="comment line">#   Netherlands Antillean Guilder</span></span></td></tr><tr class="row"><td id="L262" class="td-index">262</td><td id="LC262" class="td-code"><span class="tab"><span class="meta">ANG</span></span></td></tr><tr class="row"><td id="L263" class="td-index">263</td><td id="LC263" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L264" class="td-index">264</td><td id="LC264" class="td-code"><span class="tab"><span class="comment line">#   New Zealand Dollars (NZD)</span></span></td></tr><tr class="row"><td id="L265" class="td-index">265</td><td id="LC265" class="td-code"><span class="tab"><span class="meta">NZD</span></span></td></tr><tr class="row"><td id="L266" class="td-index">266</td><td id="LC266" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L267" class="td-index">267</td><td id="LC267" class="td-code"><span class="tab"><span class="comment line">#   Nicaraguan Córdoba (NIO)</span></span></td></tr><tr class="row"><td id="L268" class="td-index">268</td><td id="LC268" class="td-code"><span class="tab"><span class="meta">NIO</span></span></td></tr><tr class="row"><td id="L269" class="td-index">269</td><td id="LC269" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L270" class="td-index">270</td><td id="LC270" class="td-code"><span class="tab"><span class="comment line">#   Nigerian Naira (NGN)</span></span></td></tr><tr class="row"><td id="L271" class="td-index">271</td><td id="LC271" class="td-code"><span class="tab"><span class="meta">NGN</span></span></td></tr><tr class="row"><td id="L272" class="td-index">272</td><td id="LC272" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L273" class="td-index">273</td><td id="LC273" class="td-code"><span class="tab"><span class="comment line">#   Norwegian Kroner (NOK)</span></span></td></tr><tr class="row"><td id="L274" class="td-index">274</td><td id="LC274" class="td-code"><span class="tab"><span class="meta">NOK</span></span></td></tr><tr class="row"><td id="L275" class="td-index">275</td><td id="LC275" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L276" class="td-index">276</td><td id="LC276" class="td-code"><span class="tab"><span class="comment line">#   Omani Rial (OMR)</span></span></td></tr><tr class="row"><td id="L277" class="td-index">277</td><td id="LC277" class="td-code"><span class="tab"><span class="meta">OMR</span></span></td></tr><tr class="row"><td id="L278" class="td-index">278</td><td id="LC278" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L279" class="td-index">279</td><td id="LC279" class="td-code"><span class="tab"><span class="comment line">#   Pakistani Rupee (PKR)</span></span></td></tr><tr class="row"><td id="L280" class="td-index">280</td><td id="LC280" class="td-code"><span class="tab"><span class="meta">PKR</span></span></td></tr><tr class="row"><td id="L281" class="td-index">281</td><td id="LC281" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L282" class="td-index">282</td><td id="LC282" class="td-code"><span class="tab"><span class="comment line">#   Papua New Guinean Kina (PGK)</span></span></td></tr><tr class="row"><td id="L283" class="td-index">283</td><td id="LC283" class="td-code"><span class="tab"><span class="meta">PGK</span></span></td></tr><tr class="row"><td id="L284" class="td-index">284</td><td id="LC284" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L285" class="td-index">285</td><td id="LC285" class="td-code"><span class="tab"><span class="comment line">#   Paraguayan Guarani (PYG)</span></span></td></tr><tr class="row"><td id="L286" class="td-index">286</td><td id="LC286" class="td-code"><span class="tab"><span class="meta">PYG</span></span></td></tr><tr class="row"><td id="L287" class="td-index">287</td><td id="LC287" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L288" class="td-index">288</td><td id="LC288" class="td-code"><span class="tab"><span class="comment line">#   Peruvian Nuevo Sol (PEN)</span></span></td></tr><tr class="row"><td id="L289" class="td-index">289</td><td id="LC289" class="td-code"><span class="tab"><span class="meta">PEN</span></span></td></tr><tr class="row"><td id="L290" class="td-index">290</td><td id="LC290" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L291" class="td-index">291</td><td id="LC291" class="td-code"><span class="tab"><span class="comment line">#   Philippine Peso (PHP)</span></span></td></tr><tr class="row"><td id="L292" class="td-index">292</td><td id="LC292" class="td-code"><span class="tab"><span class="meta">PHP</span></span></td></tr><tr class="row"><td id="L293" class="td-index">293</td><td id="LC293" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L294" class="td-index">294</td><td id="LC294" class="td-code"><span class="tab"><span class="comment line">#   Polish Zlotych (PLN)</span></span></td></tr><tr class="row"><td id="L295" class="td-index">295</td><td id="LC295" class="td-code"><span class="tab"><span class="meta">PLN</span></span></td></tr><tr class="row"><td id="L296" class="td-index">296</td><td id="LC296" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L297" class="td-index">297</td><td id="LC297" class="td-code"><span class="tab"><span class="comment line">#   Qatari Rial (QAR)</span></span></td></tr><tr class="row"><td id="L298" class="td-index">298</td><td id="LC298" class="td-code"><span class="tab"><span class="meta">QAR</span></span></td></tr><tr class="row"><td id="L299" class="td-index">299</td><td id="LC299" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L300" class="td-index">300</td><td id="LC300" class="td-code"><span class="tab"><span class="comment line">#   Romanian Lei (RON)</span></span></td></tr><tr class="row"><td id="L301" class="td-index">301</td><td id="LC301" class="td-code"><span class="tab"><span class="meta">RON</span></span></td></tr><tr class="row"><td id="L302" class="td-index">302</td><td id="LC302" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L303" class="td-index">303</td><td id="LC303" class="td-code"><span class="tab"><span class="comment line">#   Russian Rubles (RUB)</span></span></td></tr><tr class="row"><td id="L304" class="td-index">304</td><td id="LC304" class="td-code"><span class="tab"><span class="meta">RUB</span></span></td></tr><tr class="row"><td id="L305" class="td-index">305</td><td id="LC305" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L306" class="td-index">306</td><td id="LC306" class="td-code"><span class="tab"><span class="comment line">#   Rwandan Franc (RWF)</span></span></td></tr><tr class="row"><td id="L307" class="td-index">307</td><td id="LC307" class="td-code"><span class="tab"><span class="meta">RWF</span></span></td></tr><tr class="row"><td id="L308" class="td-index">308</td><td id="LC308" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L309" class="td-index">309</td><td id="LC309" class="td-code"><span class="tab"><span class="comment line">#   Samoan Tala (WST)</span></span></td></tr><tr class="row"><td id="L310" class="td-index">310</td><td id="LC310" class="td-code"><span class="tab"><span class="meta">WST</span></span></td></tr><tr class="row"><td id="L311" class="td-index">311</td><td id="LC311" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L312" class="td-index">312</td><td id="LC312" class="td-code"><span class="tab"><span class="comment line">#   Saudi Riyal (SAR)</span></span></td></tr><tr class="row"><td id="L313" class="td-index">313</td><td id="LC313" class="td-code"><span class="tab"><span class="meta">SAR</span></span></td></tr><tr class="row"><td id="L314" class="td-index">314</td><td id="LC314" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L315" class="td-index">315</td><td id="LC315" class="td-code"><span class="tab"><span class="comment line">#   Sao Tome And Principe Dobra (STD)</span></span></td></tr><tr class="row"><td id="L316" class="td-index">316</td><td id="LC316" class="td-code"><span class="tab"><span class="meta">STD</span></span></td></tr><tr class="row"><td id="L317" class="td-index">317</td><td id="LC317" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L318" class="td-index">318</td><td id="LC318" class="td-code"><span class="tab"><span class="comment line">#   Serbian dinar (RSD)</span></span></td></tr><tr class="row"><td id="L319" class="td-index">319</td><td id="LC319" class="td-code"><span class="tab"><span class="meta">RSD</span></span></td></tr><tr class="row"><td id="L320" class="td-index">320</td><td id="LC320" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L321" class="td-index">321</td><td id="LC321" class="td-code"><span class="tab"><span class="comment line">#   Seychellois Rupee (SCR)</span></span></td></tr><tr class="row"><td id="L322" class="td-index">322</td><td id="LC322" class="td-code"><span class="tab"><span class="meta">SCR</span></span></td></tr><tr class="row"><td id="L323" class="td-index">323</td><td id="LC323" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L324" class="td-index">324</td><td id="LC324" class="td-code"><span class="tab"><span class="comment line">#   Singapore Dollars (SGD)</span></span></td></tr><tr class="row"><td id="L325" class="td-index">325</td><td id="LC325" class="td-code"><span class="tab"><span class="meta">SGD</span></span></td></tr><tr class="row"><td id="L326" class="td-index">326</td><td id="LC326" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L327" class="td-index">327</td><td id="LC327" class="td-code"><span class="tab"><span class="comment line">#   Sudanese Pound (SDG)</span></span></td></tr><tr class="row"><td id="L328" class="td-index">328</td><td id="LC328" class="td-code"><span class="tab"><span class="meta">SDG</span></span></td></tr><tr class="row"><td id="L329" class="td-index">329</td><td id="LC329" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L330" class="td-index">330</td><td id="LC330" class="td-code"><span class="tab"><span class="comment line">#   Syrian Pound (SYP)</span></span></td></tr><tr class="row"><td id="L331" class="td-index">331</td><td id="LC331" class="td-code"><span class="tab"><span class="meta">SYP</span></span></td></tr><tr class="row"><td id="L332" class="td-index">332</td><td id="LC332" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L333" class="td-index">333</td><td id="LC333" class="td-code"><span class="tab"><span class="comment line">#   South African Rand (ZAR)</span></span></td></tr><tr class="row"><td id="L334" class="td-index">334</td><td id="LC334" class="td-code"><span class="tab"><span class="meta">ZAR</span></span></td></tr><tr class="row"><td id="L335" class="td-index">335</td><td id="LC335" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L336" class="td-index">336</td><td id="LC336" class="td-code"><span class="tab"><span class="comment line">#   South Korean Won (KRW)</span></span></td></tr><tr class="row"><td id="L337" class="td-index">337</td><td id="LC337" class="td-code"><span class="tab"><span class="meta">KRW</span></span></td></tr><tr class="row"><td id="L338" class="td-index">338</td><td id="LC338" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L339" class="td-index">339</td><td id="LC339" class="td-code"><span class="tab"><span class="comment line">#   Solomon Islands Dollar (SBD)</span></span></td></tr><tr class="row"><td id="L340" class="td-index">340</td><td id="LC340" class="td-code"><span class="tab"><span class="meta">SBD</span></span></td></tr><tr class="row"><td id="L341" class="td-index">341</td><td id="LC341" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L342" class="td-index">342</td><td id="LC342" class="td-code"><span class="tab"><span class="comment line">#   Sri Lankan Rupees (LKR)</span></span></td></tr><tr class="row"><td id="L343" class="td-index">343</td><td id="LC343" class="td-code"><span class="tab"><span class="meta">LKR</span></span></td></tr><tr class="row"><td id="L344" class="td-index">344</td><td id="LC344" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L345" class="td-index">345</td><td id="LC345" class="td-code"><span class="tab"><span class="comment line">#   Surinamese Dollar (SRD)</span></span></td></tr><tr class="row"><td id="L346" class="td-index">346</td><td id="LC346" class="td-code"><span class="tab"><span class="meta">SRD</span></span></td></tr><tr class="row"><td id="L347" class="td-index">347</td><td id="LC347" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L348" class="td-index">348</td><td id="LC348" class="td-code"><span class="tab"><span class="comment line">#   Swedish Kronor (SEK)</span></span></td></tr><tr class="row"><td id="L349" class="td-index">349</td><td id="LC349" class="td-code"><span class="tab"><span class="meta">SEK</span></span></td></tr><tr class="row"><td id="L350" class="td-index">350</td><td id="LC350" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L351" class="td-index">351</td><td id="LC351" class="td-code"><span class="tab"><span class="comment line">#   Swiss Francs (CHF)</span></span></td></tr><tr class="row"><td id="L352" class="td-index">352</td><td id="LC352" class="td-code"><span class="tab"><span class="meta">CHF</span></span></td></tr><tr class="row"><td id="L353" class="td-index">353</td><td id="LC353" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L354" class="td-index">354</td><td id="LC354" class="td-code"><span class="tab"><span class="comment line">#   Taiwan Dollars (TWD)</span></span></td></tr><tr class="row"><td id="L355" class="td-index">355</td><td id="LC355" class="td-code"><span class="tab"><span class="meta">TWD</span></span></td></tr><tr class="row"><td id="L356" class="td-index">356</td><td id="LC356" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L357" class="td-index">357</td><td id="LC357" class="td-code"><span class="tab"><span class="comment line">#   Thai baht (THB)</span></span></td></tr><tr class="row"><td id="L358" class="td-index">358</td><td id="LC358" class="td-code"><span class="tab"><span class="meta">THB</span></span></td></tr><tr class="row"><td id="L359" class="td-index">359</td><td id="LC359" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L360" class="td-index">360</td><td id="LC360" class="td-code"><span class="tab"><span class="comment line">#   Tanzanian Shilling (TZS)</span></span></td></tr><tr class="row"><td id="L361" class="td-index">361</td><td id="LC361" class="td-code"><span class="tab"><span class="meta">TZS</span></span></td></tr><tr class="row"><td id="L362" class="td-index">362</td><td id="LC362" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L363" class="td-index">363</td><td id="LC363" class="td-code"><span class="tab"><span class="comment line">#   Trinidad and Tobago Dollars (TTD)</span></span></td></tr><tr class="row"><td id="L364" class="td-index">364</td><td id="LC364" class="td-code"><span class="tab"><span class="meta">TTD</span></span></td></tr><tr class="row"><td id="L365" class="td-index">365</td><td id="LC365" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L366" class="td-index">366</td><td id="LC366" class="td-code"><span class="tab"><span class="comment line">#   Tunisian Dinar (TND)</span></span></td></tr><tr class="row"><td id="L367" class="td-index">367</td><td id="LC367" class="td-code"><span class="tab"><span class="meta">TND</span></span></td></tr><tr class="row"><td id="L368" class="td-index">368</td><td id="LC368" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L369" class="td-index">369</td><td id="LC369" class="td-code"><span class="tab"><span class="comment line">#   Turkish Lira (TRY)</span></span></td></tr><tr class="row"><td id="L370" class="td-index">370</td><td id="LC370" class="td-code"><span class="tab"><span class="meta">TRY</span></span></td></tr><tr class="row"><td id="L371" class="td-index">371</td><td id="LC371" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L372" class="td-index">372</td><td id="LC372" class="td-code"><span class="tab"><span class="comment line">#   Turkmenistani Manat (TMT)</span></span></td></tr><tr class="row"><td id="L373" class="td-index">373</td><td id="LC373" class="td-code"><span class="tab"><span class="meta">TMT</span></span></td></tr><tr class="row"><td id="L374" class="td-index">374</td><td id="LC374" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L375" class="td-index">375</td><td id="LC375" class="td-code"><span class="tab"><span class="comment line">#   Ugandan Shilling (UGX)</span></span></td></tr><tr class="row"><td id="L376" class="td-index">376</td><td id="LC376" class="td-code"><span class="tab"><span class="meta">UGX</span></span></td></tr><tr class="row"><td id="L377" class="td-index">377</td><td id="LC377" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L378" class="td-index">378</td><td id="LC378" class="td-code"><span class="tab"><span class="comment line">#   Ukrainian Hryvnia (UAH)</span></span></td></tr><tr class="row"><td id="L379" class="td-index">379</td><td id="LC379" class="td-code"><span class="tab"><span class="meta">UAH</span></span></td></tr><tr class="row"><td id="L380" class="td-index">380</td><td id="LC380" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L381" class="td-index">381</td><td id="LC381" class="td-code"><span class="tab"><span class="comment line">#   United Arab Emirates Dirham (AED)</span></span></td></tr><tr class="row"><td id="L382" class="td-index">382</td><td id="LC382" class="td-code"><span class="tab"><span class="meta">AED</span></span></td></tr><tr class="row"><td id="L383" class="td-index">383</td><td id="LC383" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L384" class="td-index">384</td><td id="LC384" class="td-code"><span class="tab"><span class="comment line">#   Uruguayan Pesos (UYU)</span></span></td></tr><tr class="row"><td id="L385" class="td-index">385</td><td id="LC385" class="td-code"><span class="tab"><span class="meta">UYU</span></span></td></tr><tr class="row"><td id="L386" class="td-index">386</td><td id="LC386" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L387" class="td-index">387</td><td id="LC387" class="td-code"><span class="tab"><span class="comment line">#   Uzbekistan som (UZS)</span></span></td></tr><tr class="row"><td id="L388" class="td-index">388</td><td id="LC388" class="td-code"><span class="tab"><span class="meta">UZS</span></span></td></tr><tr class="row"><td id="L389" class="td-index">389</td><td id="LC389" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L390" class="td-index">390</td><td id="LC390" class="td-code"><span class="tab"><span class="comment line">#   Vanuatu Vatu (VUV)</span></span></td></tr><tr class="row"><td id="L391" class="td-index">391</td><td id="LC391" class="td-code"><span class="tab"><span class="meta">VUV</span></span></td></tr><tr class="row"><td id="L392" class="td-index">392</td><td id="LC392" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L393" class="td-index">393</td><td id="LC393" class="td-code"><span class="tab"><span class="comment line">#   Venezuelan Bolivares (VEF)</span></span></td></tr><tr class="row"><td id="L394" class="td-index">394</td><td id="LC394" class="td-code"><span class="tab"><span class="meta">VEF</span></span></td></tr><tr class="row"><td id="L395" class="td-index">395</td><td id="LC395" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L396" class="td-index">396</td><td id="LC396" class="td-code"><span class="tab"><span class="comment line">#   Vietnamese đồng (VND)</span></span></td></tr><tr class="row"><td id="L397" class="td-index">397</td><td id="LC397" class="td-code"><span class="tab"><span class="meta">VND</span></span></td></tr><tr class="row"><td id="L398" class="td-index">398</td><td id="LC398" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L399" class="td-index">399</td><td id="LC399" class="td-code"><span class="tab"><span class="comment line">#   West African CFA franc (XOF)</span></span></td></tr><tr class="row"><td id="L400" class="td-index">400</td><td id="LC400" class="td-code"><span class="tab"><span class="meta">XOF</span></span></td></tr><tr class="row"><td id="L401" class="td-index">401</td><td id="LC401" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L402" class="td-index">402</td><td id="LC402" class="td-code"><span class="tab"><span class="comment line">#   Yemeni Rial (YER)</span></span></td></tr><tr class="row"><td id="L403" class="td-index">403</td><td id="LC403" class="td-code"><span class="tab"><span class="meta">YER</span></span></td></tr><tr class="row"><td id="L404" class="td-index">404</td><td id="LC404" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L405" class="td-index">405</td><td id="LC405" class="td-code"><span class="tab"><span class="comment line">#   Zambian Kwacha (ZMW)</span></span></td></tr><tr class="row"><td id="L406" class="td-index">406</td><td id="LC406" class="td-code"><span class="tab"><span class="meta">ZMW</span></span></td></tr><tr class="row"><td id="L407" class="td-index">407</td><td id="LC407" class="td-code">}</td></tr></tbody></table></code>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
+                <i class="material-icons">link</i>
+            </a>
+            Required by
+        </h2>
+        <ul class="require-by">
+          <li>
+      <a href="checkout.doc.html" title="
+        Checkout - A container for all the information required to checkout items and pay.
+      ">
+        Checkout<em>A container for all the information required to checkout items and pay.</em>
+      </a>
+    <li><li>
+      <a href="order.doc.html" title="
+        Order - An order is a customer’s completed request to purchase one or more products from a shop. An order is created when a customer completes the checkout process, during which time they provides an email address, billing address and payment information.
+      ">
+        Order<em>An order is a customer’s completed request to purchase one or more products from a shop. An order is created when a customer completes the checkout process, during which time they provides an email address, billing address and payment information.</em>
+      </a>
+    <li><li>
+      <a href="shop.doc.html" title="
+        Shop - Shop represents a collection of the general settings and information about the shop.
+      ">
+        Shop<em>Shop represents a collection of the general settings and information about the shop.</em>
+      </a>
+    <li>
+          </ul>
+    </div>
+</section>
+<footer>
+<div class="container slds-p-around--large">
+    <p class="slds-text-align--right slds-text-title--caps">
+        Generated with <a href="https://graphidocsorg.github.io/docs/" target="_blank">graphidocs 1.0.4</a>
+    </p>
+</div>
+</footer>
+</main>
+    <script src="./scripts/focus-active.js"></script>
+    <script src="./scripts/filter-types.js"></script>
+    <script src="./scripts/toggle-navigation.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-54154153-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
