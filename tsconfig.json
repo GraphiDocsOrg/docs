@@ -13,6 +13,12 @@
     "inlineSourceMap": true,
     "skipLibCheck": true,
 
+    "baseUrl": ".",
+    "paths": {
+      "@/docs/typings/*": ["./packages/docs/typings/*"],
+      "@/docs/*": ["./packages/docs/src/*"]
+    },
+
     "strict": true /* Enable all strict type-checking options. */,
 
     /* Strict Type-Checking Options */
