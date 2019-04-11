@@ -29,6 +29,28 @@
         "example:shopify"
       ],
       "stopOnEntry": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test docs command",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register"
+      ],
+      "args": [
+        "${workspaceFolder}/packages/docs/bin/graphidocs.ts",
+        "-f",
+        "-s",
+        "../path/to/schema.gql",
+        "-o",
+        "${workspaceFolder}/../doc-test"
+      ],
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
     }
   ]
 }

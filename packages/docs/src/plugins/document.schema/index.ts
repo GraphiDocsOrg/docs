@@ -21,6 +21,7 @@ import {
   SCALAR,
   UNION
 } from '../../lib/utility';
+import { NON_NULL } from '../../lib/utility/introspection';
 
 const MAX_CODE_LEN = 80;
 
@@ -134,15 +135,14 @@ export default class SchemaPlugin extends Plugin implements PluginInterface {
   }
 
   public argumentDescription(arg: InputValue): string[] {
-    const desc = arg.description === null
-      ? `[${this.html.highlight('Not documented')}]`
-      : arg.description;
+    const desc = arg.description ? `: ${arg.description}` : '';
+    const name = arg.type.kind === NON_NULL ? this.html.highlight(arg.name) : arg.name;
 
-    return this.description(`${this.html.highlight(arg.name)}: ${desc}`);
+    return this.description(`${name}${desc}`);
   }
 
   public argumentsDescription(fieldOrDirectives: Field | Directive): string[] {
-    if (fieldOrDirectives.args.length === 0) {
+    if (fieldOrDirectives.args.length === 0 || !fieldOrDirectives.args.find((arg: InputValue): boolean => Boolean(arg.description))) {
       return [];
     }
 
